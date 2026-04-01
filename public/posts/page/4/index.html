@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Posts | My New Hugo Project</title>
+<meta name="keywords" content="">
+<meta name="description" content="Posts - My New Hugo Project">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.199042e659bc7245f5609d333d6c044eb554a0640849bb874e1dff8eb0f57209.css" integrity="sha256-GZBC5lm8ckX1YJ0zPWwETrVUoGQISbuHTh3/jrD1cgk=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/posts/index.xml" title="rss">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body class="list" id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="My New Hugo Project (Alt + H)">My New Hugo Project</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header">
+  <h1>
+    Posts
+  </h1>
+</header>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">aws-cliを使ってS3で静的コンテンツを公開する
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>※こちらの記事は個人ブログに移行しました。
+#前提
+aws-cliが入っていること
+IAMのパーミッションがいい感じに設定されていること
+Credentialがconfigureもしくは環境変数に設定されてること ※ --profile使ってもいいです
+default region が ap-northeast-1 で設定してあること ※ 別にいいんだけど適宜いい感じに読み替えて下さい
+Mac想定してるのでWindowsの人はEC2使うとかいい感じに読み替えるとかしてください
+loggingの設定はこの手順には含まれてません
+#手順
+バケットの作成 コンテンツの設置 Static Website Hostingを有効にする BucketPolicyを設定する ##バケットの作成
+$ BUCKET_NAME=backetnonamae $ aws s3 mb s3://${BUCKET_NAME} make_bucket: s3://backetnonamae/ ##コンテンツの設置 コンテンツはカレントディレクトリにあるものとして記載しています。 置いてあるファイルは/index.htmlと/css/index.cssの2つです。
+$ SC_DIR=$(pwd) $ aws s3 sync ${SC_DIR}/ s3://${BUCKET_NAME}/ upload: css/index.css to s3://backetnonamae/css/index.css upload: ./index.html to s3://backetnonamae/index.html ##Static Website Hostingを有効にする
+$ aws s3 website s3://${BUCKET_NAME} --index-document index.html (なし) ##BucketPolicyを設定する このポリシーを適用することでアップロードしたファイルはすべてpublicになります。 ###ポリシー用のjson作成
+$ PUBLIC_POLICY=public.json $ cat &lt;&lt; EOF &gt; ${PUBLIC_POLICY} { &#34;Version&#34;: &#34;2012-10-17&#34;, &#34;Id&#34;: &#34;PublicRead&#34;, &#34;Statement&#34;: [ { &#34;Sid&#34;: &#34;ReadAccess&#34;, &#34;Effect&#34;: &#34;Allow&#34;, &#34;Principal&#34;: &#34;*&#34;, &#34;Action&#34;: &#34;s3:GetObject&#34;, &#34;Resource&#34;: &#34;arn:aws:s3:::${BUCKET_NAME}/*&#34; } ] } EOF { &#34;Version&#34;: &#34;2012-10-17&#34;, &#34;Id&#34;: &#34;PublicRead&#34;, &#34;Statement&#34;: [ { &#34;Sid&#34;: &#34;ReadAccess&#34;, &#34;Effect&#34;: &#34;Allow&#34;, &#34;Principal&#34;: &#34;*&#34;, &#34;Action&#34;: &#34;s3:GetObject&#34;, &#34;Resource&#34;: &#34;arn:aws:s3:::backetnonamae/*&#34; } ] } ###ポリシーの適用
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2015-07-22 12:39:04 +0900 +0900'>July 22, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to aws-cliを使ってS3で静的コンテンツを公開する" href="http://localhost:1313/posts/2015-07-22-aws-clis3/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[EC2]SSHの秘密鍵をAWSからダウンロードするのはおかしいよね
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>※こちらの記事は個人ブログに移行しました。
+若い頃にSSHのキーペアはローカルで作って公開鍵だけサーバに転送するんだよって誰かに教わりましたし。
+#ローカルマシンでキーペアを作成する
+Amazon EC2 では、次の形式を使用できます。 ・OpenSSH パブリックキー形式（~/.ssh/authorized_keys の形式） ・Base64 でエンコードされた DER 形式 ・SSH パブリックキーファイル形式（RFC4716 で指定） Amazon EC2 では、DSA キーを使用できません。キージェネレータが、RSA キーを作成するように設定されていることを確認してください。 サポートされている長さ: 1024、2048、および 4096。
+※引用元：http://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/ec2-key-pairs.html#how-to-generate-your-own-key-and-import-it-to-aws
+$ KEYNAME=key.pem $ ssh-keygen -t rsa -f ${KEYNAME} Generating public/private rsa key pair. Enter passphrase (empty for no passphrase): Enter same passphrase again: Your identification has been saved in key.pem. Your public key has been saved in key.pem.pub. The key fingerprint is: 29:d5:92:6b:e8:f7:43:87:14:2d:13:4a:d7:de:07:ba hoge@hogehoge.local The key&#39;s randomart image is: &#43;--[ RSA 2048]----&#43; | . o&#43; | | . =&#43; o . | | = .= o . | | o &#43;. o . .| | o S. . . . | | . o o E | | . .. . | | . .. | | .. | &#43;-----------------&#43; #AWSに公開鍵をインポートする
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2015-03-05 18:08:12 +0900 +0900'>March 5, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to [EC2]SSHの秘密鍵をAWSからダウンロードするのはおかしいよね" href="http://localhost:1313/posts/2015-03-05-ec2sshaws/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="http://localhost:1313/posts/page/3/">
+      «&nbsp;Prev&nbsp;
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">My New Hugo Project</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

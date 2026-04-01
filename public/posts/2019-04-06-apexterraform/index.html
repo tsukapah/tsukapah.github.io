@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Apex&#43;Terraformでサーバレスアーキテクチャをフルコード化 | My New Hugo Project</title>
+<meta name="keywords" content="AWS, Apex, lambda, Terraform, APIGateway">
+<meta name="description" content="私のチームではAWSにおけるインフラの構成管理にTerraformを利用しています。">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/2019-04-06-apexterraform/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.199042e659bc7245f5609d333d6c044eb554a0640849bb874e1dff8eb0f57209.css" integrity="sha256-GZBC5lm8ckX1YJ0zPWwETrVUoGQISbuHTh3/jrD1cgk=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/2019-04-06-apexterraform/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="My New Hugo Project (Alt + H)">My New Hugo Project</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Apex&#43;Terraformでサーバレスアーキテクチャをフルコード化
+    </h1>
+    <div class="post-description">
+      私のチームではAWSにおけるインフラの構成管理にTerraformを利用しています。
+    </div>
+    <div class="post-meta"><span title='2019-04-06 00:16:08 +0900 +0900'>April 6, 2019</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p>私のチームではAWSにおけるインフラの構成管理にTerraformを利用しています。
+ただ、最近は性能がそれほど求められないバッチ処理やAPI等はサーバレスアーキテクチャを採用することが多くなってきました。
+しかし、Lambdaファンクションのコード自体のデプロイをTerraformに任せるのがしんどかったりするので、
+Lambdaのデプロイは開発チームが利用していたServerless Frameworkに切り分けています。
+これには大きな課題があって、<code>Terraformで作ったS3のイベントをトリガーにするLambdaファンクションを作りたい</code>、みたいな、後からLambdaを追加する要件に対応しきれずに悩んでいました。
+そんなときに<code>Apex</code>はTerraformをWrapできるらしいと天から声が降りてきたので試してみることにしてみました。</p>
+<h1 id="検証に利用した環境">検証に利用した環境<a hidden class="anchor" aria-hidden="true" href="#検証に利用した環境">#</a></h1>
+<ul>
+<li>MacOS X(10.11.6)</li>
+<li>Apex(1.0.0-rc2)</li>
+<li>Terraform(v0.11.11)<br>
+※当エントリではApexやTerraformの導入については触れません</li>
+</ul>
+<h1 id="作る環境">作る環境<a hidden class="anchor" aria-hidden="true" href="#作る環境">#</a></h1>
+<!-- raw HTML omitted -->
+<h1 id="ファイル構成">ファイル構成<a hidden class="anchor" aria-hidden="true" href="#ファイル構成">#</a></h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./project.json <span style="color:#75715e"># プロジェクト全体の定義(たぶんfunction.jsonで設定を上書きできる気がする)</span>
+</span></span><span style="display:flex;"><span>./functions/hello/function.json <span style="color:#75715e"># 関数の定義</span>
+</span></span><span style="display:flex;"><span>./functions/hello/hello.py <span style="color:#75715e"># Lambdaで実行するコード(別にPythonじゃなくてもOK)</span>
+</span></span><span style="display:flex;"><span>./infrastructure/main.tf <span style="color:#75715e"># Terraformで管理するAWSリソースの定義</span>
+</span></span></code></pre></div><h2 id="projectjson">./project.json<a hidden class="anchor" aria-hidden="true" href="#projectjson">#</a></h2>
+<p>たぶんプロジェクト全体の共通設定を記載する感じだと思います。
+すいません、ちゃんと調べてません。。。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;apex-sample&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;apex test 20190405&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;memory&#34;</span>: <span style="color:#ae81ff">128</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;timeout&#34;</span>: <span style="color:#ae81ff">5</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;role&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:iam::{各自のAWS Account ID}:role/apex_sample&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;environment&#34;</span>: {}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="functionshellofunctionjson">./functions/hello/function.json<a hidden class="anchor" aria-hidden="true" href="#functionshellofunctionjson">#</a></h2>
+<p>利用するruntimeや関数名を定義します。
+<code>runtime</code>と<code>handler</code>さえちゃんとしてれば最低限は大丈夫だと思います。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;hello&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;runtime&#34;</span>: <span style="color:#e6db74">&#34;python3.6&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;handler&#34;</span>: <span style="color:#e6db74">&#34;hello.lambda_handler&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;environment&#34;</span>:
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;ENV&#34;</span>: <span style="color:#e6db74">&#34;dev&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="functionshellohellopy">./functions/hello/hello.py<a hidden class="anchor" aria-hidden="true" href="#functionshellohellopy">#</a></h2>
+<p><code>hello world</code>をレスポンスボディに返すだけの処理です。
+最低限API Gatewayの仕様に則ったレスポンスを返せれば大丈夫です。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env python</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># -*- coding: utf-8 -*-</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">lambda_handler</span>(event, context):
+</span></span><span style="display:flex;"><span>    json <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;statusCode&#34;</span>: <span style="color:#ae81ff">200</span>, <span style="color:#e6db74">&#34;body&#34;</span>: <span style="color:#e6db74">&#34;hello world&#34;</span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> json
+</span></span></code></pre></div><h3 id="infrastructuremaintf">./infrastructure/main.tf<a hidden class="anchor" aria-hidden="true" href="#infrastructuremaintf">#</a></h3>
+<p>完全にTerraformのコードです。
+めんどくさがって雑な感じに1ファイルにまとめちゃいましたが、module化したりしたほうが管理はしやすいと思います。
+<code>variable &quot;apex_function_hello&quot; {}</code>でapexから変数を受け取るのがポイントです。
+定義しているリソースはざっくりIAM RoleとAPI Gatewayだけです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-HCL" data-lang="HCL"><span style="display:flex;"><span><span style="color:#66d9ef">provider</span> <span style="color:#e6db74">&#34;aws&#34;</span> {
+</span></span><span style="display:flex;"><span>  region <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ap-northeast-1&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">terraform</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">backend</span> <span style="color:#e6db74">&#34;s3&#34;</span> {
+</span></span><span style="display:flex;"><span>    bucket <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;apex-test-bucket&#34;</span>
+</span></span><span style="display:flex;"><span>    key    <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;apex/test20190404/terraform.tfstate&#34;</span>
+</span></span><span style="display:flex;"><span>    region <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ap-northeast-1&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">variable</span> <span style="color:#e6db74">&#34;apex_function_hello&#34;</span> {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">data</span> <span style="color:#e6db74">&#34;aws_region&#34; &#34;current&#34;</span> {}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">data</span> <span style="color:#e6db74">&#34;aws_iam_policy_document&#34; &#34;lambda&#34;</span> {
+</span></span><span style="display:flex;"><span>  version <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;2012-10-17&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">statement</span> {
+</span></span><span style="display:flex;"><span>    actions <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;logs:*&#34;</span>
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>    resources <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;*&#34;</span>
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>    effect <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Allow&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">resource</span> <span style="color:#e6db74">&#34;aws_iam_policy&#34; &#34;policy&#34;</span> {
+</span></span><span style="display:flex;"><span>  name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;apex_sample&#34;</span>
+</span></span><span style="display:flex;"><span>  path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/&#34;</span>
+</span></span><span style="display:flex;"><span>  policy <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;${data.aws_iam_policy_document.lambda.json}&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">resource</span> <span style="color:#e6db74">&#34;aws_iam_role&#34; &#34;lambda&#34;</span> {
+</span></span><span style="display:flex;"><span>  name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;apex_sample&#34;</span>
+</span></span><span style="display:flex;"><span>  description <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>  assume_role_policy <span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">&lt;&lt;</span><span style="color:#66d9ef">EOF</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Version&#34;:&#34;2012-10-17&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Statement&#34;</span><span style="color:#960050;background-color:#1e0010">:</span>
+</span></span><span style="display:flex;"><span>  [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;Effect&#34;:&#34;Allow&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;Principal&#34;</span><span style="color:#960050;background-color:#1e0010">:</span>
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;Service&#34;:&#34;lambda.amazonaws.com&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;Action&#34;:&#34;sts:AssumeRole&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">EOF</span>
+</span></span><span style="display:flex;"><span>  force_detach_policies <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>  path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/&#34;</span>
+</span></span><span style="display:flex;"><span>  max_session_duration <span style="color:#f92672">=</span> <span style="color:#ae81ff">3600</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">resource</span> <span style="color:#e6db74">&#34;aws_iam_role_policy_attachment&#34; &#34;lambda&#34;</span> {
+</span></span><span style="display:flex;"><span>  role       <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;${aws_iam_role.lambda.name}&#34;</span>
+</span></span><span style="display:flex;"><span>  policy_arn <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;${aws_iam_policy.policy.arn}&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">resource</span> <span style="color:#e6db74">&#34;aws_api_gateway_rest_api&#34; &#34;rest_api&#34;</span> {
+</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;apex_sample&#34;</span>
+</span></span><span style="display:flex;"><span>    description <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Created by AWS Lambda&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">endpoint_configuration</span> {
+</span></span><span style="display:flex;"><span>        types <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;REGIONAL&#34;</span>]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    minimum_compression_size <span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">-</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    api_key_source <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;HEADER&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">resource</span> <span style="color:#e6db74">&#34;aws_api_gateway_resource&#34; &#34;proxy&#34;</span> {
+</span></span><span style="display:flex;"><span>  rest_api_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;${aws_api_gateway_rest_api.rest_api.id}&#34;</span>
+</span></span><span style="display:flex;"><span>  parent_id   <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;${aws_api_gateway_rest_api.rest_api.root_resource_id}&#34;</span>
+</span></span><span style="display:flex;"><span>  path_part   <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;{proxy+}&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">resource</span> <span style="color:#e6db74">&#34;aws_api_gateway_method&#34; &#34;proxy&#34;</span> {
+</span></span><span style="display:flex;"><span>  rest_api_id   <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;${aws_api_gateway_rest_api.rest_api.id}&#34;</span>
+</span></span><span style="display:flex;"><span>  resource_id   <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;${aws_api_gateway_resource.proxy.id}&#34;</span>
+</span></span><span style="display:flex;"><span>  http_method   <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ANY&#34;</span>
+</span></span><span style="display:flex;"><span>  authorization <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;NONE&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">resource</span> <span style="color:#e6db74">&#34;aws_api_gateway_integration&#34; &#34;lambda&#34;</span> {
+</span></span><span style="display:flex;"><span>  rest_api_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;${aws_api_gateway_rest_api.rest_api.id}&#34;</span>
+</span></span><span style="display:flex;"><span>  resource_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;${aws_api_gateway_method.proxy.resource_id}&#34;</span>
+</span></span><span style="display:flex;"><span>  http_method <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;${aws_api_gateway_method.proxy.http_method}&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  integration_http_method <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;POST&#34;</span>
+</span></span><span style="display:flex;"><span>  type                    <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;AWS_PROXY&#34;</span>
+</span></span><span style="display:flex;"><span>  uri                     <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;arn:aws:apigateway:${data.aws_region.current.name}:lambda:path/2015-03-31/functions/${var.apex_function_hello}/invocations&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">resource</span> <span style="color:#e6db74">&#34;aws_api_gateway_deployment&#34; &#34;apigw&#34;</span> {
+</span></span><span style="display:flex;"><span>  depends_on <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;aws_api_gateway_integration.lambda&#34;</span>,
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  rest_api_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;${aws_api_gateway_rest_api.rest_api.id}&#34;</span>
+</span></span><span style="display:flex;"><span>  stage_name  <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;default&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">resource</span> <span style="color:#e6db74">&#34;aws_lambda_permission&#34; &#34;apigw&#34;</span> {
+</span></span><span style="display:flex;"><span>  statement_id  <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;AllowAPIGatewayInvoke&#34;</span>
+</span></span><span style="display:flex;"><span>  action        <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;lambda:InvokeFunction&#34;</span>
+</span></span><span style="display:flex;"><span>  function_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;${var.apex_function_hello}&#34;</span>
+</span></span><span style="display:flex;"><span>  principal     <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;apigateway.amazonaws.com&#34;</span>
+</span></span><span style="display:flex;"><span>  source_arn <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;${aws_api_gateway_deployment.apigw.execution_arn}/*/*&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">output</span> <span style="color:#e6db74">&#34;base_url&#34;</span> {
+</span></span><span style="display:flex;"><span>  value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;${aws_api_gateway_deployment.apigw.invoke_url}&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h1 id="デプロイ">デプロイ<a hidden class="anchor" aria-hidden="true" href="#デプロイ">#</a></h1>
+<h2 id="環境変数の設定">環境変数の設定<a hidden class="anchor" aria-hidden="true" href="#環境変数の設定">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ export AWS_ACCESS_KEY_ID<span style="color:#f92672">=</span>hogehoge
+</span></span><span style="display:flex;"><span>$ export AWS_SECRET_ACCESS_KEY<span style="color:#f92672">=</span>piyopiyo
+</span></span><span style="display:flex;"><span>$ export AWS_DEFAULT_REGION<span style="color:#f92672">=</span>ap-northeast-1
+</span></span><span style="display:flex;"><span>$ export AWS_REGION<span style="color:#f92672">=</span>ap-northeast-1
+</span></span></code></pre></div><h2 id="terraformバックエンドの初期化">Terraformバックエンドの初期化<a hidden class="anchor" aria-hidden="true" href="#terraformバックエンドの初期化">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ apex infra init
+</span></span></code></pre></div><p>※<code>apex infra</code>コマンドがterraformコマンドをwrapしてくれてるようです。</p>
+<h2 id="iam-roleのデプロイ">IAM Roleのデプロイ<a hidden class="anchor" aria-hidden="true" href="#iam-roleのデプロイ">#</a></h2>
+<p>API GatewayをデプロイするにはLambdaが必要、LambdaをデプロイするためにはIAM Roleが必要。
+ということで、まずはIAM Roleだけデプロイします。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ apex infra apply -target aws_iam_policy.policy -target aws_iam_role.lambda -target aws_iam_role_policy_attachment.lambda
+</span></span></code></pre></div><p>すぐに<code>var.apex_function_hello</code>の値を入力するように促されますが、IAM Roleでは特に使用していないので適当に入力してEnterしちゃいます。</p>
+<h2 id="lambdaのデプロイ">Lambdaのデプロイ<a hidden class="anchor" aria-hidden="true" href="#lambdaのデプロイ">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ apex deploy
+</span></span><span style="display:flex;"><span>   • creating <span style="color:#66d9ef">function</span>         env<span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span><span style="color:#f92672">=</span>hello
+</span></span><span style="display:flex;"><span>   • created alias current     env<span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span><span style="color:#f92672">=</span>hello version<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>   • <span style="color:#66d9ef">function</span> created          env<span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span><span style="color:#f92672">=</span>hello name<span style="color:#f92672">=</span>apex-sample_hello version<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><h2 id="残りのawsリソースのデプロイ">残りのAWSリソースのデプロイ<a hidden class="anchor" aria-hidden="true" href="#残りのawsリソースのデプロイ">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ apex infra apply
+</span></span></code></pre></div><p>ここではLambdaファンクションがデプロイ済みなので<code>var.apex_function_hello</code>の値は聞かれません。</p>
+<h1 id="動作確認">動作確認<a hidden class="anchor" aria-hidden="true" href="#動作確認">#</a></h1>
+<p>これですべてのリソースがデプロイできたはずなので動作を確認してみます。</p>
+<pre tabindex="0"><code>$ curl https://budfnr6xp6.execute-api.ap-northeast-1.amazonaws.com/default/apex-sample_hello
+hello world
+</code></pre><p>ちゃんとレスポンスが返ってきました。
+これならTerraformのコードを作り込んでやればVPCに依存するリソース等との共存も可能になりそうですね。</p>
+<hr>
+<h1 id="後片付け環境の破棄">後片付け(環境の破棄)<a hidden class="anchor" aria-hidden="true" href="#後片付け環境の破棄">#</a></h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ apex infra destroy
+</span></span><span style="display:flex;"><span>$ apex delete
+</span></span></code></pre></div><p>それぞれプロンプトでは<code>yes</code>と答えればOK。</p>
+<h1 id="参考にしたサイト">参考にしたサイト<a hidden class="anchor" aria-hidden="true" href="#参考にしたサイト">#</a></h1>
+<ul>
+<li><a href="https://apex.run/">Apex公式サイト</a></li>
+<li><a href="https://learn.hashicorp.com/terraform/aws/lambda-api-gateway">Terraform公式サイト(Serverless Applications with AWS Lambda and API Gateway)</a></li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/aws/">AWS</a></li>
+      <li><a href="http://localhost:1313/tags/apex/">Apex</a></li>
+      <li><a href="http://localhost:1313/tags/lambda/">Lambda</a></li>
+      <li><a href="http://localhost:1313/tags/terraform/">Terraform</a></li>
+      <li><a href="http://localhost:1313/tags/apigateway/">APIGateway</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">My New Hugo Project</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

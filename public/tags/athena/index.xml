@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Athena on My New Hugo Project</title>
+    <link>http://localhost:1313/tags/athena/</link>
+    <description>Recent content in Athena on My New Hugo Project</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 17 Apr 2022 22:57:53 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/athena/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Amazon AthenaでCloudFrontのログにクエリを投げたメモ</title>
+      <link>http://localhost:1313/posts/2016-12-09-amazon-athenacloudfront/</link>
+      <pubDate>Fri, 09 Dec 2016 18:57:01 +0900</pubDate>
+      <guid>http://localhost:1313/posts/2016-12-09-amazon-athenacloudfront/</guid>
+      <description>※当記事は[個人ブログ](https://tech.tsukapah.com/athena-cloudfront/)に移行しました</description>
+    </item>
+  </channel>
+</rss>

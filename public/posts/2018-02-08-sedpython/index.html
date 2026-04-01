@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>複数行をまとめて置換したかったのでsedとpythonで比べてみた | My New Hugo Project</title>
+<meta name="keywords" content="Python, sed">
+<meta name="description" content="```before.txt">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/2018-02-08-sedpython/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.199042e659bc7245f5609d333d6c044eb554a0640849bb874e1dff8eb0f57209.css" integrity="sha256-GZBC5lm8ckX1YJ0zPWwETrVUoGQISbuHTh3/jrD1cgk=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/2018-02-08-sedpython/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="My New Hugo Project (Alt + H)">My New Hugo Project</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      複数行をまとめて置換したかったのでsedとpythonで比べてみた
+    </h1>
+    <div class="post-description">
+      ```before.txt
+    </div>
+    <div class="post-meta"><span title='2018-02-08 22:13:00 +0900 +0900'>February 8, 2018</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="やりたいこと">やりたいこと<a hidden class="anchor" aria-hidden="true" href="#やりたいこと">#</a></h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-before.txt" data-lang="before.txt"><span style="display:flex;"><span>aiueo
+</span></span><span style="display:flex;"><span>kakikukeko
+</span></span><span style="display:flex;"><span>sashisuseso
+</span></span><span style="display:flex;"><span>tachitsuteto
+</span></span><span style="display:flex;"><span>naninuneno
+</span></span><span style="display:flex;"><span>hahifuheho
+</span></span><span style="display:flex;"><span>mamimumemo
+</span></span><span style="display:flex;"><span>yayuyo
+</span></span><span style="display:flex;"><span>wawon
+</span></span></code></pre></div><p>例えば上記のようなファイルがあったとして、以下のように置換したいとします。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-after.txt" data-lang="after.txt"><span style="display:flex;"><span>aiueo
+</span></span><span style="display:flex;"><span>gagigugeko
+</span></span><span style="display:flex;"><span>wawon
+</span></span></code></pre></div><p>つまり、<code>kakikukeko</code>の行から<code>yayuyo</code>の行までを<code>gagigugego</code>に置き換えたいわけです。</p>
+<h2 id="やってみる">やってみる<a hidden class="anchor" aria-hidden="true" href="#やってみる">#</a></h2>
+<h3 id="sedの場合">sedの場合<a hidden class="anchor" aria-hidden="true" href="#sedの場合">#</a></h3>
+<p>まずは下記のようなsedコマンドに渡すコマンドをファイルに書きます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sed.txt" data-lang="sed.txt"><span style="display:flex;"><span>:a
+</span></span><span style="display:flex;"><span>N
+</span></span><span style="display:flex;"><span>s#kakikukeko.*yayuyo\n#gagigugego\n#
+</span></span><span style="display:flex;"><span>Ta
+</span></span><span style="display:flex;"><span>P
+</span></span><span style="display:flex;"><span>D
+</span></span></code></pre></div><p>実行</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sed -f sed.txt before.txt
+</span></span><span style="display:flex;"><span>aiueo
+</span></span><span style="display:flex;"><span>gagigugego
+</span></span><span style="display:flex;"><span>wawon
+</span></span></code></pre></div><p>置き換わりました。
+でも<code>sed.txt</code>がワケワカメです。</p>
+<h4 id="解説">解説<a hidden class="anchor" aria-hidden="true" href="#解説">#</a></h4>
+<table>
+  <thead>
+      <tr>
+          <th>コマンド</th>
+          <th>解説</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>:a</td>
+          <td><code>T</code>コマンド用に<code>a</code>というラベルを定義してます。</td>
+      </tr>
+      <tr>
+          <td>N</td>
+          <td>次の行を処理対象に追加します。<!-- raw HTML omitted -->sedは基本的には単一行の処理をするものですが、これで複数行の処理を実現させます。</td>
+      </tr>
+      <tr>
+          <td>s#kakikukeko.*yayuyo\ｎ#gagigugego\ｎ#</td>
+          <td>置換のためのメイン処理です。<!-- raw HTML omitted -->Nコマンドの結果複数行が処理対象に含まれます。</td>
+      </tr>
+      <tr>
+          <td>Ta</td>
+          <td>上記のメイン処理が失敗したらここ(ラベル<code>a</code>)に飛びます。</td>
+      </tr>
+      <tr>
+          <td>P</td>
+          <td>処理対象の改行以前を出力します。</td>
+      </tr>
+      <tr>
+          <td>D</td>
+          <td>Pで出力した部分を処理対象から削除して、最初のラベル<code>a</code>に戻ります。</td>
+      </tr>
+  </tbody>
+</table>
+<p>なんとなく解説してみましたが、やっぱりワケワカメです。
+直感的にわからないのであとから見ても何がしたいのかよくわからないと思います。</p>
+<h3 id="pythonの場合">Pythonの場合<a hidden class="anchor" aria-hidden="true" href="#pythonの場合">#</a></h3>
+<p>以下のPythonスクリプトを書きます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python:sed.py" data-lang="python:sed.py"><span style="display:flex;"><span><span style="color:#f92672">import</span> sys
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> re
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    before_str<span style="color:#f92672">=</span><span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;kakikukeko.*yayuyo&#39;</span>
+</span></span><span style="display:flex;"><span>    after_str<span style="color:#f92672">=</span><span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;gagigugego&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    f <span style="color:#f92672">=</span> open(sys<span style="color:#f92672">.</span>argv[<span style="color:#ae81ff">1</span>],<span style="color:#e6db74">&#39;r&#39;</span>)
+</span></span><span style="display:flex;"><span>    body <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span>read()
+</span></span><span style="display:flex;"><span>    print re<span style="color:#f92672">.</span>sub(before_str, after_str, body, flags<span style="color:#f92672">=</span>re<span style="color:#f92672">.</span>DOTALL)
+</span></span><span style="display:flex;"><span>    f<span style="color:#f92672">.</span>close()
+</span></span></code></pre></div><p>実行</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ python sed.py ./before.txt
+</span></span><span style="display:flex;"><span>aiueo
+</span></span><span style="display:flex;"><span>gagigugego
+</span></span><span style="display:flex;"><span>wawon
+</span></span></code></pre></div><p>置き換わりました。
+解説要らない程度には直感的です。</p>
+<h4 id="解説-1">解説<a hidden class="anchor" aria-hidden="true" href="#解説-1">#</a></h4>
+<table>
+  <thead>
+      <tr>
+          <th>コマンド</th>
+          <th>解説</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>import sys</td>
+          <td>引数を受け取るために<code>sys</code>モジュールをインポートします。</td>
+      </tr>
+      <tr>
+          <td>import re</td>
+          <td>正規表現を取り扱うために<code>re</code>モジュールをインポートします。</td>
+      </tr>
+      <tr>
+          <td>before_str=r&rsquo;kakikukeko.*yayuyo'</td>
+          <td><code>before_str</code>に置換前の文字列を正規表現で入れます。</td>
+      </tr>
+      <tr>
+          <td>after_str=r&rsquo;gagigugego'</td>
+          <td><code>after_str</code>には置換後の文字列を入れます。</td>
+      </tr>
+      <tr>
+          <td>f = open(sys.argv[1],&lsquo;r&rsquo;)<!-- raw HTML omitted -->body = f.read()</td>
+          <td>ファイルの中身をまるごと変数に読み込ます。</td>
+      </tr>
+      <tr>
+          <td>print re.sub(before_str, after_str, body, flags=re.DOTALL)</td>
+          <td><code>body</code>の中見から<code>before_str</code>に一致する文字列を<code>after_str</code>に置換して標準出力に出します。<!-- raw HTML omitted --><code>flags=re.DOTALL</code>を指定したことで、正規表現の<code>.</code>に改行コード<code>\n</code>も含まれるようになり、複数行が置換対象になります。</td>
+      </tr>
+      <tr>
+          <td>f.close()</td>
+          <td>ファイルを閉じます。</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<p>以上。
+もうsedは使わないかもしれない。</p>
+<h2 id="ということを書いたところ20180209追記">&hellip;ということを書いたところ(2018.02.09追記)<a hidden class="anchor" aria-hidden="true" href="#ということを書いたところ20180209追記">#</a></h2>
+<p>@shiracamus さんよりコメントで以下のsedコマンドでいける、とご指摘頂きました。ありがとうございます。
+なるほど<code>c</code>オプションを理解できてませんでした。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sed <span style="color:#e6db74">&#39;/kakikukeko/,/yayuyo/cgagigugego&#39;</span> before.txt
+</span></span><span style="display:flex;"><span>aiueo
+</span></span><span style="display:flex;"><span>gagigugego
+</span></span><span style="display:flex;"><span>wawon
+</span></span></code></pre></div><p><code>c</code>オプションは <code>開始行,終了行c置換後の文字列</code> でまとめて複数行を置き換えることができるようです。
+開始行/終了行には行番号か正規表現が使用できるようなので、この例は正規表現を利用したケースということになります。</p>
+<p>おれはまだsedの本気に触れてなかった。。。
+ということで、やっぱりまだsedも使うかもしれない。</p>
+<h1 id="やりたいこと20180209追記">やりたいこと②(2018.02.09追記)<a hidden class="anchor" aria-hidden="true" href="#やりたいこと20180209追記">#</a></h1>
+<p>後方参照したいケースもあります。
+例えば以下のようなファイルがあります。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-before2.html" data-lang="before2.html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span>&gt;
+</span></span><span style="display:flex;"><span> &lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">http-equiv</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Content-Type&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/html; charset=utf-8&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- test --&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- テスト --&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- 試験 --&gt;</span>
+</span></span><span style="display:flex;"><span> &lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span> &lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span> &lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><p>このファイルの中から<code>head</code>タグの中見だけ取り出したいような場合です。
+期待値的には以下の感じです。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-after2.html" data-lang="after2.html"><span style="display:flex;"><span>  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">http-equiv</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Content-Type&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/html; charset=utf-8&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- test --&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- テスト --&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- 試験 --&gt;</span>
+</span></span></code></pre></div><h2 id="やってみる-1">やってみる<a hidden class="anchor" aria-hidden="true" href="#やってみる-1">#</a></h2>
+<h3 id="sedの場合-1">sedの場合<a hidden class="anchor" aria-hidden="true" href="#sedの場合-1">#</a></h3>
+<p>まずは下記のようなsedコマンドに渡すコマンドをファイルに書きます。
+先程のケースとほとんど同じですが、<code>s</code>コマンドの正規表現を含む置換処理が違います。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sed2.txt" data-lang="sed2.txt"><span style="display:flex;"><span>:a
+</span></span><span style="display:flex;"><span>N
+</span></span><span style="display:flex;"><span>s#&lt;html&gt;.*&lt;head&gt;\(.*\)&lt;/head&gt;.*&lt;/html&gt;#\1#
+</span></span><span style="display:flex;"><span>Ta
+</span></span><span style="display:flex;"><span>P
+</span></span><span style="display:flex;"><span>D
+</span></span></code></pre></div><p>実行</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sed -f sed2.txt before2.html
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  &lt;meta http-equiv<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Content-Type&#34;</span> content<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/html; charset=utf-8&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>  &lt;!-- test --&gt;
+</span></span><span style="display:flex;"><span>  &lt;!-- テスト --&gt;
+</span></span><span style="display:flex;"><span>  &lt;!-- 試験 --&gt;
+</span></span></code></pre></div><h4 id="解説-2">解説<a hidden class="anchor" aria-hidden="true" href="#解説-2">#</a></h4>
+<p>基本的な解説は上記のとおりなので割愛します。</p>
+<table>
+  <thead>
+      <tr>
+          <th>コマンド</th>
+          <th>解説</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>s#&lt;html&gt;.*&lt;head&gt;\(.*\)&lt;/head&gt;.*&lt;/html&gt;#\1#</code></td>
+          <td>正規表現でheadタグの開始タグと終了タグの間の文字列をグルーピングし、後方参照で置換後の文字列に渡します。</td>
+      </tr>
+  </tbody>
+</table>
+<p>このケースだとsedの<code>c</code>オプションは使えないのでやっぱりこの書き方になるかなーと思います。</p>
+<h3 id="pythonの場合-1">pythonの場合<a hidden class="anchor" aria-hidden="true" href="#pythonの場合-1">#</a></h3>
+<p>以下のPythonスクリプトを書きます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python:sed2.py" data-lang="python:sed2.py"><span style="display:flex;"><span><span style="color:#f92672">import</span> sys
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> re
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    str<span style="color:#f92672">=</span><span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;&lt;html&gt;.*&lt;head&gt;(.*)&lt;/head&gt;.*&lt;/html&gt;&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    f <span style="color:#f92672">=</span> open(sys<span style="color:#f92672">.</span>argv[<span style="color:#ae81ff">1</span>],<span style="color:#e6db74">&#39;r&#39;</span>)
+</span></span><span style="display:flex;"><span>    body <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span>read()
+</span></span><span style="display:flex;"><span>    print re<span style="color:#f92672">.</span>search(str, body, flags<span style="color:#f92672">=</span>re<span style="color:#f92672">.</span>DOTALL)<span style="color:#f92672">.</span>group(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    f<span style="color:#f92672">.</span>close()
+</span></span></code></pre></div><p>実行</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ python sed2.py ./before2.html
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  &lt;meta http-equiv<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Content-Type&#34;</span> content<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/html; charset=utf-8&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>  &lt;!-- test --&gt;
+</span></span><span style="display:flex;"><span>  &lt;!-- テスト --&gt;
+</span></span><span style="display:flex;"><span>  &lt;!-- 試験 --&gt;
+</span></span></code></pre></div><h4 id="解説-3">解説<a hidden class="anchor" aria-hidden="true" href="#解説-3">#</a></h4>
+<table>
+  <thead>
+      <tr>
+          <th>コマンド</th>
+          <th>解説</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>print re.search(str, body, flags=re.DOTALL).group(1)</td>
+          <td>正規表現のうち、グルーピングされてる値の1番目を標準出力に出力します。</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<p>ということで、後方参照するならpythonのほうが直感的でメンテナンスもしやすそうです。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/python/">Python</a></li>
+      <li><a href="http://localhost:1313/tags/sed/">Sed</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">My New Hugo Project</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

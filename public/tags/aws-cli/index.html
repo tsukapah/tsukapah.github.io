@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Aws-Cli | My New Hugo Project</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/tags/aws-cli/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.199042e659bc7245f5609d333d6c044eb554a0640849bb874e1dff8eb0f57209.css" integrity="sha256-GZBC5lm8ckX1YJ0zPWwETrVUoGQISbuHTh3/jrD1cgk=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/tags/aws-cli/index.xml" title="rss">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/tags/aws-cli/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body class="list" id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="My New Hugo Project (Alt + H)">My New Hugo Project</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header">
+  <h1>
+    Aws-Cli
+  </h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Docker&#43;Grafanaでアカウントを横断してCloudWatchを可視化する
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>※こちらの記事は個人ブログに移行しました
+ちょっとしたモニタリングだったらCloudWatchでも十分。 ただ、普段コマンドラインツールで操作していることもあるし、複数アカウントを持っていたりするのでマネージメントコンソールだと使い勝手が悪い。 そんな悩みをGrafanaが解決してくれたので自分用にメモメモ。
+必要なもの AWSのIAM User aws-cli Docker for Mac(Docker Machineでも可) credentialsの登録 自分が普段使っているMacでは、aws-cliを使ってprofileをいくつも登録してある。 登録するときはこんな感じ。 profile名は適宜変更すること。 すでに作成済みの場合は実施不要。
+$ aws configure --profile hogehoge AWS Access Key ID [None]: aaaaa AWS Secret Access Key [None]: bbbbb Default region name [None]: Default output format [None]: すると、以下の感じで必要な情報が登録されているはず。
+$ cat ~/.aws/credentials [hogehoge] aws_access_key_id = aaaaa aws_secret_access_key = bbbbb credentialの取り扱いには気をつけること！
+DockerでGrafanaを起動 上記で作成したcredentialsを-vオプションでGrafanaコンテナに渡す。 公式イメージあるので捗る。 Grafanaは3000ポートでListenしているのでそれもあわせてマッピング。
+$ docker run -d -p 3000:3000 -v ~/.aws/credentials:/usr/share/grafana/.aws/credentials --name grafana grafana/grafana 3d7de10094f1d84dbedd8a77fb55ef5c997ccdde31722a114bcd25388b1a8b3d 起動した。
+Grafanaにデータを追加 接続してみる。
+$ open http://localhost:3000 ...</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-01-24 19:39:34 +0900 +0900'>January 24, 2017</span></footer>
+  <a class="entry-link" aria-label="post link to Docker&#43;Grafanaでアカウントを横断してCloudWatchを可視化する" href="http://localhost:1313/posts/2017-01-24-dockergrafanacloudwatch/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">ローカルにAmazonSQS互換のMQを起動して使ってみる
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>※当記事は個人ブログに移行しました
+最近ElasticMQというのを知りました。 Amazon SQS-compatible interface ということで、Amazon SQSを使ったアプリケーション開発が捗りそうです。 ちょうど試そうと思った今日(2016/11/23)にVersion 0.11.0になっていました。 java6以降が入ってれば動くようです。 今回はDockerで動かして、aws-cliで接続してみたいと思います。
+Dockerfileの作成 FROM java:8 ADD https://s3-eu-west-1.amazonaws.com/softwaremill-public/elasticmq-server-0.11.0.jar /elasticmq/elasticmq-server-0.11.0.jar EXPOSE 9324 ENTRYPOINT [&#34;java&#34;,&#34;-jar&#34;,&#34;/elasticmq/elasticmq-server-0.11.0.jar&#34;] コンテナイメージのビルド $ docker build -t tsukapah/elasticmq:0.11.0 . Sending build context to Docker daemon 2.048 kB Step 1 : FROM java:8 8: Pulling from library/java 386a066cd84a: Pull complete 75ea84187083: Pull complete 88b459c9f665: Pull complete 690dbea0e4ca: Pull complete 7e401cdd6f18: Pull complete a58186ddf9a0: Pull complete 49999ed55bc4: Pull complete eb40561aad8f: Pull complete Digest: sha256:dd0fc686a5584c0c7f3e50dd84ddc42fae400c27a21d8ca98dad190aff5e9d52 Status: Downloaded newer image for java:8 ---&gt; 861e95c114d6 Step 2 : ADD https://s3-eu-west-1.amazonaws.com/softwaremill-public/elasticmq-server-0.11.0.jar /elasticmq/elasticmq-server-0.11.0.jar Downloading 30.2 MB/30.2 MB ---&gt; 55fa5752ace4 Removing intermediate container 2529a37411e1 Step 3 : EXPOSE 9324 ---&gt; Running in 0465d32da4e8 ---&gt; 052963c601f8 Removing intermediate container 0465d32da4e8 Step 4 : ENTRYPOINT java -jar /elasticmq/elasticmq-server-0.11.0.jar ---&gt; Running in e283caeeb0b2 ---&gt; 3f6b0738e570 Removing intermediate container e283caeeb0b2 Successfully built 3f6b0738e570 コンテナの起動 docker run -d --name=elasticmq -p 9324:9324 tsukapah/elasticmq:0.11.0 082c9ffb6c1048615b72fabf1440241f77f9decbf74adb142fae75b0bcacfd2c どうやら起動したみたいです。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2016-11-23 23:31:54 +0900 +0900'>November 23, 2016</span></footer>
+  <a class="entry-link" aria-label="post link to ローカルにAmazonSQS互換のMQを起動して使ってみる" href="http://localhost:1313/posts/2016-11-23-amazonsqsmq/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">CloudFormationでCodeDeploy
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>こちらの記事は個人ブログに移行しました
+CloudFormationでS3からAutoScalingGroupにデプロイする定義をしてみます。
+PackerでAMI作ってるの待ったり、CloudFormationのcreate-stack待ってる間にびゃーっと書いたので間違いとかあったら指摘して下さい。
+前提 デプロイ先のインスタンスにはCodeDeploy Agentのインストールをしておいて下さい。 また、S3からデプロイするので、適切にポリシーを定義したIAM Roleも割り当てておく必要があります。 参考までに、こちらで適用したポリシーが以下です。
+{ &#34;Version&#34;: &#34;2012-10-17&#34;, &#34;Statement&#34;: [ { &#34;Action&#34;: [ &#34;s3:Get*&#34;, &#34;s3:List*&#34;, &#34;s3:Put*&#34; ], &#34;Resource&#34;: &#34;*&#34;, &#34;Effect&#34;: &#34;Allow&#34; } ] } このCloudFormation TemplateでできるAWSリソース IAM Role CodeDeploy:Application CodeDeploy:DeploymentGroup 手順 デプロイしたいものを用意する デプロイしたいからCodeDeployを使うので、まずはデプロイするものを用意します。 とりあえず以下の感じで試します。
+$ tree . ├── appspec.yml └── www └── index.html 1 directory, 2 files デプロイを定義する appspec.ymlにはデプロイの定義を記載します。
+$ cat appspec.yml version: 0.0 os: linux files: - source: / destination: /tmp/ appspec.ymlのあるディレクトリ以下を、/tmpにデプロイする定義にしてみました。 きっと/tmp/www/index.htmlができるはずです。 特に前処理も後処理もしないのであればこれだけです。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2016-06-07 19:42:52 +0900 +0900'>June 7, 2016</span></footer>
+  <a class="entry-link" aria-label="post link to CloudFormationでCodeDeploy" href="http://localhost:1313/posts/2016-06-07-cloudformationcodedeploy/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">CloudFormationを使ってS3で静的コンテンツを公開する
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>※こちらの記事は個人ブログに移行しました。
+これと同じ内容をCloudFormationで実現します
+#前提
+aws-cliが入っていること
+IAMのパーミッションがいい感じに設定されていること
+Credentialがconfigureもしくは環境変数に設定されてること ※ --profile使ってもいいです
+default region が ap-northeast-1 で設定してあること ※ 別にいいんだけど適宜いい感じに読み替えて下さい
+Mac想定してるのでWindowsの人はEC2使うとかいい感じに読み替えるとかしてください
+loggingの設定はこの手順には含まれてません
+#手順
+CloudFormationTemplateの作成 Stackを作成するShellScriptの作成 Stackの作成 コンテンツの設置 #CloudFormationTemplateの作成
+{ &#34;AWSTemplateFormatVersion&#34; : &#34;2010-09-09&#34;, &#34;Mappings&#34; : { &#34;RegionMap&#34; : { &#34;us-east-1&#34; : { &#34;s3BucketDomain&#34; : &#34;us-east-1.amazonaws.com&#34; }, &#34;us-west-1&#34; : { &#34;s3BucketDomain&#34; : &#34;us-west-1.amazonaws.com&#34; }, &#34;us-west-2&#34; : { &#34;s3BucketDomain&#34; : &#34;us-west-2.amazonaws.com&#34; }, &#34;eu-west-1&#34; : { &#34;s3BucketDomain&#34; : &#34;eu-west-1.amazonaws.com&#34; }, &#34;sa-east-1&#34; : { &#34;s3BucketDomain&#34; : &#34;sa-east-1.amazonaws.com&#34; }, &#34;cu-north-1&#34; : { &#34;s3BucketDomain&#34; : &#34;cu-north-1.amazonaws.com&#34; }, &#34;ap-northeast-1&#34; : { &#34;s3BucketDomain&#34; : &#34;ap-northeast-1.amazonaws.com&#34; }, &#34;ap-southeast-1&#34; : { &#34;s3BucketDomain&#34; : &#34;ap-southeast-1.amazonaws.com&#34; }, &#34;ap-southeast-2&#34; : { &#34;s3BucketDomain&#34; : &#34;ap-southeast-2.amazonaws.com&#34; } } }, &#34;Parameters&#34; : { &#34;FQDN&#34; : { &#34;Type&#34; : &#34;String&#34;, &#34;Description&#34; : &#34;The DNS name of service FQDN&#34; } }, &#34;Resources&#34; : { &#34;S3BucketForWebsite&#34; : { &#34;Type&#34; : &#34;AWS::S3::Bucket&#34;, &#34;Properties&#34; : { &#34;AccessControl&#34; : &#34;PublicRead&#34;, &#34;BucketName&#34; : { &#34;Ref&#34; : &#34;FQDN&#34; }, &#34;WebsiteConfiguration&#34; : { &#34;ErrorDocument&#34; : &#34;error.html&#34;, &#34;IndexDocument&#34; : &#34;index.html&#34; } } }, &#34;BucketPolicyForWebsite&#34; : { &#34;Type&#34; : &#34;AWS::S3::BucketPolicy&#34;, &#34;Properties&#34; : { &#34;Bucket&#34; : { &#34;Ref&#34; : &#34;S3BucketForWebsite&#34; }, &#34;PolicyDocument&#34; : { &#34;Id&#34; : &#34;PublicRead&#34;, &#34;Version&#34;: &#34;2012-10-17&#34;, &#34;Statement&#34; : [ { &#34;Sid&#34; : &#34;ReadAccess&#34;, &#34;Action&#34; : [ &#34;s3:GetObject&#34; ], &#34;Effect&#34; : &#34;Allow&#34;, &#34;Resource&#34; : { &#34;Fn::Join&#34; : [&#34;&#34;, [&#34;arn:aws:s3:::&#34;, { &#34;Ref&#34; : &#34;S3BucketForWebsite&#34; } , &#34;/*&#34; ]]}, &#34;Principal&#34; : &#34;*&#34; } ] } } } }, &#34;Outputs&#34; : { &#34;WebsiteURL&#34; : { &#34;Value&#34; : { &#34;Fn::GetAtt&#34; : [ &#34;S3BucketForWebsite&#34;, &#34;WebsiteURL&#34; ] }, &#34;Description&#34; : &#34;URL for website hosted on S3&#34; } } } #Stackを作成するShellScriptの作成
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2015-07-30 19:49:25 +0900 +0900'>July 30, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to CloudFormationを使ってS3で静的コンテンツを公開する" href="http://localhost:1313/posts/2015-07-30-cloudformations3/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">aws-cliを使ってS3で静的コンテンツを公開する
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>※こちらの記事は個人ブログに移行しました。
+#前提
+aws-cliが入っていること
+IAMのパーミッションがいい感じに設定されていること
+Credentialがconfigureもしくは環境変数に設定されてること ※ --profile使ってもいいです
+default region が ap-northeast-1 で設定してあること ※ 別にいいんだけど適宜いい感じに読み替えて下さい
+Mac想定してるのでWindowsの人はEC2使うとかいい感じに読み替えるとかしてください
+loggingの設定はこの手順には含まれてません
+#手順
+バケットの作成 コンテンツの設置 Static Website Hostingを有効にする BucketPolicyを設定する ##バケットの作成
+$ BUCKET_NAME=backetnonamae $ aws s3 mb s3://${BUCKET_NAME} make_bucket: s3://backetnonamae/ ##コンテンツの設置 コンテンツはカレントディレクトリにあるものとして記載しています。 置いてあるファイルは/index.htmlと/css/index.cssの2つです。
+$ SC_DIR=$(pwd) $ aws s3 sync ${SC_DIR}/ s3://${BUCKET_NAME}/ upload: css/index.css to s3://backetnonamae/css/index.css upload: ./index.html to s3://backetnonamae/index.html ##Static Website Hostingを有効にする
+$ aws s3 website s3://${BUCKET_NAME} --index-document index.html (なし) ##BucketPolicyを設定する このポリシーを適用することでアップロードしたファイルはすべてpublicになります。 ###ポリシー用のjson作成
+$ PUBLIC_POLICY=public.json $ cat &lt;&lt; EOF &gt; ${PUBLIC_POLICY} { &#34;Version&#34;: &#34;2012-10-17&#34;, &#34;Id&#34;: &#34;PublicRead&#34;, &#34;Statement&#34;: [ { &#34;Sid&#34;: &#34;ReadAccess&#34;, &#34;Effect&#34;: &#34;Allow&#34;, &#34;Principal&#34;: &#34;*&#34;, &#34;Action&#34;: &#34;s3:GetObject&#34;, &#34;Resource&#34;: &#34;arn:aws:s3:::${BUCKET_NAME}/*&#34; } ] } EOF { &#34;Version&#34;: &#34;2012-10-17&#34;, &#34;Id&#34;: &#34;PublicRead&#34;, &#34;Statement&#34;: [ { &#34;Sid&#34;: &#34;ReadAccess&#34;, &#34;Effect&#34;: &#34;Allow&#34;, &#34;Principal&#34;: &#34;*&#34;, &#34;Action&#34;: &#34;s3:GetObject&#34;, &#34;Resource&#34;: &#34;arn:aws:s3:::backetnonamae/*&#34; } ] } ###ポリシーの適用
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2015-07-22 12:39:04 +0900 +0900'>July 22, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to aws-cliを使ってS3で静的コンテンツを公開する" href="http://localhost:1313/posts/2015-07-22-aws-clis3/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[EC2]SSHの秘密鍵をAWSからダウンロードするのはおかしいよね
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>※こちらの記事は個人ブログに移行しました。
+若い頃にSSHのキーペアはローカルで作って公開鍵だけサーバに転送するんだよって誰かに教わりましたし。
+#ローカルマシンでキーペアを作成する
+Amazon EC2 では、次の形式を使用できます。 ・OpenSSH パブリックキー形式（~/.ssh/authorized_keys の形式） ・Base64 でエンコードされた DER 形式 ・SSH パブリックキーファイル形式（RFC4716 で指定） Amazon EC2 では、DSA キーを使用できません。キージェネレータが、RSA キーを作成するように設定されていることを確認してください。 サポートされている長さ: 1024、2048、および 4096。
+※引用元：http://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/ec2-key-pairs.html#how-to-generate-your-own-key-and-import-it-to-aws
+$ KEYNAME=key.pem $ ssh-keygen -t rsa -f ${KEYNAME} Generating public/private rsa key pair. Enter passphrase (empty for no passphrase): Enter same passphrase again: Your identification has been saved in key.pem. Your public key has been saved in key.pem.pub. The key fingerprint is: 29:d5:92:6b:e8:f7:43:87:14:2d:13:4a:d7:de:07:ba hoge@hogehoge.local The key&#39;s randomart image is: &#43;--[ RSA 2048]----&#43; | . o&#43; | | . =&#43; o . | | = .= o . | | o &#43;. o . .| | o S. . . . | | . o o E | | . .. . | | . .. | | .. | &#43;-----------------&#43; #AWSに公開鍵をインポートする
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2015-03-05 18:08:12 +0900 +0900'>March 5, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to [EC2]SSHの秘密鍵をAWSからダウンロードするのはおかしいよね" href="http://localhost:1313/posts/2015-03-05-ec2sshaws/"></a>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">My New Hugo Project</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

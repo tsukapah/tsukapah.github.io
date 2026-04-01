@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Fluentd | My New Hugo Project</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/tags/fluentd/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.199042e659bc7245f5609d333d6c044eb554a0640849bb874e1dff8eb0f57209.css" integrity="sha256-GZBC5lm8ckX1YJ0zPWwETrVUoGQISbuHTh3/jrD1cgk=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/tags/fluentd/index.xml" title="rss">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/tags/fluentd/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body class="list" id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="My New Hugo Project (Alt + H)">My New Hugo Project</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header">
+  <h1>
+    Fluentd
+  </h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">DockerのFluentd logging driverを通したltsv形式アクセスログをパースする
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>※当記事は個人ブログに移行しました
+Docker 1.8からはFluentd logging driverが実装されているのでFluentdでログをゴニョゴニョするのが簡単にできます。jsonのlog要素がソースコンテナのログになるようです。 そして、話は変わりますがNginxのアクセスログフォーマットをLTSVにしている人は結構多いのではないかと思います。 Fluentd logging driver経由で受け取ったjsonの1オブジェクトに入れられたLTSVのログをFluentdでパースして取り扱いがしやすいようにアウトプットしてみようと思います。 内容としてはFluentdでも紹介されている通りfluent-plugin-parserを使うだけです。
+#受取側のFluentdコンテナを用意
+せっかくなので受信側もコンテナで用意します。
+##Fluentdの設定(fluent.conf)を作成
+&lt;source&gt; @type forward &lt;/source&gt; &lt;filter docker.**&gt; @type parser format ltsv key_name log reserve_data true &lt;/filter&gt; &lt;match docker.**&gt; @type stdout &lt;/match&gt; Fluentd logging driverはデフォルトでdocker.をタグプレフィックスにして出力してきます。 今回はデフォルトのまま使います。 ちゃんとやるならrewrite_tag_filterとかでsourceの値ごとにタグを別けてあげるべきなんでしょうが今回はそこは重要じゃないので省きます。
+##Fluentdコンテナを起動する
+$ docker run -d -p 24224:24224 --name fluentd -v $(pwd)/fluent.conf:/fluentd/etc/fluent.conf fluent/fluentd:latest d2ef7c0dd0baf70fb766f38ed4ec26127d8ea5bc5b26b46fb13a04b78c3f684a #ログを渡すNginxコンテナを用意
+##Nginxの設定(nginx.conf)を作成
+user nginx; worker_processes auto; error_log /var/log/nginx/error.log warn; pid /var/run/nginx.pid; events { worker_connections 1024; } http { include /etc/nginx/mime.types; default_type application/octet-stream; log_format ltsv &#39;time:$time_iso8601\t&#39; &#39;remote_addr:$remote_addr\t&#39; &#39;request_method:$request_method\t&#39; &#39;request_length:$request_length\t&#39; &#39;request_uri:$request_uri\t&#39; &#39;https:$https\t&#39; &#39;uri:$uri\t&#39; &#39;query_string:$query_string\t&#39; &#39;status:$status\t&#39; &#39;bytes_sent:$bytes_sent\t&#39; &#39;body_bytes_sent:$body_bytes_sent\t&#39; &#39;referer:$http_referer\t&#39; &#39;useragent:$http_user_agent\t&#39; &#39;forwardedfor:$http_x_forwarded_for\t&#39; &#39;request_time:$request_time\t&#39; &#39;upstream_response_time:$upstream_response_time&#39;; access_log /var/log/nginx/access.log ltsv; sendfile on; keepalive_timeout 65; include /etc/nginx/conf.d/*.conf; } ログフォーマット以外はほぼデフォルトです。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2016-12-05 12:37:50 +0900 +0900'>December 5, 2016</span></footer>
+  <a class="entry-link" aria-label="post link to DockerのFluentd logging driverを通したltsv形式アクセスログをパースする" href="http://localhost:1313/posts/2016-12-05-dockerfluentd-logging-driverltsv/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Fluentdのout_fileプラグインで出力したファイルからElasticsearchにbulkインポートしたくなることってよくありますよね？
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>※当記事は個人ブログに移行しました
+bashのワンライナーで強引にbulkインポート用のフォーマットに書き換えちゃいます。 以下のコマンド結果をファイルにリダイレクトするとか、curlの引数にコマンド置換で渡すでもいいです。コマンドが長いのでたいていファイルに書きだしちゃいますが。 全部同じインデックス、ドキュメントタイプにすることを前提にしてます。 あと、時刻のフォーマットを書き換えてる正規表現については必要があれば変えてください。(3つ目の-eのとこです)
+$ awk -F &#39;\t&#39; &#39;{print $1&#34;,&#34;$3}&#39; &lt;対象ファイル&gt; | \ sed -e &#39;s/{//g&#39; \ -e &#39;s/^/{&#34;@timestamp&#34;:/g&#39; \ -e &#39;s/\([0-9]\{4\}\)\/\([0-9]\{2\}\)\/\([0-9]\{2\}\) \([0-9]\{2\}:[0-9]\{2\}:[0-9]\{2\}\) \(&#43;[0-9]\{4\}\)/&#34;\1-\2-\3T\4\5&#34;/g&#39; \ -e &#39;i\{&#34;index&#34;:{}}\&#39; まぁ、他にいくらでも方法あると思いますが…
+fluent-plugin-elasticsearchとかで最初から入れろよって話もありますが、それはそれ。
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2016-01-28 15:07:03 +0900 +0900'>January 28, 2016</span></footer>
+  <a class="entry-link" aria-label="post link to Fluentdのout_fileプラグインで出力したファイルからElasticsearchにbulkインポートしたくなることってよくありますよね？" href="http://localhost:1313/posts/2016-01-28-fluentdout-fileelasticsearchbulk/"></a>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">My New Hugo Project</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

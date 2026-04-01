@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Posts | My New Hugo Project</title>
+<meta name="keywords" content="">
+<meta name="description" content="Posts - My New Hugo Project">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.199042e659bc7245f5609d333d6c044eb554a0640849bb874e1dff8eb0f57209.css" integrity="sha256-GZBC5lm8ckX1YJ0zPWwETrVUoGQISbuHTh3/jrD1cgk=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/posts/index.xml" title="rss">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body class="list" id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="My New Hugo Project (Alt + H)">My New Hugo Project</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header">
+  <h1>
+    Posts
+  </h1>
+</header>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">CI/CDは誰のものか
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> この記事はCI/CD Advent Calendar 2019の16日目の記事です。
+こんにちは、16日目のアドベントカレンダーを担当させて頂きます。
+はじめに 早速ですが、CI/CDと聞いて皆さんが最初に思い浮かべることは何でしょうか？ おそらく自動テストの実装やデプロイの自動化など、自動化技術のことを思い浮かべる方が多いのではないでしょうか。 弊社でもこのような自動化には取り組んでおり、Bitbucket PipelinesやJenkins等を利用したりしていますが、タイトルの通りこれから書くのはCI/CDの技術的側面についてではありません。 技術的な内容については他のアドベントカレンダーの記事に期待してます。皆さん、応援してます！ なお、この投稿は個人の意見にもとづくものであり、所属する組織を代表するものではありません。 異論などもあるかと思いますが、こんな考え方もあるんだなくらいで参考にして頂ければと思います。
+CI/CDとは おそらくこの記事をご覧の方はCI/CD = Continuous Integration／Continuous DeliveryあるいはContinuous deployment(日本語では継続的インテグレーション／継続的デリバリーあるいは継続的デプロイ)という言葉の略だということはすでにご存知ではないでしょうか。 この言葉に向きあってみると、本質的には技術的な何かを指すのではなく、習慣のことを指すのだということに気づいてきます。 実際にWikipediaにも以下のように記載されています。
+継続的インテグレーション、CI（英: continuous integration）とは、主にプログラマーのアプリケーション作成時の品質改善や納期の短縮のための習慣のことである。
+常に一定以上の品質のテストができるようにする(もしくは繰り返す、継続する)ことで変更しやすくする、 一定のデプロイ手順を定義し繰り返す、継続することでリリースに対する心理的負担を軽減する、 その習慣そのものがCI/CDであり、習慣を継続しやすくするための手法として注目されているのが自動テストやデプロイ自動化のような技術なのだと思います。
+自動化がないときテスト/デプロイは誰がするのか 少し話が横にそれますが、ある程度プロジェクトやプロダクトが大きくなると、おそらく技術要素によって役割分担されたチームが出来上がることが多いと思います。 弊社も漏れなくそんな感じです。全員がフルスタックにはなれません。 フロントエンド開発をする役割・バックエンド開発をする役割・インフラ構築をする役割などになると思いますが、 すべての役割で共通して発生する業務がテストとデプロイ(リリース)です。 もちろんテストエンジニアのようなその部分に特化した役割があることもあると思いますが、その手前で多かれ少なかれ何かしらの確認はすると思います。 つまり、テスト/デプロイは中身は違っても全員がする作業なのです。
+CI/CDは誰のものか ここでタイトルに戻ります。 皆さんの開発現場では、自動化職人が生まれてしまっていませんか？ 特定の技術領域の人に自動化の実装・保守が偏ってしまっていることはありませんか？ 前述の通り、テスト/デプロイは全員に必要な作業です。 自分が作った成果物がどのような(どのように)テストを経ているのか知らない、どのような手順を踏んでビルドされデプロイされているのか知らない、ということはありませんか？ そんなときにチームが使っている自動化環境が壊れてしまったらどうしますか？ そのようなことを考えると、人任せにしていていい気がしなくなってきませんか？ CI/CDという習慣は、誰か特定の役割の人たちのものではなく全員のものではないでしょうか。 全員がオーナーシップを持って育てていくものだと思います。
+最後に CI/CDは習慣であり、みんなのものです。 だからといって自動化難しそうだなと敬遠している人は大勢いると思います。 でも、取り組み始めると面白いですし、最初から壮大なことをする必要はありません。 できることから一緒に楽しんで取り組んでみんなで育てましょう。
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-12-16 10:34:15 +0900 +0900'>December 16, 2019</span></footer>
+  <a class="entry-link" aria-label="post link to CI/CDは誰のものか" href="http://localhost:1313/posts/2019-12-16-cicd/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Apex&#43;Terraformでサーバレスアーキテクチャをフルコード化
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>私のチームではAWSにおけるインフラの構成管理にTerraformを利用しています。 ただ、最近は性能がそれほど求められないバッチ処理やAPI等はサーバレスアーキテクチャを採用することが多くなってきました。 しかし、Lambdaファンクションのコード自体のデプロイをTerraformに任せるのがしんどかったりするので、 Lambdaのデプロイは開発チームが利用していたServerless Frameworkに切り分けています。 これには大きな課題があって、Terraformで作ったS3のイベントをトリガーにするLambdaファンクションを作りたい、みたいな、後からLambdaを追加する要件に対応しきれずに悩んでいました。 そんなときにApexはTerraformをWrapできるらしいと天から声が降りてきたので試してみることにしてみました。
+検証に利用した環境 MacOS X(10.11.6) Apex(1.0.0-rc2) Terraform(v0.11.11)
+※当エントリではApexやTerraformの導入については触れません 作る環境 ファイル構成 ./project.json # プロジェクト全体の定義(たぶんfunction.jsonで設定を上書きできる気がする) ./functions/hello/function.json # 関数の定義 ./functions/hello/hello.py # Lambdaで実行するコード(別にPythonじゃなくてもOK) ./infrastructure/main.tf # Terraformで管理するAWSリソースの定義 ./project.json たぶんプロジェクト全体の共通設定を記載する感じだと思います。 すいません、ちゃんと調べてません。。。
+{ &#34;name&#34;: &#34;apex-sample&#34;, &#34;description&#34;: &#34;apex test 20190405&#34;, &#34;memory&#34;: 128, &#34;timeout&#34;: 5, &#34;role&#34;: &#34;arn:aws:iam::{各自のAWS Account ID}:role/apex_sample&#34;, &#34;environment&#34;: {} } ./functions/hello/function.json 利用するruntimeや関数名を定義します。 runtimeとhandlerさえちゃんとしてれば最低限は大丈夫だと思います。
+{ &#34;description&#34;: &#34;hello&#34;, &#34;runtime&#34;: &#34;python3.6&#34;, &#34;handler&#34;: &#34;hello.lambda_handler&#34;, &#34;environment&#34;: { &#34;ENV&#34;: &#34;dev&#34; } } ./functions/hello/hello.py hello worldをレスポンスボディに返すだけの処理です。 最低限API Gatewayの仕様に則ったレスポンスを返せれば大丈夫です。
+#!/usr/bin/env python # -*- coding: utf-8 -*- def lambda_handler(event, context): json = {&#34;statusCode&#34;: 200, &#34;body&#34;: &#34;hello world&#34;} return json ./infrastructure/main.tf 完全にTerraformのコードです。 めんどくさがって雑な感じに1ファイルにまとめちゃいましたが、module化したりしたほうが管理はしやすいと思います。 variable &#34;apex_function_hello&#34; {}でapexから変数を受け取るのがポイントです。 定義しているリソースはざっくりIAM RoleとAPI Gatewayだけです。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-04-06 00:16:08 +0900 +0900'>April 6, 2019</span></footer>
+  <a class="entry-link" aria-label="post link to Apex&#43;Terraformでサーバレスアーキテクチャをフルコード化" href="http://localhost:1313/posts/2019-04-06-apexterraform/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Bitbucket Pilelines/Deployments入門
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>はじめに Amazon S3とCloudFrontを使用してスタティックなWebコンテンツを配信・運用しているんですが、 「AWSのコンソールポチポチするのストレス更新時の運用を楽にしたいんじゃ！」というディレクターやデザイナーの要望に答えるためにBitbucket Pipelinesを使用して自動化してみました。 スタティックなファイルのデプロイなので、PipelinesとしてもDeploymentsとしても入門レベルの内容だと思います。
+前提 S3&#43;CloudFrontでコンテンツ配信できる環境が整っていること BitBucketのGitリポジトリがあること 手順 1. IAMユーザの作成 Bitbucket Pipelinesがデプロイに使用するIAMユーザを作成します。 IAMにはS3のオブジェクトを更新するのに必要な権限と、CloudFrontのInvalidationリクエストができる権限が必要です。 ポリシーそのものは適宜作成してください。
+ユーザを作成したら、アクセスキーの生成をしてキーペアを取得してください。
+2. BitBucketの設定 2.1 Pipelinesの有効化 リポジトリの左メニューより　設定 &gt; PIPELINES Setting &gt; Enable Pipelinesを有効にします。
+2.2 環境変数の設定 リポジトリの左メニューより　設定 &gt; PIPELINES Environment variablesに進み、以下の環境変数を定義します。
+Variable name Value Secured AWS_ACCESS_KEY_ID 手順1で取得したACCESS_KEY_ID :heavy_check_mark: AWS_SECRET_ACCESS_KEY 手順1で取得したSECRET_ACCESS_KEY :heavy_check_mark: CONTENTS_BUCKET デプロイ先のバケット名 DISTRIBUTION_ID CloudFront distributionのID なんらかの理由でS3のバケットが変更になったり、CloudFrontのDistributionが変わったりした場合でもGitのコミットなしで変更できるようにキーペア以外も環境変数で定義してみました。
+2.3 Pipelineの定義 以下のファイルをリポジトリ直下にコミットします。
+image: python:3.6.4 pipelines: branches: master: - step: name: Print Message caches: - pip script: - echo &#34;Deploy process to production environment started&#34; - step: name: Deploy to Production(push to S3 and cache invalidation) deployment: production trigger: manual caches: - pip script: # Install - pip install awscli # Push to S3 - aws s3 sync . s3://${CONTENTS_BUCKET} --delete --exclude &#39;.git/*&#39; --exclude &#39;.gitignore&#39; --exclude &#39;README.md&#39; --exclude &#39;bitbucket-pipelines.yml&#39; # Requesting cache invalidation - aws cloudfront create-invalidation --distribution-id ${DISTRIBUTION_ID} --path &#39;/*&#39; この内容の場合、リモートリポジトリ(Bitbucket)のmasterブランチにマージされるとPipelineが走り出します。 trigger: manualは最初のstepには記述できないようなので、echoでメッセージを出力するだけのstepを記述し、2つめのstepに処理を記載しています。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2018-03-05 17:25:53 +0900 +0900'>March 5, 2018</span></footer>
+  <a class="entry-link" aria-label="post link to Bitbucket Pilelines/Deployments入門" href="http://localhost:1313/posts/2018-03-05-bitbucket-pilelinesdeployments/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">複数行をまとめて置換したかったのでsedとpythonで比べてみた
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>やりたいこと aiueo kakikukeko sashisuseso tachitsuteto naninuneno hahifuheho mamimumemo yayuyo wawon 例えば上記のようなファイルがあったとして、以下のように置換したいとします。
+aiueo gagigugeko wawon つまり、kakikukekoの行からyayuyoの行までをgagigugegoに置き換えたいわけです。
+やってみる sedの場合 まずは下記のようなsedコマンドに渡すコマンドをファイルに書きます。
+:a N s#kakikukeko.*yayuyo\n#gagigugego\n# Ta P D 実行
+$ sed -f sed.txt before.txt aiueo gagigugego wawon 置き換わりました。 でもsed.txtがワケワカメです。
+解説 コマンド 解説 :a Tコマンド用にaというラベルを定義してます。 N 次の行を処理対象に追加します。sedは基本的には単一行の処理をするものですが、これで複数行の処理を実現させます。 s#kakikukeko.*yayuyo\ｎ#gagigugego\ｎ# 置換のためのメイン処理です。Nコマンドの結果複数行が処理対象に含まれます。 Ta 上記のメイン処理が失敗したらここ(ラベルa)に飛びます。 P 処理対象の改行以前を出力します。 D Pで出力した部分を処理対象から削除して、最初のラベルaに戻ります。 なんとなく解説してみましたが、やっぱりワケワカメです。 直感的にわからないのであとから見ても何がしたいのかよくわからないと思います。
+Pythonの場合 以下のPythonスクリプトを書きます。
+import sys import re if __name__ == &#39;__main__&#39;: before_str=r&#39;kakikukeko.*yayuyo&#39; after_str=r&#39;gagigugego&#39; f = open(sys.argv[1],&#39;r&#39;) body = f.read() print re.sub(before_str, after_str, body, flags=re.DOTALL) f.close() 実行
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2018-02-08 22:13:00 +0900 +0900'>February 8, 2018</span></footer>
+  <a class="entry-link" aria-label="post link to 複数行をまとめて置換したかったのでsedとpythonで比べてみた" href="http://localhost:1313/posts/2018-02-08-sedpython/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">AWS Fargateを使用してNginxを起動した(ENI使用)
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>AWS Fargateとは AWS re:Invent2017でAWSが発表したコンテナホスト(インスタンス)を意識せずにコンテナを管理できるオーケストレーションサービスです。 現時点ではバージニア(us-east-1)リージョンのみでGAとなっています。 ちなみに、re:Inventに参加したので、現地でキーノートを聞いていましたが、同時にEKSも発表され待望のサービスが来た！という感じで私も会場もめちゃくちゃ興奮してました。
+やってみる クラスタの作成 リージョンはバージニアを選択し、Elastic Container Serviceの画面を開きます。 クラスターの作成ボタンを押してクラスタの作成を始めます。 (私の環境は元々別のクラスタが作成してあったので初めての場合表示が違うかもしれません) クラスタテンプレートの選択 以下の3つのクラスタテンプレートが選択できます。
+Network only EC2 Linux &#43; Networking EC2 Windows &#43; Networking Network onlyがFargateのようなので、こちらを選択して次のステップへ進みます。 クラスタの設定 ここではクラスタ名とネットワークの設定をします。 クラスタ名はFargateTestにしてみました。 また、このクラスタ用にVPCも合わせて作ってくれるオプションがあったので選択しました。 値はデフォルトのままで作成。 起動ステータスの確認 作成が始まるとCloudFormationスタックが走ります。 しばらくするとイイ感じにクラスタができあがります。 クラスタの状態を確認 当然ですが実行中のタスクもサービスもありません。 タスク定義作成 新しくNginxを起動するタスクを定義します。 (私の環境は元々別のタスクが登録してあったので初めての場合表示が違うかもしれません) ローンチタイプの選択 FARGATEとEC2が選択できるので、当然FARGATEを選んで次のステップに進みます。 タスク定義の設定 適当にタスク定義に名前をつけます。ここではTestNginxとしました。 タスクのサイズ指定でメモリとvCPUを選択できます。 メモリは0.5GBと1GB~30GBまで1GB刻みで調整できるようです。 CPUは0.25、0.5、1、2、4から選択します。 ここではどちらも最小値の0.5GB、0.25vCPUを選択しました。 続いてコンテナの追加を行います。 コンテナの追加 コンテナ名を適当に定義します。ここではTestNginxにしました。 また、使用するコンテナイメージを指定します。DockerHubで公開されているNginxイメージをそのまま指定しました。 Nginxコンテナはポート80でListenするのでポートマッピングの設定は80となります。 その他は特に変更せずに追加し、そのまま作成します。 ローンチステータスの確認 ECSタスクと必要なIAM Roleが定義されたようです。 サービスの作成 クラスタの一覧から今回作成したFargateTestを選択します。 サービスの作成 サービスタブ内から作成します。 サービスの設定 Launch Typeは当然FARGATEを選択します。 また、タスク定義は先程作成したTestNginxを指定します。 サービス名には適当な名前をつけます。ここではTestNginxとしました。 ネットワーク構成の設定 参加するVPCを指定します。たぶん最初に作ったVPC IDが指定されていると思います。 コンテナが起動するサブネットを追加します。AZごとに別れていると思います。 また、セキュリティグループを編集することで既存のセキュリティグループを指定したり新規作成の内容を微調整できるようです。デフォルトのままだとポート80をAnyで公開します。 今回はELBを使用せずに直接コンテナに接続してみたいのでELBタイプはなしを選択しました。 このまま次のステップに進みます。 ...</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-05 21:36:02 +0900 +0900'>December 5, 2017</span></footer>
+  <a class="entry-link" aria-label="post link to AWS Fargateを使用してNginxを起動した(ENI使用)" href="http://localhost:1313/posts/2017-12-05-aws-fargatenginxeni/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Macにpyenvを入れたらbrew doctorで怒られるようになったので対応したメモ
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Ansibleの1.9系と2.0系を両方使いたくてpyenvを導入したらHomebrewに怒られた。
+$ brew doctor Please note that these warnings are just used to help the Homebrew maintainers with debugging if you file an issue. If everything you use Homebrew for is working fine: please don&#39;t worry and just ignore them. Thanks! Warning: &#34;config&#34; scripts exist outside your system or Homebrew directories. `./configure` scripts often look for *-config scripts to determine if software packages are installed, and what additional flags to use when compiling and linking. Having additional scripts in your path can confuse software installed via Homebrew if the config script overrides a system or Homebrew provided script of the same name. We found the following &#34;config&#34; scripts: /Users/tsukapah/.pyenv/shims/python-config /Users/tsukapah/.pyenv/shims/python2-config /Users/tsukapah/.pyenv/shims/python2.7-config PATHが通ってるところとかHomebrew関連のディレクトリに管理外の*-configが悪影響及ぼすかもしれないからどうにかしてねー、って感じでしょうか。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-08-14 15:39:37 +0900 +0900'>August 14, 2017</span></footer>
+  <a class="entry-link" aria-label="post link to Macにpyenvを入れたらbrew doctorで怒られるようになったので対応したメモ" href="http://localhost:1313/posts/2017-08-14-macpyenvbrew-doctor/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">ElasitcsearchのReindex APIを使ってみた
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Reindex APIが便利そうだったので検証してみました。
+検証環境 Mac OS X El Capitan(10.11.6) Docker version 17.03.1-ce, build c6d412e docker-machine version 0.10.0, build 76ed2a6 VirtualBox 5.1.14 r112924 (Qt5.6.2) 検証開始 コンテナホストの起動 $ docker-machine create elasticsearch --driver virtualbox Elasticsearchコンテナの起動 $ eval $(docker-machine env elasticsearch) $ docker run -d \ -e &#34;http.host=0.0.0.0&#34; \ -e &#34;transport.host=127.0.0.1&#34; \ -e &#34;xpack.security.enabled=false&#34; \ -e &#34;xpack.monitoring.enabled=false&#34; \ -e &#34;xpack.watcher.enabled=false&#34; \ -e &#34;xpack.graph.enabled=false&#34; \ -e &#34;xpack.ml.enabled=false&#34; \ -e &#34;ES_JAVA_OPTS=-Xms512m -Xmx512m&#34; \ -p 9200:9200 \ -p 9300:9300 \ --name elasticsearch \ docker.elastic.co/elasticsearch/elasticsearch:5.4.1 $ curl $(docker-machine ip elasticsearch):9200 { &#34;name&#34; : &#34;3VeUTYk&#34;, &#34;cluster_name&#34; : &#34;docker-cluster&#34;, &#34;cluster_uuid&#34; : &#34;BCo9uLM_SZqThWdYIMO9AA&#34;, &#34;version&#34; : { &#34;number&#34; : &#34;5.4.1&#34;, &#34;build_hash&#34; : &#34;2cfe0df&#34;, &#34;build_date&#34; : &#34;2017-05-29T16:05:51.443Z&#34;, &#34;build_snapshot&#34; : false, &#34;lucene_version&#34; : &#34;6.5.1&#34; }, &#34;tagline&#34; : &#34;You Know, for Search&#34; } インデックスの作成 ひとまず細かい設定はしない状態のインデックスを作成してみます。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-06-05 16:55:29 +0900 +0900'>June 5, 2017</span></footer>
+  <a class="entry-link" aria-label="post link to ElasitcsearchのReindex APIを使ってみた" href="http://localhost:1313/posts/2017-06-05-elasitcsearchreindex-api/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Elasticsearchクラスタにノードを追加してみる
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>こちらの記事でElasticsearchの複数台クラスタが作れるようになりました。 せっかくなので、あとからノードを追加する検証をしてみます。
+環境はこちらを再利用します。
+検証手順 現状の確認をする $ curl $(docker-machine ip elasticsearch1):9200/_cluster/health?pretty { &#34;cluster_name&#34; : &#34;docker-cluster&#34;, &#34;status&#34; : &#34;green&#34;, &#34;timed_out&#34; : false, &#34;number_of_nodes&#34; : 3, &#34;number_of_data_nodes&#34; : 3, &#34;active_primary_shards&#34; : 0, &#34;active_shards&#34; : 0, &#34;relocating_shards&#34; : 0, &#34;initializing_shards&#34; : 0, &#34;unassigned_shards&#34; : 0, &#34;delayed_unassigned_shards&#34; : 0, &#34;number_of_pending_tasks&#34; : 0, &#34;number_of_in_flight_fetch&#34; : 0, &#34;task_max_waiting_in_queue_millis&#34; : 0, &#34;active_shards_percent_as_number&#34; : 100.0 } $ curl $(docker-machine ip elasticsearch1):9200/_cat/shards?v index shard prirep state docs store ip node test 2 r STARTED 0 130b 192.168.99.105 bmXE705 test 2 p STARTED 0 130b 192.168.99.106 fyEAVyY test 1 p STARTED 0 130b 192.168.99.104 efZ1klG test 1 r STARTED 0 130b 192.168.99.106 fyEAVyY test 4 r STARTED 0 130b 192.168.99.105 bmXE705 test 4 p STARTED 0 130b 192.168.99.104 efZ1klG test 3 p STARTED 0 130b 192.168.99.105 bmXE705 test 3 r STARTED 0 130b 192.168.99.104 efZ1klG test 0 p STARTED 0 130b 192.168.99.105 bmXE705 test 0 r STARTED 0 130b 192.168.99.106 fyEAVyY インデックス作成時に特にシャーディングについての設定を実施していないので、 testインデックスのプライマリシャードは5、レプリカシャードは1でインデックスが作成されており、 各シャードは以下のように配置されています。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-06-02 19:54:55 +0900 +0900'>June 2, 2017</span></footer>
+  <a class="entry-link" aria-label="post link to Elasticsearchクラスタにノードを追加してみる" href="http://localhost:1313/posts/2017-06-02-elasticsearch/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Dockerを使用した複数ホストでのElasticsearchクラスタの構築検証
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>※この記事は個人ブログに移行しました
+Elasticsearchは公式でコンテナイメージを提供してくれているのでそれを利用してクラスタを組みたいと思います。 ドキュメントにはdocker-compose.ymlも公開されていますが、docker-composeということはコンテナホストはひとつになるから可用性的にNGだなー、と感じました。(Swarm modeとか使うと解決できるのかな？) コンテナホストは複数台に分散したいと考えたので、検証してみました。
+検証環境 Mac OS X El Capitan(10.11.6) docker-machine version 0.10.0, build 76ed2a6 VirtualBox 5.1.14 r112924 (Qt5.6.2) ポイント docker-machineを利用してVirtualBox上に3つのコンテナホストを起動 各コンテナホストに公式のコンテナイメージをデプロイ Dockerのネットワークドライバはhostモードを利用する 検証手順 コンテナホストの準備 コンテナホストの作成 VirtualBox上にコンテナホストを3つ起動します。
+$ docker-machine create --driver virtualbox elasticsearch1 $ docker-machine create --driver virtualbox elasticsearch2 $ docker-machine create --driver virtualbox elasticsearch3 コンテナホストのメモリマップ上限の引き上げ 公式にも書いてある通り、設定しないとコンテナが起動しない(開発者モードなら起動するかも)ので設定します。
+$ docker-machine ssh elasticsearch1 sudo sysctl -w vm.max_map_count=262144 $ docker-machine ssh elasticsearch2 sudo sysctl -w vm.max_map_count=262144 $ docker-machine ssh elasticsearch3 sudo sysctl -w vm.max_map_count=262144 Elaticsearchの起動〜動作確認 Elasticsearchコンテナの起動 Elasticが独自に公開しているコンテナレジストリよりイメージを取得して起動します。 環境変数(-e)でパラメータを渡すとElasticsearchの設定を上書きできるのでいきなり起動できます。 検証で渡したパラメータは以下の通り。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-06-02 00:33:23 +0900 +0900'>June 2, 2017</span></footer>
+  <a class="entry-link" aria-label="post link to Dockerを使用した複数ホストでのElasticsearchクラスタの構築検証" href="http://localhost:1313/posts/2017-06-02-dockerelasticsearch/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[社内向け]Docker勉強会(コンテナ同士の通信)
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>前回で、コンテナを使ってアプリケーションを実行するキホンは伝わったと信じてます。
+コンテナの通信 アプリケーションを実行できるようになってくると、自然と別のコンテナと通信したいケースに出くわします。 コンテナ間の通信には大きく別けて2種類存在しています。
+異なるホストで動くコンテナ間の通信 こちらの場合、接続元コンテナは接続先コンテナが動くコンテナホストのIPアドレスに向かって通信すれば良いだけです。 サービスディスカバリを理由にコンテナホストを意識したくない場合は後述するoverlayネットワークを使用することになりますが、当記事では詳しく扱いません。
+同一ホスト内で動く異なるコンテナ間の通信 今回は主にこちらについて記載します。
+Dockerのネットワーク Dockerはコンテナ間の通信をサポートしており、デフォルトでDocker Engine内に3つのネットワークを作成します。
+$ docker network ls NETWORK ID NAME DRIVER SCOPE fea25e294b20 bridge bridge local 3762bcd6bffb host host local f21c4ff0a40e none null local DRIVERという項目があるのでまずはその説明をします。
+DRIVER名 説明 bridge コンテナ内にループバックインターフェースloと、仮想インターフェースeth0を作ります。eth0には同一bridgeネットワーク内で一意のIPアドレスが割り当てられます。eth0はホスト上の仮想インターフェースにパイプされ、ポートマッピングをすることで公開することができます。bridgeネットワークは単一のホスト内で完結します。 host ホスト上のインターフェースがそのまま利用されます。 none インターフェースを作りません。 overlay 複数ホストにまたがったbridgeネットワークを作成できます。overlayネットワークは管理のためにKVSを必要とし、現在サポートされているのはConsul、Etcd、Zookeeperです。 特別な理由がない限りbridgeネットワークを選択すればよいです。 なにも指定せずにdocker runした場合、デフォルトのbridgeネットワークに参加します。 ただし、デフォルトのbridgeネットワークはサービスディスカバリをサポートしていない(名前解決してくれない)ため、このネットワークを使ってコンテナ同士を通信する場合は自力でIPアドレスを探し出して通信先に指定する必要がありますが、それは現実的ではありません。
+ユーザ定義bridgeネットワーク 自分で個別にbridgeネットワークを作成することも可能です。 ユーザが定義したbridgeネットワークについてはサービスディスカバリがサポートされています。
+ユーザ定義bridgeネットワークの作成 特に意味のあるシステム構成ではないですが、違いがお手軽にわかりやすいので以下のような構成を作りたいと思います。 環境はDocker for Macでやってますが他の環境でも基本的には変わりません。 ...</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-05-18 22:07:46 +0900 +0900'>May 18, 2017</span></footer>
+  <a class="entry-link" aria-label="post link to [社内向け]Docker勉強会(コンテナ同士の通信)" href="http://localhost:1313/posts/2017-05-18-docker/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="next" href="http://localhost:1313/posts/page/2/">Next&nbsp;&nbsp;»
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">My New Hugo Project</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

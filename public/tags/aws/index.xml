@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>AWS on My New Hugo Project</title>
+    <link>http://localhost:1313/tags/aws/</link>
+    <description>Recent content in AWS on My New Hugo Project</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 21 Apr 2022 17:13:35 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Apex&#43;Terraformでサーバレスアーキテクチャをフルコード化</title>
+      <link>http://localhost:1313/posts/2019-04-06-apexterraform/</link>
+      <pubDate>Sat, 06 Apr 2019 00:16:08 +0900</pubDate>
+      <guid>http://localhost:1313/posts/2019-04-06-apexterraform/</guid>
+      <description>私のチームではAWSにおけるインフラの構成管理にTerraformを利用しています。</description>
+    </item>
+    <item>
+      <title>Bitbucket Pilelines/Deployments入門</title>
+      <link>http://localhost:1313/posts/2018-03-05-bitbucket-pilelinesdeployments/</link>
+      <pubDate>Mon, 05 Mar 2018 17:25:53 +0900</pubDate>
+      <guid>http://localhost:1313/posts/2018-03-05-bitbucket-pilelinesdeployments/</guid>
+      <description>Amazon S3とCloudFrontを使用してスタティックなWebコンテンツを配信・運用しているんですが、</description>
+    </item>
+    <item>
+      <title>AWS Fargateを使用してNginxを起動した(ENI使用)</title>
+      <link>http://localhost:1313/posts/2017-12-05-aws-fargatenginxeni/</link>
+      <pubDate>Tue, 05 Dec 2017 21:36:02 +0900</pubDate>
+      <guid>http://localhost:1313/posts/2017-12-05-aws-fargatenginxeni/</guid>
+      <description>AWS re:Invent2017でAWSが発表したコンテナホスト(インスタンス)を意識せずにコンテナを管理できるオーケストレーションサービスです。</description>
+    </item>
+    <item>
+      <title>ELBのログをEmbulkでElasticsearchに入れたメモ</title>
+      <link>http://localhost:1313/posts/2017-02-06-elbembulkelasticsearch/</link>
+      <pubDate>Mon, 06 Feb 2017 22:07:45 +0900</pubDate>
+      <guid>http://localhost:1313/posts/2017-02-06-elbembulkelasticsearch/</guid>
+      <description>※こちらの記事は[個人ブログ](https://tech.tsukapah.com/elb-elasticsearch-with-embulk/)に移行しました</description>
+    </item>
+    <item>
+      <title>Docker&#43;Grafanaでアカウントを横断してCloudWatchを可視化する</title>
+      <link>http://localhost:1313/posts/2017-01-24-dockergrafanacloudwatch/</link>
+      <pubDate>Tue, 24 Jan 2017 19:39:34 +0900</pubDate>
+      <guid>http://localhost:1313/posts/2017-01-24-dockergrafanacloudwatch/</guid>
+      <description>※こちらの記事は[個人ブログ](https://tech.tsukapah.com/docker-grafana/)に移行しました</description>
+    </item>
+    <item>
+      <title>Amazon AthenaでCloudFrontのログにクエリを投げたメモ</title>
+      <link>http://localhost:1313/posts/2016-12-09-amazon-athenacloudfront/</link>
+      <pubDate>Fri, 09 Dec 2016 18:57:01 +0900</pubDate>
+      <guid>http://localhost:1313/posts/2016-12-09-amazon-athenacloudfront/</guid>
+      <description>※当記事は[個人ブログ](https://tech.tsukapah.com/athena-cloudfront/)に移行しました</description>
+    </item>
+    <item>
+      <title>CodeDeployの上限に引っかかった話</title>
+      <link>http://localhost:1313/posts/2016-07-05-codedeploy/</link>
+      <pubDate>Tue, 05 Jul 2016 14:19:55 +0900</pubDate>
+      <guid>http://localhost:1313/posts/2016-07-05-codedeploy/</guid>
+      <description>※こちらの記事は[個人ブログ](https://tech.tsukapah.com/limited-codedeploy/)に移行しました。</description>
+    </item>
+    <item>
+      <title>CloudFormationでCodeDeploy</title>
+      <link>http://localhost:1313/posts/2016-06-07-cloudformationcodedeploy/</link>
+      <pubDate>Tue, 07 Jun 2016 19:42:52 +0900</pubDate>
+      <guid>http://localhost:1313/posts/2016-06-07-cloudformationcodedeploy/</guid>
+      <description>こちらの記事は[個人ブログ](https://tech.tsukapah.com/cloudformation-codedeploy/)に移行しました</description>
+    </item>
+    <item>
+      <title>CloudFormationを使ってS3で静的コンテンツを公開する</title>
+      <link>http://localhost:1313/posts/2015-07-30-cloudformations3/</link>
+      <pubDate>Thu, 30 Jul 2015 19:49:25 +0900</pubDate>
+      <guid>http://localhost:1313/posts/2015-07-30-cloudformations3/</guid>
+      <description>※こちらの記事は[個人ブログ](https://tech.tsukapah.com/publish-static-content-on-s3-using-cloudformation/)に移行しました。</description>
+    </item>
+    <item>
+      <title>aws-cliを使ってS3で静的コンテンツを公開する</title>
+      <link>http://localhost:1313/posts/2015-07-22-aws-clis3/</link>
+      <pubDate>Wed, 22 Jul 2015 12:39:04 +0900</pubDate>
+      <guid>http://localhost:1313/posts/2015-07-22-aws-clis3/</guid>
+      <description>※こちらの記事は[個人ブログ](https://tech.tsukapah.com/publish-your-site-on-s3-using-the-command-line/)に移行しました。</description>
+    </item>
+    <item>
+      <title>[EC2]SSHの秘密鍵をAWSからダウンロードするのはおかしいよね</title>
+      <link>http://localhost:1313/posts/2015-03-05-ec2sshaws/</link>
+      <pubDate>Thu, 05 Mar 2015 18:08:12 +0900</pubDate>
+      <guid>http://localhost:1313/posts/2015-03-05-ec2sshaws/</guid>
+      <description>※こちらの記事は[個人ブログ](https://tech.tsukapah.com/register-your-public-key-with-aws/)に移行しました。</description>
+    </item>
+  </channel>
+</rss>

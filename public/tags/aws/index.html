@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>AWS | My New Hugo Project</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/tags/aws/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.199042e659bc7245f5609d333d6c044eb554a0640849bb874e1dff8eb0f57209.css" integrity="sha256-GZBC5lm8ckX1YJ0zPWwETrVUoGQISbuHTh3/jrD1cgk=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/tags/aws/index.xml" title="rss">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/tags/aws/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body class="list" id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="My New Hugo Project (Alt + H)">My New Hugo Project</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header">
+  <h1>
+    AWS
+  </h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Apex&#43;Terraformでサーバレスアーキテクチャをフルコード化
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>私のチームではAWSにおけるインフラの構成管理にTerraformを利用しています。 ただ、最近は性能がそれほど求められないバッチ処理やAPI等はサーバレスアーキテクチャを採用することが多くなってきました。 しかし、Lambdaファンクションのコード自体のデプロイをTerraformに任せるのがしんどかったりするので、 Lambdaのデプロイは開発チームが利用していたServerless Frameworkに切り分けています。 これには大きな課題があって、Terraformで作ったS3のイベントをトリガーにするLambdaファンクションを作りたい、みたいな、後からLambdaを追加する要件に対応しきれずに悩んでいました。 そんなときにApexはTerraformをWrapできるらしいと天から声が降りてきたので試してみることにしてみました。
+検証に利用した環境 MacOS X(10.11.6) Apex(1.0.0-rc2) Terraform(v0.11.11)
+※当エントリではApexやTerraformの導入については触れません 作る環境 ファイル構成 ./project.json # プロジェクト全体の定義(たぶんfunction.jsonで設定を上書きできる気がする) ./functions/hello/function.json # 関数の定義 ./functions/hello/hello.py # Lambdaで実行するコード(別にPythonじゃなくてもOK) ./infrastructure/main.tf # Terraformで管理するAWSリソースの定義 ./project.json たぶんプロジェクト全体の共通設定を記載する感じだと思います。 すいません、ちゃんと調べてません。。。
+{ &#34;name&#34;: &#34;apex-sample&#34;, &#34;description&#34;: &#34;apex test 20190405&#34;, &#34;memory&#34;: 128, &#34;timeout&#34;: 5, &#34;role&#34;: &#34;arn:aws:iam::{各自のAWS Account ID}:role/apex_sample&#34;, &#34;environment&#34;: {} } ./functions/hello/function.json 利用するruntimeや関数名を定義します。 runtimeとhandlerさえちゃんとしてれば最低限は大丈夫だと思います。
+{ &#34;description&#34;: &#34;hello&#34;, &#34;runtime&#34;: &#34;python3.6&#34;, &#34;handler&#34;: &#34;hello.lambda_handler&#34;, &#34;environment&#34;: { &#34;ENV&#34;: &#34;dev&#34; } } ./functions/hello/hello.py hello worldをレスポンスボディに返すだけの処理です。 最低限API Gatewayの仕様に則ったレスポンスを返せれば大丈夫です。
+#!/usr/bin/env python # -*- coding: utf-8 -*- def lambda_handler(event, context): json = {&#34;statusCode&#34;: 200, &#34;body&#34;: &#34;hello world&#34;} return json ./infrastructure/main.tf 完全にTerraformのコードです。 めんどくさがって雑な感じに1ファイルにまとめちゃいましたが、module化したりしたほうが管理はしやすいと思います。 variable &#34;apex_function_hello&#34; {}でapexから変数を受け取るのがポイントです。 定義しているリソースはざっくりIAM RoleとAPI Gatewayだけです。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-04-06 00:16:08 +0900 +0900'>April 6, 2019</span></footer>
+  <a class="entry-link" aria-label="post link to Apex&#43;Terraformでサーバレスアーキテクチャをフルコード化" href="http://localhost:1313/posts/2019-04-06-apexterraform/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Bitbucket Pilelines/Deployments入門
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>はじめに Amazon S3とCloudFrontを使用してスタティックなWebコンテンツを配信・運用しているんですが、 「AWSのコンソールポチポチするのストレス更新時の運用を楽にしたいんじゃ！」というディレクターやデザイナーの要望に答えるためにBitbucket Pipelinesを使用して自動化してみました。 スタティックなファイルのデプロイなので、PipelinesとしてもDeploymentsとしても入門レベルの内容だと思います。
+前提 S3&#43;CloudFrontでコンテンツ配信できる環境が整っていること BitBucketのGitリポジトリがあること 手順 1. IAMユーザの作成 Bitbucket Pipelinesがデプロイに使用するIAMユーザを作成します。 IAMにはS3のオブジェクトを更新するのに必要な権限と、CloudFrontのInvalidationリクエストができる権限が必要です。 ポリシーそのものは適宜作成してください。
+ユーザを作成したら、アクセスキーの生成をしてキーペアを取得してください。
+2. BitBucketの設定 2.1 Pipelinesの有効化 リポジトリの左メニューより　設定 &gt; PIPELINES Setting &gt; Enable Pipelinesを有効にします。
+2.2 環境変数の設定 リポジトリの左メニューより　設定 &gt; PIPELINES Environment variablesに進み、以下の環境変数を定義します。
+Variable name Value Secured AWS_ACCESS_KEY_ID 手順1で取得したACCESS_KEY_ID :heavy_check_mark: AWS_SECRET_ACCESS_KEY 手順1で取得したSECRET_ACCESS_KEY :heavy_check_mark: CONTENTS_BUCKET デプロイ先のバケット名 DISTRIBUTION_ID CloudFront distributionのID なんらかの理由でS3のバケットが変更になったり、CloudFrontのDistributionが変わったりした場合でもGitのコミットなしで変更できるようにキーペア以外も環境変数で定義してみました。
+2.3 Pipelineの定義 以下のファイルをリポジトリ直下にコミットします。
+image: python:3.6.4 pipelines: branches: master: - step: name: Print Message caches: - pip script: - echo &#34;Deploy process to production environment started&#34; - step: name: Deploy to Production(push to S3 and cache invalidation) deployment: production trigger: manual caches: - pip script: # Install - pip install awscli # Push to S3 - aws s3 sync . s3://${CONTENTS_BUCKET} --delete --exclude &#39;.git/*&#39; --exclude &#39;.gitignore&#39; --exclude &#39;README.md&#39; --exclude &#39;bitbucket-pipelines.yml&#39; # Requesting cache invalidation - aws cloudfront create-invalidation --distribution-id ${DISTRIBUTION_ID} --path &#39;/*&#39; この内容の場合、リモートリポジトリ(Bitbucket)のmasterブランチにマージされるとPipelineが走り出します。 trigger: manualは最初のstepには記述できないようなので、echoでメッセージを出力するだけのstepを記述し、2つめのstepに処理を記載しています。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2018-03-05 17:25:53 +0900 +0900'>March 5, 2018</span></footer>
+  <a class="entry-link" aria-label="post link to Bitbucket Pilelines/Deployments入門" href="http://localhost:1313/posts/2018-03-05-bitbucket-pilelinesdeployments/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">AWS Fargateを使用してNginxを起動した(ENI使用)
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>AWS Fargateとは AWS re:Invent2017でAWSが発表したコンテナホスト(インスタンス)を意識せずにコンテナを管理できるオーケストレーションサービスです。 現時点ではバージニア(us-east-1)リージョンのみでGAとなっています。 ちなみに、re:Inventに参加したので、現地でキーノートを聞いていましたが、同時にEKSも発表され待望のサービスが来た！という感じで私も会場もめちゃくちゃ興奮してました。
+やってみる クラスタの作成 リージョンはバージニアを選択し、Elastic Container Serviceの画面を開きます。 クラスターの作成ボタンを押してクラスタの作成を始めます。 (私の環境は元々別のクラスタが作成してあったので初めての場合表示が違うかもしれません) クラスタテンプレートの選択 以下の3つのクラスタテンプレートが選択できます。
+Network only EC2 Linux &#43; Networking EC2 Windows &#43; Networking Network onlyがFargateのようなので、こちらを選択して次のステップへ進みます。 クラスタの設定 ここではクラスタ名とネットワークの設定をします。 クラスタ名はFargateTestにしてみました。 また、このクラスタ用にVPCも合わせて作ってくれるオプションがあったので選択しました。 値はデフォルトのままで作成。 起動ステータスの確認 作成が始まるとCloudFormationスタックが走ります。 しばらくするとイイ感じにクラスタができあがります。 クラスタの状態を確認 当然ですが実行中のタスクもサービスもありません。 タスク定義作成 新しくNginxを起動するタスクを定義します。 (私の環境は元々別のタスクが登録してあったので初めての場合表示が違うかもしれません) ローンチタイプの選択 FARGATEとEC2が選択できるので、当然FARGATEを選んで次のステップに進みます。 タスク定義の設定 適当にタスク定義に名前をつけます。ここではTestNginxとしました。 タスクのサイズ指定でメモリとvCPUを選択できます。 メモリは0.5GBと1GB~30GBまで1GB刻みで調整できるようです。 CPUは0.25、0.5、1、2、4から選択します。 ここではどちらも最小値の0.5GB、0.25vCPUを選択しました。 続いてコンテナの追加を行います。 コンテナの追加 コンテナ名を適当に定義します。ここではTestNginxにしました。 また、使用するコンテナイメージを指定します。DockerHubで公開されているNginxイメージをそのまま指定しました。 Nginxコンテナはポート80でListenするのでポートマッピングの設定は80となります。 その他は特に変更せずに追加し、そのまま作成します。 ローンチステータスの確認 ECSタスクと必要なIAM Roleが定義されたようです。 サービスの作成 クラスタの一覧から今回作成したFargateTestを選択します。 サービスの作成 サービスタブ内から作成します。 サービスの設定 Launch Typeは当然FARGATEを選択します。 また、タスク定義は先程作成したTestNginxを指定します。 サービス名には適当な名前をつけます。ここではTestNginxとしました。 ネットワーク構成の設定 参加するVPCを指定します。たぶん最初に作ったVPC IDが指定されていると思います。 コンテナが起動するサブネットを追加します。AZごとに別れていると思います。 また、セキュリティグループを編集することで既存のセキュリティグループを指定したり新規作成の内容を微調整できるようです。デフォルトのままだとポート80をAnyで公開します。 今回はELBを使用せずに直接コンテナに接続してみたいのでELBタイプはなしを選択しました。 このまま次のステップに進みます。 ...</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-05 21:36:02 +0900 +0900'>December 5, 2017</span></footer>
+  <a class="entry-link" aria-label="post link to AWS Fargateを使用してNginxを起動した(ENI使用)" href="http://localhost:1313/posts/2017-12-05-aws-fargatenginxeni/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">ELBのログをEmbulkでElasticsearchに入れたメモ
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>※こちらの記事は個人ブログに移行しました
+前提 Elasticsearch : 5.2.0 Embulk : v0.8.16
+ELBのログについてはこちらを参照
+Elasticsearch Mapping Elasticsearchのインデックステンプレートを定義する 以下をelblog.jsonとして保存
+{ &#34;template&#34;: &#34;elblog&#34;, &#34;mappings&#34;: { &#34;log&#34;: { &#34;properties&#34;: { &#34;timestamp&#34;: { &#34;type&#34;: &#34;date&#34; }, &#34;elb&#34;: { &#34;type&#34;: &#34;string&#34;, &#34;index&#34;: &#34;not_analyzed&#34; }, &#34;client_port&#34;: { &#34;type&#34;: &#34;string&#34;, &#34;index&#34;: &#34;not_analyzed&#34; }, &#34;backend_port&#34;: { &#34;type&#34;: &#34;string&#34;, &#34;index&#34;: &#34;not_analyzed&#34; }, &#34;request_processing_time&#34;: { &#34;type&#34;: &#34;float&#34; }, &#34;backend_processing_time&#34;: { &#34;type&#34;: &#34;float&#34; }, &#34;response_processing_time&#34;: { &#34;type&#34;: &#34;float&#34; }, &#34;elb_status_code&#34;: { &#34;type&#34;: &#34;string&#34;, &#34;index&#34;: &#34;not_analyzed&#34; }, &#34;backend_status_code&#34;: { &#34;type&#34;: &#34;string&#34;, &#34;index&#34;: &#34;not_analyzed&#34; }, &#34;received_bytes&#34;: { &#34;type&#34;: &#34;long&#34; }, &#34;sent_bytes&#34;: { &#34;type&#34;: &#34;long&#34; }, &#34;request&#34;: { &#34;type&#34;: &#34;string&#34;, &#34;index&#34;: &#34;not_analyzed&#34; }, &#34;user_agent&#34;: { &#34;type&#34;: &#34;string&#34;, &#34;index&#34;: &#34;not_analyzed&#34; }, &#34;ssl_cipher&#34;: { &#34;type&#34;: &#34;string&#34;, &#34;index&#34;: &#34;not_analyzed&#34; }, &#34;ssl_protocol&#34;: { &#34;type&#34;: &#34;string&#34;, &#34;index&#34;: &#34;not_analyzed&#34; } } } } } Elasticsearchにインデックステンプレートを登録する &lt;es_host&gt;は適宜自分の環境に合わせること
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-02-06 22:07:45 +0900 +0900'>February 6, 2017</span></footer>
+  <a class="entry-link" aria-label="post link to ELBのログをEmbulkでElasticsearchに入れたメモ" href="http://localhost:1313/posts/2017-02-06-elbembulkelasticsearch/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Docker&#43;Grafanaでアカウントを横断してCloudWatchを可視化する
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>※こちらの記事は個人ブログに移行しました
+ちょっとしたモニタリングだったらCloudWatchでも十分。 ただ、普段コマンドラインツールで操作していることもあるし、複数アカウントを持っていたりするのでマネージメントコンソールだと使い勝手が悪い。 そんな悩みをGrafanaが解決してくれたので自分用にメモメモ。
+必要なもの AWSのIAM User aws-cli Docker for Mac(Docker Machineでも可) credentialsの登録 自分が普段使っているMacでは、aws-cliを使ってprofileをいくつも登録してある。 登録するときはこんな感じ。 profile名は適宜変更すること。 すでに作成済みの場合は実施不要。
+$ aws configure --profile hogehoge AWS Access Key ID [None]: aaaaa AWS Secret Access Key [None]: bbbbb Default region name [None]: Default output format [None]: すると、以下の感じで必要な情報が登録されているはず。
+$ cat ~/.aws/credentials [hogehoge] aws_access_key_id = aaaaa aws_secret_access_key = bbbbb credentialの取り扱いには気をつけること！
+DockerでGrafanaを起動 上記で作成したcredentialsを-vオプションでGrafanaコンテナに渡す。 公式イメージあるので捗る。 Grafanaは3000ポートでListenしているのでそれもあわせてマッピング。
+$ docker run -d -p 3000:3000 -v ~/.aws/credentials:/usr/share/grafana/.aws/credentials --name grafana grafana/grafana 3d7de10094f1d84dbedd8a77fb55ef5c997ccdde31722a114bcd25388b1a8b3d 起動した。
+Grafanaにデータを追加 接続してみる。
+$ open http://localhost:3000 ...</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-01-24 19:39:34 +0900 +0900'>January 24, 2017</span></footer>
+  <a class="entry-link" aria-label="post link to Docker&#43;Grafanaでアカウントを横断してCloudWatchを可視化する" href="http://localhost:1313/posts/2017-01-24-dockergrafanacloudwatch/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Amazon AthenaでCloudFrontのログにクエリを投げたメモ
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>※当記事は個人ブログに移行しました
+AWS re:Invent 2016 で発表された新サービス Amazon Athenaを早速(?)使ってみました。 S3にログを置いたままサーバレスでクエリが発行できるので集計等が捗ります。 すでに同様の記事も見かけましたが、デリミタの指定でうまくいかずにハマったのでメモ。 なお、CloudFrontのLogging設定はこの記事では触れません。
+Databaseの作成 CREATE DATABASE CloudFrontLogs; Tableの作成 マネージメントコンソール上でも定義できますが、 DDL書くほうが楽な気がしたので、2つくらいカラム定義したあたりでそっとキャンセルしました。
+CREATE EXTERNAL TABLE IF NOT EXISTS &lt;TableName&gt; ( date DATE, time STRING, xEdgeLocation STRING, scBytes INT, cIp STRING, csMethod STRING, csHost STRING, csUriStem STRING, scStatus INT, csReferer STRING, csUserAgent STRING, csUriQuery STRING, csCookie STRING, xEdgeResultType STRING, xEdgeRequestId STRING, xHostHeader STRING, csProtocol STRING, csBytes INT, timeTaken INT, xForwardedFor STRING, sslProtocol STRING, sslCipher STRING, xEdgeResponseResultType STRING, csProtocolVersion STRING ) ROW FORMAT SERDE &#39;org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe&#39; WITH SERDEPROPERTIES ( &#39;serialization.format&#39; = &#34;\t&#34;, &#39;field.delim&#39; = &#34;\t&#34; ) LOCATION &#39;s3://&lt;LogBacketName&gt;/&lt;LogPrefix&gt;/&#39; ; CloudFrontのログフォーマットはTSVです。 serialization.formatとfield.delimを&#39; &#39; --タブ文字みたいに表記している記事がいくつかありましたが、ドキュメントを見たら普通に&#34;\t&#34;でよいと書いてありました。 カラム名はお好みに合わせてよしなに変更してください。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2016-12-09 18:57:01 +0900 +0900'>December 9, 2016</span></footer>
+  <a class="entry-link" aria-label="post link to Amazon AthenaでCloudFrontのログにクエリを投げたメモ" href="http://localhost:1313/posts/2016-12-09-amazon-athenacloudfront/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">CodeDeployの上限に引っかかった話
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>※こちらの記事は個人ブログに移行しました。
+AutoScaleでEC2を100台にした後にデプロイしてみたらFailしました。 どうやらLimitに引っかかったようです。
+本番当日だったので泣きそうになりましたが、 まずは落ち着いてrequest a limit increaseしつつ、いったんEC2を50台まで減らしてからデプロイし、改めて100台に増やしました。 使うプロダクトの上限は把握したうえで計画的に利用しましょう。 もしくは、本番当日にデプロイしないでも済むように事前に調整しましょう。
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2016-07-05 14:19:55 +0900 +0900'>July 5, 2016</span></footer>
+  <a class="entry-link" aria-label="post link to CodeDeployの上限に引っかかった話" href="http://localhost:1313/posts/2016-07-05-codedeploy/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">CloudFormationでCodeDeploy
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>こちらの記事は個人ブログに移行しました
+CloudFormationでS3からAutoScalingGroupにデプロイする定義をしてみます。
+PackerでAMI作ってるの待ったり、CloudFormationのcreate-stack待ってる間にびゃーっと書いたので間違いとかあったら指摘して下さい。
+前提 デプロイ先のインスタンスにはCodeDeploy Agentのインストールをしておいて下さい。 また、S3からデプロイするので、適切にポリシーを定義したIAM Roleも割り当てておく必要があります。 参考までに、こちらで適用したポリシーが以下です。
+{ &#34;Version&#34;: &#34;2012-10-17&#34;, &#34;Statement&#34;: [ { &#34;Action&#34;: [ &#34;s3:Get*&#34;, &#34;s3:List*&#34;, &#34;s3:Put*&#34; ], &#34;Resource&#34;: &#34;*&#34;, &#34;Effect&#34;: &#34;Allow&#34; } ] } このCloudFormation TemplateでできるAWSリソース IAM Role CodeDeploy:Application CodeDeploy:DeploymentGroup 手順 デプロイしたいものを用意する デプロイしたいからCodeDeployを使うので、まずはデプロイするものを用意します。 とりあえず以下の感じで試します。
+$ tree . ├── appspec.yml └── www └── index.html 1 directory, 2 files デプロイを定義する appspec.ymlにはデプロイの定義を記載します。
+$ cat appspec.yml version: 0.0 os: linux files: - source: / destination: /tmp/ appspec.ymlのあるディレクトリ以下を、/tmpにデプロイする定義にしてみました。 きっと/tmp/www/index.htmlができるはずです。 特に前処理も後処理もしないのであればこれだけです。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2016-06-07 19:42:52 +0900 +0900'>June 7, 2016</span></footer>
+  <a class="entry-link" aria-label="post link to CloudFormationでCodeDeploy" href="http://localhost:1313/posts/2016-06-07-cloudformationcodedeploy/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">CloudFormationを使ってS3で静的コンテンツを公開する
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>※こちらの記事は個人ブログに移行しました。
+これと同じ内容をCloudFormationで実現します
+#前提
+aws-cliが入っていること
+IAMのパーミッションがいい感じに設定されていること
+Credentialがconfigureもしくは環境変数に設定されてること ※ --profile使ってもいいです
+default region が ap-northeast-1 で設定してあること ※ 別にいいんだけど適宜いい感じに読み替えて下さい
+Mac想定してるのでWindowsの人はEC2使うとかいい感じに読み替えるとかしてください
+loggingの設定はこの手順には含まれてません
+#手順
+CloudFormationTemplateの作成 Stackを作成するShellScriptの作成 Stackの作成 コンテンツの設置 #CloudFormationTemplateの作成
+{ &#34;AWSTemplateFormatVersion&#34; : &#34;2010-09-09&#34;, &#34;Mappings&#34; : { &#34;RegionMap&#34; : { &#34;us-east-1&#34; : { &#34;s3BucketDomain&#34; : &#34;us-east-1.amazonaws.com&#34; }, &#34;us-west-1&#34; : { &#34;s3BucketDomain&#34; : &#34;us-west-1.amazonaws.com&#34; }, &#34;us-west-2&#34; : { &#34;s3BucketDomain&#34; : &#34;us-west-2.amazonaws.com&#34; }, &#34;eu-west-1&#34; : { &#34;s3BucketDomain&#34; : &#34;eu-west-1.amazonaws.com&#34; }, &#34;sa-east-1&#34; : { &#34;s3BucketDomain&#34; : &#34;sa-east-1.amazonaws.com&#34; }, &#34;cu-north-1&#34; : { &#34;s3BucketDomain&#34; : &#34;cu-north-1.amazonaws.com&#34; }, &#34;ap-northeast-1&#34; : { &#34;s3BucketDomain&#34; : &#34;ap-northeast-1.amazonaws.com&#34; }, &#34;ap-southeast-1&#34; : { &#34;s3BucketDomain&#34; : &#34;ap-southeast-1.amazonaws.com&#34; }, &#34;ap-southeast-2&#34; : { &#34;s3BucketDomain&#34; : &#34;ap-southeast-2.amazonaws.com&#34; } } }, &#34;Parameters&#34; : { &#34;FQDN&#34; : { &#34;Type&#34; : &#34;String&#34;, &#34;Description&#34; : &#34;The DNS name of service FQDN&#34; } }, &#34;Resources&#34; : { &#34;S3BucketForWebsite&#34; : { &#34;Type&#34; : &#34;AWS::S3::Bucket&#34;, &#34;Properties&#34; : { &#34;AccessControl&#34; : &#34;PublicRead&#34;, &#34;BucketName&#34; : { &#34;Ref&#34; : &#34;FQDN&#34; }, &#34;WebsiteConfiguration&#34; : { &#34;ErrorDocument&#34; : &#34;error.html&#34;, &#34;IndexDocument&#34; : &#34;index.html&#34; } } }, &#34;BucketPolicyForWebsite&#34; : { &#34;Type&#34; : &#34;AWS::S3::BucketPolicy&#34;, &#34;Properties&#34; : { &#34;Bucket&#34; : { &#34;Ref&#34; : &#34;S3BucketForWebsite&#34; }, &#34;PolicyDocument&#34; : { &#34;Id&#34; : &#34;PublicRead&#34;, &#34;Version&#34;: &#34;2012-10-17&#34;, &#34;Statement&#34; : [ { &#34;Sid&#34; : &#34;ReadAccess&#34;, &#34;Action&#34; : [ &#34;s3:GetObject&#34; ], &#34;Effect&#34; : &#34;Allow&#34;, &#34;Resource&#34; : { &#34;Fn::Join&#34; : [&#34;&#34;, [&#34;arn:aws:s3:::&#34;, { &#34;Ref&#34; : &#34;S3BucketForWebsite&#34; } , &#34;/*&#34; ]]}, &#34;Principal&#34; : &#34;*&#34; } ] } } } }, &#34;Outputs&#34; : { &#34;WebsiteURL&#34; : { &#34;Value&#34; : { &#34;Fn::GetAtt&#34; : [ &#34;S3BucketForWebsite&#34;, &#34;WebsiteURL&#34; ] }, &#34;Description&#34; : &#34;URL for website hosted on S3&#34; } } } #Stackを作成するShellScriptの作成
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2015-07-30 19:49:25 +0900 +0900'>July 30, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to CloudFormationを使ってS3で静的コンテンツを公開する" href="http://localhost:1313/posts/2015-07-30-cloudformations3/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">aws-cliを使ってS3で静的コンテンツを公開する
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>※こちらの記事は個人ブログに移行しました。
+#前提
+aws-cliが入っていること
+IAMのパーミッションがいい感じに設定されていること
+Credentialがconfigureもしくは環境変数に設定されてること ※ --profile使ってもいいです
+default region が ap-northeast-1 で設定してあること ※ 別にいいんだけど適宜いい感じに読み替えて下さい
+Mac想定してるのでWindowsの人はEC2使うとかいい感じに読み替えるとかしてください
+loggingの設定はこの手順には含まれてません
+#手順
+バケットの作成 コンテンツの設置 Static Website Hostingを有効にする BucketPolicyを設定する ##バケットの作成
+$ BUCKET_NAME=backetnonamae $ aws s3 mb s3://${BUCKET_NAME} make_bucket: s3://backetnonamae/ ##コンテンツの設置 コンテンツはカレントディレクトリにあるものとして記載しています。 置いてあるファイルは/index.htmlと/css/index.cssの2つです。
+$ SC_DIR=$(pwd) $ aws s3 sync ${SC_DIR}/ s3://${BUCKET_NAME}/ upload: css/index.css to s3://backetnonamae/css/index.css upload: ./index.html to s3://backetnonamae/index.html ##Static Website Hostingを有効にする
+$ aws s3 website s3://${BUCKET_NAME} --index-document index.html (なし) ##BucketPolicyを設定する このポリシーを適用することでアップロードしたファイルはすべてpublicになります。 ###ポリシー用のjson作成
+$ PUBLIC_POLICY=public.json $ cat &lt;&lt; EOF &gt; ${PUBLIC_POLICY} { &#34;Version&#34;: &#34;2012-10-17&#34;, &#34;Id&#34;: &#34;PublicRead&#34;, &#34;Statement&#34;: [ { &#34;Sid&#34;: &#34;ReadAccess&#34;, &#34;Effect&#34;: &#34;Allow&#34;, &#34;Principal&#34;: &#34;*&#34;, &#34;Action&#34;: &#34;s3:GetObject&#34;, &#34;Resource&#34;: &#34;arn:aws:s3:::${BUCKET_NAME}/*&#34; } ] } EOF { &#34;Version&#34;: &#34;2012-10-17&#34;, &#34;Id&#34;: &#34;PublicRead&#34;, &#34;Statement&#34;: [ { &#34;Sid&#34;: &#34;ReadAccess&#34;, &#34;Effect&#34;: &#34;Allow&#34;, &#34;Principal&#34;: &#34;*&#34;, &#34;Action&#34;: &#34;s3:GetObject&#34;, &#34;Resource&#34;: &#34;arn:aws:s3:::backetnonamae/*&#34; } ] } ###ポリシーの適用
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2015-07-22 12:39:04 +0900 +0900'>July 22, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to aws-cliを使ってS3で静的コンテンツを公開する" href="http://localhost:1313/posts/2015-07-22-aws-clis3/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="next" href="http://localhost:1313/tags/aws/page/2/">Next&nbsp;&nbsp;»
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">My New Hugo Project</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Kibana | My New Hugo Project</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/tags/kibana/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.199042e659bc7245f5609d333d6c044eb554a0640849bb874e1dff8eb0f57209.css" integrity="sha256-GZBC5lm8ckX1YJ0zPWwETrVUoGQISbuHTh3/jrD1cgk=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/tags/kibana/index.xml" title="rss">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/tags/kibana/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body class="list" id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="My New Hugo Project (Alt + H)">My New Hugo Project</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header">
+  <h1>
+    Kibana
+  </h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">よく使うのでDocker ComposeでElasticsearchとKibanaを一撃で起動する
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>※こちらの記事は個人ブログに移行しました
+Docker Composeは複数のコンテナをまとめて定義・実行するためのツールです。 Docker Composeを使わないで個別に起動する方法はこちらです。
+実行環境 $ uname -v Darwin Kernel Version 15.6.0: Thu Sep 1 15:01:16 PDT 2016; root:xnu-3248.60.11~2/RELEASE_X86_64 $ docker --version Docker version 1.12.1, build 6f9534c $ docker-compose --version docker-compose version 1.8.0, build f3628c7 クラスタの定義 kibana: image: kibana links: - elasticsearch:elasticsearch ports: - 5601:5601 elasticsearch: image: elasticsearch ports: - 9200:9200 - 9300:9300 クラスタ起動(デタッチモード) $ docker-compose up -d Creating kibanacluster_elasticsearch_1 Creating kibanacluster_kibana_1 起動状態の確認 $ docker ps CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES eecb811cb144 kibana &#34;/docker-entrypoint.s&#34; 17 minutes ago Up 17 minutes 0.0.0.0:5601-&gt;5601/tcp kibanacluster_kibana_1 1c60a47ffd10 elasticsearch &#34;/docker-entrypoint.s&#34; 17 minutes ago Up 17 minutes 0.0.0.0:9200-&gt;9200/tcp, 0.0.0.0:9300-&gt;9300/tcp kibanacluster_elasticsearch_1 接続確認 $ curl localhost:9200 { &#34;name&#34; : &#34;shyHA8G&#34;, &#34;cluster_name&#34; : &#34;elasticsearch&#34;, &#34;cluster_uuid&#34; : &#34;9I82GX3XSRCaPzRwXwD04A&#34;, &#34;version&#34; : { &#34;number&#34; : &#34;5.0.0&#34;, &#34;build_hash&#34; : &#34;253032b&#34;, &#34;build_date&#34; : &#34;2016-10-26T05:11:34.737Z&#34;, &#34;build_snapshot&#34; : false, &#34;lucene_version&#34; : &#34;6.2.0&#34; }, &#34;tagline&#34; : &#34;You Know, for Search&#34; } $ open http://localhost:5601 ...</p>
+  </div>
+  <footer class="entry-footer"><span title='2016-11-06 23:24:01 +0900 +0900'>November 6, 2016</span></footer>
+  <a class="entry-link" aria-label="post link to よく使うのでDocker ComposeでElasticsearchとKibanaを一撃で起動する" href="http://localhost:1313/posts/2016-11-06-docker-composeelasticsearchkibana/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Kibanaの設定をまるっと別のElasticsearchに移したい(改訂版)
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>※当記事は個人ブログに移行しました
+以前こんな記事を書いたんですが、 そもそもKibana自身に設定をexport/importできる機能があることに気がついたので、 使ってみたいと思います。
+検証環境 これで用意。
+{ &#34;name&#34; : &#34;Zarek&#34;, &#34;cluster_name&#34; : &#34;elasticsearch&#34;, &#34;version&#34; : { &#34;number&#34; : &#34;2.1.0&#34;, &#34;build_hash&#34; : &#34;72cd1f1a3eee09505e036106146dc1949dc5dc87&#34;, &#34;build_timestamp&#34; : &#34;2015-11-18T22:40:03Z&#34;, &#34;build_snapshot&#34; : false, &#34;lucene_version&#34; : &#34;5.3.1&#34; }, &#34;tagline&#34; : &#34;You Know, for Search&#34; } 手順 Visualizeを作成する 移行するものがないと始まらないのでとりあえずVisualizeを作成します。 ちなみにすでにとあるWebサイトのアクセスログをサンプルとして入れてあるので、 トップページの時系列アクセス数のグラフにしてみます。
+上部メニューからVisualizeを選び、グラフの種類はVertical bar chartを選択します。 入力元を選びます。
+新しいVisualizeを作るのでFrom a new searchを選びます。 Y軸(縦軸)の設定をします。Y-Axisの Aggregation をcountにします。
+というかたぶん最初からそうなってると思います。
+この時点での見た目はこんな感じです。 Select buckets typeからX-Axisを選択します。
+これでX軸(横軸)が追加できるようになります。 X-Axisの Aggregation をDate Histogramにします。
+Field は@timestamp、 Interval はお好みに合わせてください。
+今回はAutoにしておきます。
+いったんこの状態でグラフを描画してみましょう。
+右向きの三角形を押すとグラフが更新されます。
+この時点での見た目はこんな感じです。 続いてトップページだけにフィルタリングを行います。
+Add sub-bucketsを押します。
+選択肢が出てきますがとりあえず今回はSplit Barsにしておきます。
+Sub Aggregation からFiltersを選びます。
+Filter 1 に絞り込みたい文字列を入力します。
+今回はrequestというFieldの値が&#34;GET / HTTP/1.1&#34;に絞り込んでみます。
+テキストボックスにrequest:&#34;GET / HTTP/1.1&#34;を入力します。
+フィルタの設定ができたのでグラフを更新しましょう。 右向き三角系を押します。
+こんな感じのグラフになりました。 作成したVisualizeを保存します。
+右上の方にあるフロッピーディスクっぽいボタンを押します1。 Dashboardを作成する せっかくなのでDashboardも作っちゃいます。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2016-03-04 19:24:33 +0900 +0900'>March 4, 2016</span></footer>
+  <a class="entry-link" aria-label="post link to Kibanaの設定をまるっと別のElasticsearchに移したい(改訂版)" href="http://localhost:1313/posts/2016-03-04-kibanaelasticsearch/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Kibanaの設定をまるっと別のElasticsearchに移したい！
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>※こちらの記事は個人ブログに移行しました
+新しくこちらの記事を書きましたのでそちらを参照することをオススメします。
+Kibanaの設定は全部Elasticsearchの.kibanaというインデックスに入っているので、単純にインデックスのお引越しの手順になります。
+Snapshot/Restoreを直接APIから実行するのもそんなにむずかしいことではありませんが、 もっと簡単にできそうだったのでESClientというツールを使ってみます。
+確認した環境 Elasticsearch 2.1.0 Kibana 4.3.0 手順 ESClientインストール $ pip install esclient ※必要に応じてsudoをつけてください .kibanaインデックスのエクスポート $ esdump --url http://&lt;Old Elasticsearch Host&gt;:&lt;Old Elasticsearch Port&gt;/ --indexes .kibana --bzip2 --file kibana.bz2 .kibanaインデックスのインポート $ esimport --url http://&lt;New Elasticsearch Host&gt;:&lt;New Elasticsearch Port&gt;/ --file kibana.bz2 補足 移行対象のデータに日本語が含まれていると、エンコードエラーが出るかもしれません。 その場合、pythonのデフォルトエンコードをUTF8にするなどで回避できます。
+とりあえず動作確認の環境が欲しければこちらもどうぞ。
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2015-12-14 17:16:37 +0900 +0900'>December 14, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to Kibanaの設定をまるっと別のElasticsearchに移したい！" href="http://localhost:1313/posts/2015-12-14-kibanaelasticsearch/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Dockerで Elasticsearch &#43; Kibana を動かしてみた
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>※こちらの記事は個人ブログに移行しました。
+Docker HubにElasticsearchとKibanaの公式イメージがあるのでそれを使ってみました。 こちらのREADMEに以下の記載がありました。
+This is the Git repo of the Docker Hub image for Elasticsearch. See the Docker Hub page for the full readme on how to use this Docker image and for information regarding contributing and issues. The Docker Hub image is not prepared in collaboration with nor supported by upstream Elastic which provides its own official image.
+Elastic社が独自に提供するイメージが公式みたいなのでそちらに変更します。
+前提 Dockerの実行環境があること。 Dockerの実行環境構築は色んな人が書いてくれてるので割愛します。 参考までに、こちらの環境はMac OS X &#43; VirtualBox &#43; docker-machineです。 ※Docker for Macを導入した際、この手順だと微妙なところがあったので修正しました。 ついでなので使用するコンテナのバージョンを5.0.0に変更しました。(2016/11/4) Elastic社が公開しているレジストリを参照するように変更し、バージョンを5.4.1に変更しました。また、レガシーなlink機能の利用をやめ、Bridgeネットワークを利用するように変更しました。(2017/6/3)
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2015-12-11 13:32:26 +0900 +0900'>December 11, 2015</span></footer>
+  <a class="entry-link" aria-label="post link to Dockerで Elasticsearch &#43; Kibana を動かしてみた" href="http://localhost:1313/posts/2015-12-11-docker-elasticsearch-kibana/"></a>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">My New Hugo Project</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

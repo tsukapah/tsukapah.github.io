@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Elb on My New Hugo Project</title>
+    <link>http://localhost:1313/tags/elb/</link>
+    <description>Recent content in Elb on My New Hugo Project</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 21 Apr 2022 17:13:35 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/elb/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ELBのログをEmbulkでElasticsearchに入れたメモ</title>
+      <link>http://localhost:1313/posts/2017-02-06-elbembulkelasticsearch/</link>
+      <pubDate>Mon, 06 Feb 2017 22:07:45 +0900</pubDate>
+      <guid>http://localhost:1313/posts/2017-02-06-elbembulkelasticsearch/</guid>
+      <description>※こちらの記事は[個人ブログ](https://tech.tsukapah.com/elb-elasticsearch-with-embulk/)に移行しました</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Terraform | My New Hugo Project</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/tags/terraform/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.199042e659bc7245f5609d333d6c044eb554a0640849bb874e1dff8eb0f57209.css" integrity="sha256-GZBC5lm8ckX1YJ0zPWwETrVUoGQISbuHTh3/jrD1cgk=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/tags/terraform/index.xml" title="rss">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/tags/terraform/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body class="list" id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="My New Hugo Project (Alt + H)">My New Hugo Project</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header">
+  <h1>
+    Terraform
+  </h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Apex&#43;Terraformでサーバレスアーキテクチャをフルコード化
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>私のチームではAWSにおけるインフラの構成管理にTerraformを利用しています。 ただ、最近は性能がそれほど求められないバッチ処理やAPI等はサーバレスアーキテクチャを採用することが多くなってきました。 しかし、Lambdaファンクションのコード自体のデプロイをTerraformに任せるのがしんどかったりするので、 Lambdaのデプロイは開発チームが利用していたServerless Frameworkに切り分けています。 これには大きな課題があって、Terraformで作ったS3のイベントをトリガーにするLambdaファンクションを作りたい、みたいな、後からLambdaを追加する要件に対応しきれずに悩んでいました。 そんなときにApexはTerraformをWrapできるらしいと天から声が降りてきたので試してみることにしてみました。
+検証に利用した環境 MacOS X(10.11.6) Apex(1.0.0-rc2) Terraform(v0.11.11)
+※当エントリではApexやTerraformの導入については触れません 作る環境 ファイル構成 ./project.json # プロジェクト全体の定義(たぶんfunction.jsonで設定を上書きできる気がする) ./functions/hello/function.json # 関数の定義 ./functions/hello/hello.py # Lambdaで実行するコード(別にPythonじゃなくてもOK) ./infrastructure/main.tf # Terraformで管理するAWSリソースの定義 ./project.json たぶんプロジェクト全体の共通設定を記載する感じだと思います。 すいません、ちゃんと調べてません。。。
+{ &#34;name&#34;: &#34;apex-sample&#34;, &#34;description&#34;: &#34;apex test 20190405&#34;, &#34;memory&#34;: 128, &#34;timeout&#34;: 5, &#34;role&#34;: &#34;arn:aws:iam::{各自のAWS Account ID}:role/apex_sample&#34;, &#34;environment&#34;: {} } ./functions/hello/function.json 利用するruntimeや関数名を定義します。 runtimeとhandlerさえちゃんとしてれば最低限は大丈夫だと思います。
+{ &#34;description&#34;: &#34;hello&#34;, &#34;runtime&#34;: &#34;python3.6&#34;, &#34;handler&#34;: &#34;hello.lambda_handler&#34;, &#34;environment&#34;: { &#34;ENV&#34;: &#34;dev&#34; } } ./functions/hello/hello.py hello worldをレスポンスボディに返すだけの処理です。 最低限API Gatewayの仕様に則ったレスポンスを返せれば大丈夫です。
+#!/usr/bin/env python # -*- coding: utf-8 -*- def lambda_handler(event, context): json = {&#34;statusCode&#34;: 200, &#34;body&#34;: &#34;hello world&#34;} return json ./infrastructure/main.tf 完全にTerraformのコードです。 めんどくさがって雑な感じに1ファイルにまとめちゃいましたが、module化したりしたほうが管理はしやすいと思います。 variable &#34;apex_function_hello&#34; {}でapexから変数を受け取るのがポイントです。 定義しているリソースはざっくりIAM RoleとAPI Gatewayだけです。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-04-06 00:16:08 +0900 +0900'>April 6, 2019</span></footer>
+  <a class="entry-link" aria-label="post link to Apex&#43;Terraformでサーバレスアーキテクチャをフルコード化" href="http://localhost:1313/posts/2019-04-06-apexterraform/"></a>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">My New Hugo Project</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
