@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Lambda on My New Hugo Project</title>
-    <link>http://localhost:1313/tags/lambda/</link>
-    <description>Recent content in Lambda on My New Hugo Project</description>
+    <title>Lambda on tsukapah のブログ</title>
+    <link>https://tsukapah.github.io/tags/lambda/</link>
+    <description>Recent content in Lambda on tsukapah のブログ</description>
     <generator>Hugo</generator>
-    <language>en-us</language>
+    <language>ja</language>
     <lastBuildDate>Sat, 06 Apr 2019 00:16:08 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/lambda/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://tsukapah.github.io/tags/lambda/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Apex&#43;Terraformでサーバレスアーキテクチャをフルコード化</title>
-      <link>http://localhost:1313/posts/2019-04-06-apexterraform/</link>
+      <link>https://tsukapah.github.io/posts/2019-04-06-apexterraform/</link>
       <pubDate>Sat, 06 Apr 2019 00:16:08 +0900</pubDate>
-      <guid>http://localhost:1313/posts/2019-04-06-apexterraform/</guid>
+      <guid>https://tsukapah.github.io/posts/2019-04-06-apexterraform/</guid>
       <description>私のチームではAWSにおけるインフラの構成管理にTerraformを利用しています。</description>
     </item>
   </channel>

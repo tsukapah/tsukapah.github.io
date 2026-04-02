@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto" data-theme="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
-<title>Dockerで Elasticsearch &#43; Kibana を動かしてみた | My New Hugo Project</title>
+<meta name="robots" content="index, follow">
+<title>Dockerで Elasticsearch &#43; Kibana を動かしてみた | tsukapah のブログ</title>
 <meta name="keywords" content="Elasticsearch, Docker, Kibana">
 <meta name="description" content="※こちらの記事は[個人ブログ](https://tech.tsukapah.com/docker-elasticsearch-kibana/)に移行しました。">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/posts/2015-12-11-docker-elasticsearch-kibana/">
+<link rel="canonical" href="https://tsukapah.github.io/posts/2015-12-11-docker-elasticsearch-kibana/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.199042e659bc7245f5609d333d6c044eb554a0640849bb874e1dff8eb0f57209.css" integrity="sha256-GZBC5lm8ckX1YJ0zPWwETrVUoGQISbuHTh3/jrD1cgk=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://tsukapah.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://tsukapah.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://tsukapah.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://tsukapah.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://tsukapah.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/2015-12-11-docker-elasticsearch-kibana/">
+<link rel="alternate" hreflang="en" href="https://tsukapah.github.io/posts/2015-12-11-docker-elasticsearch-kibana/">
 <noscript>
     <style>
         #theme-toggle,
@@ -70,13 +70,79 @@
         document.querySelector("html").dataset.theme = 'light';
     }
 
+</script><meta property="og:url" content="https://tsukapah.github.io/posts/2015-12-11-docker-elasticsearch-kibana/">
+  <meta property="og:site_name" content="tsukapah のブログ">
+  <meta property="og:title" content="Dockerで Elasticsearch &#43; Kibana を動かしてみた">
+  <meta property="og:description" content="※こちらの記事は[個人ブログ](https://tech.tsukapah.com/docker-elasticsearch-kibana/)に移行しました。">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2015-12-11T13:32:26+09:00">
+    <meta property="article:modified_time" content="2022-04-05T22:50:26+09:00">
+    <meta property="article:tag" content="Elasticsearch">
+    <meta property="article:tag" content="Docker">
+    <meta property="article:tag" content="Kibana">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Dockerで Elasticsearch &#43; Kibana を動かしてみた">
+  <meta name="twitter:description" content="※こちらの記事は[個人ブログ](https://tech.tsukapah.com/docker-elasticsearch-kibana/)に移行しました。">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://tsukapah.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Dockerで Elasticsearch + Kibana を動かしてみた",
+      "item": "https://tsukapah.github.io/posts/2015-12-11-docker-elasticsearch-kibana/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Dockerで Elasticsearch + Kibana を動かしてみた",
+  "name": "Dockerで Elasticsearch \u002b Kibana を動かしてみた",
+  "description": "※こちらの記事は[個人ブログ](https://tech.tsukapah.com/docker-elasticsearch-kibana/)に移行しました。",
+  "keywords": [
+    "Elasticsearch", "Docker", "Kibana"
+  ],
+  "articleBody": "※こちらの記事は個人ブログに移行しました。\nDocker HubにElasticsearchとKibanaの公式イメージがあるのでそれを使ってみました。 こちらのREADMEに以下の記載がありました。\nThis is the Git repo of the Docker Hub image for Elasticsearch. See the Docker Hub page for the full readme on how to use this Docker image and for information regarding contributing and issues. The Docker Hub image is not prepared in collaboration with nor supported by upstream Elastic which provides its own official image.\nElastic社が独自に提供するイメージが公式みたいなのでそちらに変更します。\n前提 Dockerの実行環境があること。 Dockerの実行環境構築は色んな人が書いてくれてるので割愛します。 参考までに、こちらの環境はMac OS X + VirtualBox + docker-machineです。 ※Docker for Macを導入した際、この手順だと微妙なところがあったので修正しました。 ついでなので使用するコンテナのバージョンを5.0.0に変更しました。(2016/11/4) Elastic社が公開しているレジストリを参照するように変更し、バージョンを5.4.1に変更しました。また、レガシーなlink機能の利用をやめ、Bridgeネットワークを利用するように変更しました。(2017/6/3)\n手順 コンテナ実行環境の確認 ※Docker for Mac等、ローカルにDocker環境がある場合は不要\n$ docker-machine env test-machine export DOCKER_TLS_VERIFY=\"1\" export DOCKER_HOST=\"tcp://192.168.99.100:2376\" export DOCKER_CERT_PATH=\"/Users/tsukapah/.docker/machine/machines/test-machine\" export DOCKER_MACHINE_NAME=\"test-machine\" # Run this command to configure your shell: # eval \"$(docker-machine env test-machine)\" Bridgeネットワークの作成 $ docker network create elasticsearch --driver bridge 1c00368f055cd86e40da5db8b9e41211abc2821763b604a2583c054c6ecbcb22 Elasticsearchコンテナの起動 $ docker run -d \\ -e \"http.host=0.0.0.0\" \\ -e \"transport.host=127.0.0.1\" \\ -e \"xpack.security.enabled=false\" \\ -e \"xpack.monitoring.enabled=false\" \\ -e \"xpack.watcher.enabled=false\" \\ -e \"xpack.graph.enabled=false\" \\ -e \"xpack.ml.enabled=false\" \\ -e \"ES_JAVA_OPTS=-Xms512m -Xmx512m\" \\ -p 9200:9200 \\ -p 9300:9300 \\ --name elasticsearch \\ --network=\"elasticsearch\" \\ docker.elastic.co/elasticsearch/elasticsearch:5.4.1 931bceaa78bf8129c59989116dc1aa2698382315246a5635b06b9b787e5c1f77 Elasticsearch動作確認 $ curl $(docker-machine ip test-machine):9200 { \"name\" : \"6Y9ph9_\", \"cluster_name\" : \"docker-cluster\", \"cluster_uuid\" : \"IWB-HjK9Q3-x5OS6Fh4rPg\", \"version\" : { \"number\" : \"5.4.1\", \"build_hash\" : \"2cfe0df\", \"build_date\" : \"2017-05-29T16:05:51.443Z\", \"build_snapshot\" : false, \"lucene_version\" : \"6.5.1\" }, \"tagline\" : \"You Know, for Search\" } ※Docker for Mac等の場合は宛先はlocalhost:9200とかになります。\nKibanaコンテナの起動 $ docker run -d \\ --name kibana \\ -p 5601:5601 \\ -e \"ELASTICSEARCH_URL=http://elasticsearch:9200\" \\ -e \"xpack.graph.enabled=false\" \\ -e \"xpack.security.enabled=false\" \\ -e \"xpack.ml.enabled=false\" \\ --network=\"elasticsearch\" \\ docker.elastic.co/kibana/kibana:5.4.1 81db2e8f947ae24ef1cb50dbabc6b13e0fe62233c36a2c47de725fe048152457 Kibanaに接続してみる $ open http://$(docker-machine ip test-machine):5601 ※Docker for Mac等の場合は宛先はlocalhost:5601とかになります。\nこんな感じでエラーが出ないで初期画面が表示されれば成功。 あとはもう好きなようにデータをElasticsearchに投げつけちゃいましょう。 X-PackのSecurityをfalseにしているので認証無しでデータを投入できます。\n雑感 いままでEC2でガチャガチャやってたことを思うと、超簡単でした。 一度docker pullでイメージ手元に持ってしまえばインターネットにつながってなくてもいろいろ試せてうれしいですね。 Elasticsearch + Dockerについてはクラスタ名の変更とか クラスタリングとか データ永続化とかをおいおいやってみようと思います。 KibanaはElasticsearchのバージョン依存が強いので、最新のイメージを使わない場合はバージョン管理を気をつけたほうが良さそうですね。Docker Composeを利用することでコードで管理できると思います。\n※クラスタリングについて書きました\n",
+  "wordCount" : "256",
+  "inLanguage": "en",
+  "datePublished": "2015-12-11T13:32:26+09:00",
+  "dateModified": "2022-04-05T22:50:26+09:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://tsukapah.github.io/posts/2015-12-11-docker-elasticsearch-kibana/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "tsukapah のブログ",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://tsukapah.github.io/favicon.ico"
+    }
+  }
+}
 </script>
 </head>
 <body id="top">
     <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="My New Hugo Project (Alt + H)">My New Hugo Project</a>
+            <a href="https://tsukapah.github.io/" accesskey="h" title="tsukapah のブログ (Alt + H)">tsukapah のブログ</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -207,16 +273,16 @@ KibanaはElasticsearchのバージョン依存が強いので、最新のイメ�
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/elasticsearch/">Elasticsearch</a></li>
-      <li><a href="http://localhost:1313/tags/docker/">Docker</a></li>
-      <li><a href="http://localhost:1313/tags/kibana/">Kibana</a></li>
+      <li><a href="https://tsukapah.github.io/tags/elasticsearch/">Elasticsearch</a></li>
+      <li><a href="https://tsukapah.github.io/tags/docker/">Docker</a></li>
+      <li><a href="https://tsukapah.github.io/tags/kibana/">Kibana</a></li>
     </ul>
   </footer>
 </article>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2026 <a href="http://localhost:1313/">My New Hugo Project</a></span> · 
+        <span>&copy; 2026 <a href="https://tsukapah.github.io/">tsukapah のブログ</a></span> · 
 
     <span>
         Powered by

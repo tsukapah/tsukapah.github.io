@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto" data-theme="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
-<title>DockerのFluentd logging driverを通したltsv形式アクセスログをパースする | My New Hugo Project</title>
+<meta name="robots" content="index, follow">
+<title>DockerのFluentd logging driverを通したltsv形式アクセスログをパースする | tsukapah のブログ</title>
 <meta name="keywords" content="nginx, Fluentd, Docker">
 <meta name="description" content="※当記事は[個人ブログ](https://tech.tsukapah.com/docker-fluentd-logging-driver/)に移行しました">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/posts/2016-12-05-dockerfluentd-logging-driverltsv/">
+<link rel="canonical" href="https://tsukapah.github.io/posts/2016-12-05-dockerfluentd-logging-driverltsv/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.199042e659bc7245f5609d333d6c044eb554a0640849bb874e1dff8eb0f57209.css" integrity="sha256-GZBC5lm8ckX1YJ0zPWwETrVUoGQISbuHTh3/jrD1cgk=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://tsukapah.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://tsukapah.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://tsukapah.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://tsukapah.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://tsukapah.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/2016-12-05-dockerfluentd-logging-driverltsv/">
+<link rel="alternate" hreflang="en" href="https://tsukapah.github.io/posts/2016-12-05-dockerfluentd-logging-driverltsv/">
 <noscript>
     <style>
         #theme-toggle,
@@ -70,13 +70,79 @@
         document.querySelector("html").dataset.theme = 'light';
     }
 
+</script><meta property="og:url" content="https://tsukapah.github.io/posts/2016-12-05-dockerfluentd-logging-driverltsv/">
+  <meta property="og:site_name" content="tsukapah のブログ">
+  <meta property="og:title" content="DockerのFluentd logging driverを通したltsv形式アクセスログをパースする">
+  <meta property="og:description" content="※当記事は[個人ブログ](https://tech.tsukapah.com/docker-fluentd-logging-driver/)に移行しました">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2016-12-05T12:37:50+09:00">
+    <meta property="article:modified_time" content="2022-04-19T10:45:42+09:00">
+    <meta property="article:tag" content="Nginx">
+    <meta property="article:tag" content="Fluentd">
+    <meta property="article:tag" content="Docker">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="DockerのFluentd logging driverを通したltsv形式アクセスログをパースする">
+  <meta name="twitter:description" content="※当記事は[個人ブログ](https://tech.tsukapah.com/docker-fluentd-logging-driver/)に移行しました">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://tsukapah.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "DockerのFluentd logging driverを通したltsv形式アクセスログをパースする",
+      "item": "https://tsukapah.github.io/posts/2016-12-05-dockerfluentd-logging-driverltsv/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "DockerのFluentd logging driverを通したltsv形式アクセスログをパースする",
+  "name": "DockerのFluentd logging driverを通したltsv形式アクセスログをパースする",
+  "description": "※当記事は[個人ブログ](https://tech.tsukapah.com/docker-fluentd-logging-driver/)に移行しました",
+  "keywords": [
+    "nginx", "Fluentd", "Docker"
+  ],
+  "articleBody": "※当記事は個人ブログに移行しました\nDocker 1.8からはFluentd logging driverが実装されているのでFluentdでログをゴニョゴニョするのが簡単にできます。jsonのlog要素がソースコンテナのログになるようです。 そして、話は変わりますがNginxのアクセスログフォーマットをLTSVにしている人は結構多いのではないかと思います。 Fluentd logging driver経由で受け取ったjsonの1オブジェクトに入れられたLTSVのログをFluentdでパースして取り扱いがしやすいようにアウトプットしてみようと思います。 内容としてはFluentdでも紹介されている通りfluent-plugin-parserを使うだけです。\n#受取側のFluentdコンテナを用意\nせっかくなので受信側もコンテナで用意します。\n##Fluentdの設定(fluent.conf)を作成\n@type forward @type parser format ltsv key_name log reserve_data true @type stdout Fluentd logging driverはデフォルトでdocker.をタグプレフィックスにして出力してきます。 今回はデフォルトのまま使います。 ちゃんとやるならrewrite_tag_filterとかでsourceの値ごとにタグを別けてあげるべきなんでしょうが今回はそこは重要じゃないので省きます。\n##Fluentdコンテナを起動する\n$ docker run -d -p 24224:24224 --name fluentd -v $(pwd)/fluent.conf:/fluentd/etc/fluent.conf fluent/fluentd:latest d2ef7c0dd0baf70fb766f38ed4ec26127d8ea5bc5b26b46fb13a04b78c3f684a #ログを渡すNginxコンテナを用意\n##Nginxの設定(nginx.conf)を作成\nuser nginx; worker_processes auto; error_log /var/log/nginx/error.log warn; pid /var/run/nginx.pid; events { worker_connections 1024; } http { include /etc/nginx/mime.types; default_type application/octet-stream; log_format ltsv 'time:$time_iso8601\\t' 'remote_addr:$remote_addr\\t' 'request_method:$request_method\\t' 'request_length:$request_length\\t' 'request_uri:$request_uri\\t' 'https:$https\\t' 'uri:$uri\\t' 'query_string:$query_string\\t' 'status:$status\\t' 'bytes_sent:$bytes_sent\\t' 'body_bytes_sent:$body_bytes_sent\\t' 'referer:$http_referer\\t' 'useragent:$http_user_agent\\t' 'forwardedfor:$http_x_forwarded_for\\t' 'request_time:$request_time\\t' 'upstream_response_time:$upstream_response_time'; access_log /var/log/nginx/access.log ltsv; sendfile on; keepalive_timeout 65; include /etc/nginx/conf.d/*.conf; } ログフォーマット以外はほぼデフォルトです。\n##Nginxコンテナの起動 Docker Hubで公開されている公式のnginxイメージを使います。 このイメージはデフォルトのアクセスログが標準出力、エラーログが標準エラー出力のシンボリックリンクになっているのでなにも考えないでもコンテナのログとして扱われます。 Fluentd logging driverはデフォルトでlocalhost:24224を出力先に指定しています。\n$ docker run -d --log-driver=fluentd --name nginx -p 80:80 -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf nginx 59d3d85ac863763940f979c907dfc851c4fe381c87076f5d13611196e8847e5a #動作確認 ##Nginxコンテナにリクエストしてみる\n$ curl localhost \u003c!DOCTYPE html\u003e Welcome to nginx! ",
+  "wordCount" : "369",
+  "inLanguage": "en",
+  "datePublished": "2016-12-05T12:37:50+09:00",
+  "dateModified": "2022-04-19T10:45:42+09:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://tsukapah.github.io/posts/2016-12-05-dockerfluentd-logging-driverltsv/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "tsukapah のブログ",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://tsukapah.github.io/favicon.ico"
+    }
+  }
+}
 </script>
 </head>
 <body id="top">
     <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="My New Hugo Project (Alt + H)">My New Hugo Project</a>
+            <a href="https://tsukapah.github.io/" accesskey="h" title="tsukapah のブログ (Alt + H)">tsukapah のブログ</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -308,16 +374,16 @@ jqを使って見やすく&hellip;</p>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/nginx/">Nginx</a></li>
-      <li><a href="http://localhost:1313/tags/fluentd/">Fluentd</a></li>
-      <li><a href="http://localhost:1313/tags/docker/">Docker</a></li>
+      <li><a href="https://tsukapah.github.io/tags/nginx/">Nginx</a></li>
+      <li><a href="https://tsukapah.github.io/tags/fluentd/">Fluentd</a></li>
+      <li><a href="https://tsukapah.github.io/tags/docker/">Docker</a></li>
     </ul>
   </footer>
 </article>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2026 <a href="http://localhost:1313/">My New Hugo Project</a></span> · 
+        <span>&copy; 2026 <a href="https://tsukapah.github.io/">tsukapah のブログ</a></span> · 
 
     <span>
         Powered by

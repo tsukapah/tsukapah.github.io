@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto" data-theme="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
-<title>Macにpyenvを入れたらbrew doctorで怒られるようになったので対応したメモ | My New Hugo Project</title>
+<meta name="robots" content="index, follow">
+<title>Macにpyenvを入れたらbrew doctorで怒られるようになったので対応したメモ | tsukapah のブログ</title>
 <meta name="keywords" content="Bash, Mac, homebrew, brew, pyenv">
 <meta name="description" content="Ansibleの1.9系と2.0系を両方使いたくてpyenvを導入したらHomebrewに怒られた。">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/posts/2017-08-14-macpyenvbrew-doctor/">
+<link rel="canonical" href="https://tsukapah.github.io/posts/2017-08-14-macpyenvbrew-doctor/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.199042e659bc7245f5609d333d6c044eb554a0640849bb874e1dff8eb0f57209.css" integrity="sha256-GZBC5lm8ckX1YJ0zPWwETrVUoGQISbuHTh3/jrD1cgk=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://tsukapah.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://tsukapah.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://tsukapah.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://tsukapah.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://tsukapah.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/2017-08-14-macpyenvbrew-doctor/">
+<link rel="alternate" hreflang="en" href="https://tsukapah.github.io/posts/2017-08-14-macpyenvbrew-doctor/">
 <noscript>
     <style>
         #theme-toggle,
@@ -70,13 +70,81 @@
         document.querySelector("html").dataset.theme = 'light';
     }
 
+</script><meta property="og:url" content="https://tsukapah.github.io/posts/2017-08-14-macpyenvbrew-doctor/">
+  <meta property="og:site_name" content="tsukapah のブログ">
+  <meta property="og:title" content="Macにpyenvを入れたらbrew doctorで怒られるようになったので対応したメモ">
+  <meta property="og:description" content="Ansibleの1.9系と2.0系を両方使いたくてpyenvを導入したらHomebrewに怒られた。">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2017-08-14T15:39:37+09:00">
+    <meta property="article:modified_time" content="2017-08-14T15:39:37+09:00">
+    <meta property="article:tag" content="Bash">
+    <meta property="article:tag" content="Mac">
+    <meta property="article:tag" content="Homebrew">
+    <meta property="article:tag" content="Brew">
+    <meta property="article:tag" content="Pyenv">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Macにpyenvを入れたらbrew doctorで怒られるようになったので対応したメモ">
+  <meta name="twitter:description" content="Ansibleの1.9系と2.0系を両方使いたくてpyenvを導入したらHomebrewに怒られた。">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://tsukapah.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Macにpyenvを入れたらbrew doctorで怒られるようになったので対応したメモ",
+      "item": "https://tsukapah.github.io/posts/2017-08-14-macpyenvbrew-doctor/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Macにpyenvを入れたらbrew doctorで怒られるようになったので対応したメモ",
+  "name": "Macにpyenvを入れたらbrew doctorで怒られるようになったので対応したメモ",
+  "description": "Ansibleの1.9系と2.0系を両方使いたくてpyenvを導入したらHomebrewに怒られた。",
+  "keywords": [
+    "Bash", "Mac", "homebrew", "brew", "pyenv"
+  ],
+  "articleBody": "Ansibleの1.9系と2.0系を両方使いたくてpyenvを導入したらHomebrewに怒られた。\n$ brew doctor Please note that these warnings are just used to help the Homebrew maintainers with debugging if you file an issue. If everything you use Homebrew for is working fine: please don't worry and just ignore them. Thanks! Warning: \"config\" scripts exist outside your system or Homebrew directories. `./configure` scripts often look for *-config scripts to determine if software packages are installed, and what additional flags to use when compiling and linking. Having additional scripts in your path can confuse software installed via Homebrew if the config script overrides a system or Homebrew provided script of the same name. We found the following \"config\" scripts: /Users/tsukapah/.pyenv/shims/python-config /Users/tsukapah/.pyenv/shims/python2-config /Users/tsukapah/.pyenv/shims/python2.7-config PATHが通ってるところとかHomebrew関連のディレクトリに管理外の*-configが悪影響及ぼすかもしれないからどうにかしてねー、って感じでしょうか。\n実際にPATHはこうなってた。\n$ echo ${PATH} /Users/tsukapah/.pyenv/shims:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin しっかり先頭にいる。 ファイル消すわけにもいかんしPATHをどうにかする方向で検討。\nbrewコマンドを使うときだけpyenv用のPATHが通らなくなればいいので、brewコマンドのaliasを以下の感じで.bash_profileの最後に設定しておけば解決。\nalias brew=\"env PATH=${PATH/\\/Users\\/${USER}\\/\\.pyenv\\/shims:/} brew\" あとはこの.bash_profileを読み込み直してあげればHomebrewの機嫌も直ってメデタシ。\n",
+  "wordCount" : "125",
+  "inLanguage": "en",
+  "datePublished": "2017-08-14T15:39:37+09:00",
+  "dateModified": "2017-08-14T15:39:37+09:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://tsukapah.github.io/posts/2017-08-14-macpyenvbrew-doctor/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "tsukapah のブログ",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://tsukapah.github.io/favicon.ico"
+    }
+  }
+}
 </script>
 </head>
 <body id="top">
     <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="My New Hugo Project (Alt + H)">My New Hugo Project</a>
+            <a href="https://tsukapah.github.io/" accesskey="h" title="tsukapah のブログ (Alt + H)">tsukapah のブログ</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -151,18 +219,18 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/bash/">Bash</a></li>
-      <li><a href="http://localhost:1313/tags/mac/">Mac</a></li>
-      <li><a href="http://localhost:1313/tags/homebrew/">Homebrew</a></li>
-      <li><a href="http://localhost:1313/tags/brew/">Brew</a></li>
-      <li><a href="http://localhost:1313/tags/pyenv/">Pyenv</a></li>
+      <li><a href="https://tsukapah.github.io/tags/bash/">Bash</a></li>
+      <li><a href="https://tsukapah.github.io/tags/mac/">Mac</a></li>
+      <li><a href="https://tsukapah.github.io/tags/homebrew/">Homebrew</a></li>
+      <li><a href="https://tsukapah.github.io/tags/brew/">Brew</a></li>
+      <li><a href="https://tsukapah.github.io/tags/pyenv/">Pyenv</a></li>
     </ul>
   </footer>
 </article>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2026 <a href="http://localhost:1313/">My New Hugo Project</a></span> · 
+        <span>&copy; 2026 <a href="https://tsukapah.github.io/">tsukapah のブログ</a></span> · 
 
     <span>
         Powered by

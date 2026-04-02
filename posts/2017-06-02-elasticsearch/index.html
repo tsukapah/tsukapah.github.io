@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto" data-theme="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
-<title>Elasticsearchクラスタにノードを追加してみる | My New Hugo Project</title>
+<meta name="robots" content="index, follow">
+<title>Elasticsearchクラスタにノードを追加してみる | tsukapah のブログ</title>
 <meta name="keywords" content="Elasticsearch, Docker, docker-machine">
 <meta name="description" content="[こちら](http://qiita.com/tsukapah/items/1df305026f55cdc77b4b)の記事でElasticsearchの複数台クラスタが作れるようになりました。">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/posts/2017-06-02-elasticsearch/">
+<link rel="canonical" href="https://tsukapah.github.io/posts/2017-06-02-elasticsearch/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.199042e659bc7245f5609d333d6c044eb554a0640849bb874e1dff8eb0f57209.css" integrity="sha256-GZBC5lm8ckX1YJ0zPWwETrVUoGQISbuHTh3/jrD1cgk=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://tsukapah.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://tsukapah.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://tsukapah.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://tsukapah.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://tsukapah.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/2017-06-02-elasticsearch/">
+<link rel="alternate" hreflang="en" href="https://tsukapah.github.io/posts/2017-06-02-elasticsearch/">
 <noscript>
     <style>
         #theme-toggle,
@@ -70,13 +70,79 @@
         document.querySelector("html").dataset.theme = 'light';
     }
 
+</script><meta property="og:url" content="https://tsukapah.github.io/posts/2017-06-02-elasticsearch/">
+  <meta property="og:site_name" content="tsukapah のブログ">
+  <meta property="og:title" content="Elasticsearchクラスタにノードを追加してみる">
+  <meta property="og:description" content="[こちら](http://qiita.com/tsukapah/items/1df305026f55cdc77b4b)の記事でElasticsearchの複数台クラスタが作れるようになりました。">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2017-06-02T19:54:55+09:00">
+    <meta property="article:modified_time" content="2017-06-02T19:54:55+09:00">
+    <meta property="article:tag" content="Elasticsearch">
+    <meta property="article:tag" content="Docker">
+    <meta property="article:tag" content="Docker-Machine">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Elasticsearchクラスタにノードを追加してみる">
+  <meta name="twitter:description" content="[こちら](http://qiita.com/tsukapah/items/1df305026f55cdc77b4b)の記事でElasticsearchの複数台クラスタが作れるようになりました。">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://tsukapah.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Elasticsearchクラスタにノードを追加してみる",
+      "item": "https://tsukapah.github.io/posts/2017-06-02-elasticsearch/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Elasticsearchクラスタにノードを追加してみる",
+  "name": "Elasticsearchクラスタにノードを追加してみる",
+  "description": "[こちら](http://qiita.com/tsukapah/items/1df305026f55cdc77b4b)の記事でElasticsearchの複数台クラスタが作れるようになりました。",
+  "keywords": [
+    "Elasticsearch", "Docker", "docker-machine"
+  ],
+  "articleBody": "こちらの記事でElasticsearchの複数台クラスタが作れるようになりました。 せっかくなので、あとからノードを追加する検証をしてみます。\n環境はこちらを再利用します。\n検証手順 現状の確認をする $ curl $(docker-machine ip elasticsearch1):9200/_cluster/health?pretty { \"cluster_name\" : \"docker-cluster\", \"status\" : \"green\", \"timed_out\" : false, \"number_of_nodes\" : 3, \"number_of_data_nodes\" : 3, \"active_primary_shards\" : 0, \"active_shards\" : 0, \"relocating_shards\" : 0, \"initializing_shards\" : 0, \"unassigned_shards\" : 0, \"delayed_unassigned_shards\" : 0, \"number_of_pending_tasks\" : 0, \"number_of_in_flight_fetch\" : 0, \"task_max_waiting_in_queue_millis\" : 0, \"active_shards_percent_as_number\" : 100.0 } $ curl $(docker-machine ip elasticsearch1):9200/_cat/shards?v index shard prirep state docs store ip node test 2 r STARTED 0 130b 192.168.99.105 bmXE705 test 2 p STARTED 0 130b 192.168.99.106 fyEAVyY test 1 p STARTED 0 130b 192.168.99.104 efZ1klG test 1 r STARTED 0 130b 192.168.99.106 fyEAVyY test 4 r STARTED 0 130b 192.168.99.105 bmXE705 test 4 p STARTED 0 130b 192.168.99.104 efZ1klG test 3 p STARTED 0 130b 192.168.99.105 bmXE705 test 3 r STARTED 0 130b 192.168.99.104 efZ1klG test 0 p STARTED 0 130b 192.168.99.105 bmXE705 test 0 r STARTED 0 130b 192.168.99.106 fyEAVyY インデックス作成時に特にシャーディングについての設定を実施していないので、 testインデックスのプライマリシャードは5、レプリカシャードは1でインデックスが作成されており、 各シャードは以下のように配置されています。\n※プライマリシャード=PS、レプリカシャード=RS\nホスト PS0 PS1 PS2 PS3 PS4 RS0 RS1 RS2 RS3 RS4 elasticsearch1(192.168.99.104) ○ ○ ○ elasticsearch2(192.168.99.105) ○ ○ ○ ○ elasticsearch3(192.168.99.106) ○ ○ ○ 追加のコンテナホストを起動する それではElasticsearchクラスタにノードを追加してみます。 まずはコンテナホストを起動します。\n$ docker-machine create --driver virtualbox elasticsearch4 $ docker-machine ssh elasticsearch4 sudo sysctl -w vm.max_map_count=262144 Elasticsearchコンテナを起動する ノードが増えるので起動オプションのdiscovery.zen.ping.unicast.hostsとdiscovery.zen.minimum_master_nodesの値を追加します。\n$ eval $(docker-machine env elasticsearch4) $ docker run -d \\ -e \"network.host=_eth1:ipv4_\" \\ -e \"discovery.zen.ping.unicast.hosts=$(docker-machine ip elasticsearch1),$(docker-machine ip elasticsearch2),$(docker-machine ip elasticsearch3)\" \\ -e \"discovery.zen.minimum_master_nodes=3\" \\ -e \"xpack.security.enabled=false\" \\ -e \"xpack.monitoring.enabled=false\" \\ -e \"xpack.watcher.enabled=false\" \\ -e \"xpack.graph.enabled=false\" \\ -e \"xpack.ml.enabled=false\" \\ -e \"ES_JAVA_OPTS=-Xms512m -Xmx512m\" \\ --network=\"host\" \\ -p 9200:9200 \\ -p 9300:9300 \\ docker.elastic.co/elasticsearch/elasticsearch:5.4.0 追加結果を確認する まずはクラスタの状態を確認します。\n$ curl $(docker-machine ip elasticsearch1):9200/_cluster/health?pretty { \"cluster_name\" : \"docker-cluster\", \"status\" : \"green\", \"timed_out\" : false, \"number_of_nodes\" : 4, \"number_of_data_nodes\" : 4, \"active_primary_shards\" : 5, \"active_shards\" : 10, \"relocating_shards\" : 0, \"initializing_shards\" : 0, \"unassigned_shards\" : 0, \"delayed_unassigned_shards\" : 0, \"number_of_pending_tasks\" : 0, \"number_of_in_flight_fetch\" : 0, \"task_max_waiting_in_queue_millis\" : 0, \"active_shards_percent_as_number\" : 100.0 } 以下になっていれば新しいノードがクラスタに参加できています。\nstatusがgreen ノードが3→4 データノードが3→4 続いて作成済みのインデックスの状態を確認します。\n$ curl $(docker-machine ip elasticsearch1):9200/_cat/shards?v index shard prirep state docs store ip node test 2 r STARTED 0 130b 192.168.99.107 TZj8_YT test 2 p STARTED 0 130b 192.168.99.106 fyEAVyY test 1 p STARTED 0 130b 192.168.99.104 efZ1klG test 1 r STARTED 0 130b 192.168.99.106 fyEAVyY test 4 r STARTED 0 130b 192.168.99.105 bmXE705 test 4 p STARTED 0 130b 192.168.99.104 efZ1klG test 3 p STARTED 0 130b 192.168.99.105 bmXE705 test 3 r STARTED 0 130b 192.168.99.104 efZ1klG test 0 p STARTED 0 130b 192.168.99.107 TZj8_YT test 0 r STARTED 0 130b 192.168.99.106 fyEAVyY 以下のように再配置されていることが確認できました。\nホスト PS0 PS1 PS2 PS3 PS4 RS0 RS1 RS2 RS3 RS4 elasticsearch1(192.168.99.104) ○ ○ ○ elasticsearch2(192.168.99.105) ○ ○ elasticsearch3(192.168.99.106) ○ ○ ○ elasticsearch4(192.168.99.107) ○ ○ まとめ 適切にパラメータを指定して起動すれば勝手にノード追加してシャードの再配置までしてくれるのは便利です。 データの永続化をしていないので既存ノードのパラメータを修正できませんでしたが、 永続化してローリングアップデートの要領でdocker stopとdocker runを繰り返していけば既存コンテナのパラメータ変更もできそうです。\n",
+  "wordCount" : "434",
+  "inLanguage": "en",
+  "datePublished": "2017-06-02T19:54:55+09:00",
+  "dateModified": "2017-06-02T19:54:55+09:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://tsukapah.github.io/posts/2017-06-02-elasticsearch/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "tsukapah のブログ",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://tsukapah.github.io/favicon.ico"
+    }
+  }
+}
 </script>
 </head>
 <body id="top">
     <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="My New Hugo Project (Alt + H)">My New Hugo Project</a>
+            <a href="https://tsukapah.github.io/" accesskey="h" title="tsukapah のブログ (Alt + H)">tsukapah のブログ</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -359,16 +425,16 @@ test  0     r      STARTED    0  130b 192.168.99.106 fyEAVyY
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/elasticsearch/">Elasticsearch</a></li>
-      <li><a href="http://localhost:1313/tags/docker/">Docker</a></li>
-      <li><a href="http://localhost:1313/tags/docker-machine/">Docker-Machine</a></li>
+      <li><a href="https://tsukapah.github.io/tags/elasticsearch/">Elasticsearch</a></li>
+      <li><a href="https://tsukapah.github.io/tags/docker/">Docker</a></li>
+      <li><a href="https://tsukapah.github.io/tags/docker-machine/">Docker-Machine</a></li>
     </ul>
   </footer>
 </article>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2026 <a href="http://localhost:1313/">My New Hugo Project</a></span> · 
+        <span>&copy; 2026 <a href="https://tsukapah.github.io/">tsukapah のブログ</a></span> · 
 
     <span>
         Powered by

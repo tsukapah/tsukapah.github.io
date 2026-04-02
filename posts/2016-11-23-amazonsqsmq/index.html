@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto" data-theme="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
-<title>ローカルにAmazonSQS互換のMQを起動して使ってみる | My New Hugo Project</title>
+<meta name="robots" content="index, follow">
+<title>ローカルにAmazonSQS互換のMQを起動して使ってみる | tsukapah のブログ</title>
 <meta name="keywords" content="Docker, aws-cli, sqs, ElasticMQ">
 <meta name="description" content="※当記事は[個人ブログ](https://tech.tsukapah.com/elasticmq/)に移行しました">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/posts/2016-11-23-amazonsqsmq/">
+<link rel="canonical" href="https://tsukapah.github.io/posts/2016-11-23-amazonsqsmq/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.199042e659bc7245f5609d333d6c044eb554a0640849bb874e1dff8eb0f57209.css" integrity="sha256-GZBC5lm8ckX1YJ0zPWwETrVUoGQISbuHTh3/jrD1cgk=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://tsukapah.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://tsukapah.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://tsukapah.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://tsukapah.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://tsukapah.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/2016-11-23-amazonsqsmq/">
+<link rel="alternate" hreflang="en" href="https://tsukapah.github.io/posts/2016-11-23-amazonsqsmq/">
 <noscript>
     <style>
         #theme-toggle,
@@ -70,13 +70,80 @@
         document.querySelector("html").dataset.theme = 'light';
     }
 
+</script><meta property="og:url" content="https://tsukapah.github.io/posts/2016-11-23-amazonsqsmq/">
+  <meta property="og:site_name" content="tsukapah のブログ">
+  <meta property="og:title" content="ローカルにAmazonSQS互換のMQを起動して使ってみる">
+  <meta property="og:description" content="※当記事は[個人ブログ](https://tech.tsukapah.com/elasticmq/)に移行しました">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2016-11-23T23:31:54+09:00">
+    <meta property="article:modified_time" content="2022-04-17T22:59:05+09:00">
+    <meta property="article:tag" content="Docker">
+    <meta property="article:tag" content="Aws-Cli">
+    <meta property="article:tag" content="Sqs">
+    <meta property="article:tag" content="ElasticMQ">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="ローカルにAmazonSQS互換のMQを起動して使ってみる">
+  <meta name="twitter:description" content="※当記事は[個人ブログ](https://tech.tsukapah.com/elasticmq/)に移行しました">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://tsukapah.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "ローカルにAmazonSQS互換のMQを起動して使ってみる",
+      "item": "https://tsukapah.github.io/posts/2016-11-23-amazonsqsmq/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "ローカルにAmazonSQS互換のMQを起動して使ってみる",
+  "name": "ローカルにAmazonSQS互換のMQを起動して使ってみる",
+  "description": "※当記事は[個人ブログ](https://tech.tsukapah.com/elasticmq/)に移行しました",
+  "keywords": [
+    "Docker", "aws-cli", "sqs", "ElasticMQ"
+  ],
+  "articleBody": "※当記事は個人ブログに移行しました\n最近ElasticMQというのを知りました。 Amazon SQS-compatible interface ということで、Amazon SQSを使ったアプリケーション開発が捗りそうです。 ちょうど試そうと思った今日(2016/11/23)にVersion 0.11.0になっていました。 java6以降が入ってれば動くようです。 今回はDockerで動かして、aws-cliで接続してみたいと思います。\nDockerfileの作成 FROM java:8 ADD https://s3-eu-west-1.amazonaws.com/softwaremill-public/elasticmq-server-0.11.0.jar /elasticmq/elasticmq-server-0.11.0.jar EXPOSE 9324 ENTRYPOINT [\"java\",\"-jar\",\"/elasticmq/elasticmq-server-0.11.0.jar\"] コンテナイメージのビルド $ docker build -t tsukapah/elasticmq:0.11.0 . Sending build context to Docker daemon 2.048 kB Step 1 : FROM java:8 8: Pulling from library/java 386a066cd84a: Pull complete 75ea84187083: Pull complete 88b459c9f665: Pull complete 690dbea0e4ca: Pull complete 7e401cdd6f18: Pull complete a58186ddf9a0: Pull complete 49999ed55bc4: Pull complete eb40561aad8f: Pull complete Digest: sha256:dd0fc686a5584c0c7f3e50dd84ddc42fae400c27a21d8ca98dad190aff5e9d52 Status: Downloaded newer image for java:8 ---\u003e 861e95c114d6 Step 2 : ADD https://s3-eu-west-1.amazonaws.com/softwaremill-public/elasticmq-server-0.11.0.jar /elasticmq/elasticmq-server-0.11.0.jar Downloading 30.2 MB/30.2 MB ---\u003e 55fa5752ace4 Removing intermediate container 2529a37411e1 Step 3 : EXPOSE 9324 ---\u003e Running in 0465d32da4e8 ---\u003e 052963c601f8 Removing intermediate container 0465d32da4e8 Step 4 : ENTRYPOINT java -jar /elasticmq/elasticmq-server-0.11.0.jar ---\u003e Running in e283caeeb0b2 ---\u003e 3f6b0738e570 Removing intermediate container e283caeeb0b2 Successfully built 3f6b0738e570 コンテナの起動 docker run -d --name=elasticmq -p 9324:9324 tsukapah/elasticmq:0.11.0 082c9ffb6c1048615b72fabf1440241f77f9decbf74adb142fae75b0bcacfd2c どうやら起動したみたいです。\naws-cliを使って接続してみる $ aws sqs list-queues --endpoint-url http://localhost:9324 なんも出力されない。まぁQueueがないので当然なんだけど。 ちなみにCredentialやDefaultRegionが設定されていないと以下の感じでエラーが出ます。 ダミーでもいいので設定しましょう。\n$ aws sqs list-queues --endpoint-url http://localhost:9324 You must specify a region. You can also configure your region by running \"aws configure\". Queueの作成 $ aws sqs create-queue --queue-name test --endpoint-url http://localhost:9324 { \"QueueUrl\": \"http://localhost:9324/queue/test\" } お、どうやらできたっぽい。\nQueueの確認 $ aws sqs list-queues --endpoint-url http://localhost:9324 { \"QueueUrls\": [ \"http://localhost:9324/queue/test\" ] } メッセージの投入 $ aws sqs send-message --queue-url http://localhost:9324/queue/test --message-body \"Information about the largest city in Any Region.\" --endpoint-url http://localhost:9324 { \"MD5OfMessageBody\": \"51b0a3256d59467f973009b739163aa0\", \"MD5OfMessageAttributes\": \"d41d8cd98f00b204e9800998ecf8427e\", \"MessageId\": \"8df11eeb-e83c-4076-8b63-1edec5265402\" } 入ったみたいです。 --queue-urlと--endpoint-urlが冗長な感じで気持ち悪いですが、どっちも必要です。\nメッセージの取得 $ aws sqs receive-message --queue-url http://localhost:9324/queue/test --endpoint-url http://localhost:9324 { \"Messages\": [ { \"Body\": \"Information about the largest city in Any Region.\", \"MD5OfMessageAttributes\": \"d41d8cd98f00b204e9800998ecf8427e\", \"ReceiptHandle\": \"8df11eeb-e83c-4076-8b63-1edec5265402#0f0d12eb-dd37-4ac8-a11d-a8c41420eca0\", \"MD5OfBody\": \"51b0a3256d59467f973009b739163aa0\", \"MessageId\": \"8df11eeb-e83c-4076-8b63-1edec5265402\" } ] } 無事取り出せました。\n簡単でした。\n",
+  "wordCount" : "261",
+  "inLanguage": "en",
+  "datePublished": "2016-11-23T23:31:54+09:00",
+  "dateModified": "2022-04-17T22:59:05+09:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://tsukapah.github.io/posts/2016-11-23-amazonsqsmq/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "tsukapah のブログ",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://tsukapah.github.io/favicon.ico"
+    }
+  }
+}
 </script>
 </head>
 <body id="top">
     <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="My New Hugo Project (Alt + H)">My New Hugo Project</a>
+            <a href="https://tsukapah.github.io/" accesskey="h" title="tsukapah のブログ (Alt + H)">tsukapah のブログ</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -215,17 +282,17 @@ java6以降が入ってれば動くようです。
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/docker/">Docker</a></li>
-      <li><a href="http://localhost:1313/tags/aws-cli/">Aws-Cli</a></li>
-      <li><a href="http://localhost:1313/tags/sqs/">Sqs</a></li>
-      <li><a href="http://localhost:1313/tags/elasticmq/">ElasticMQ</a></li>
+      <li><a href="https://tsukapah.github.io/tags/docker/">Docker</a></li>
+      <li><a href="https://tsukapah.github.io/tags/aws-cli/">Aws-Cli</a></li>
+      <li><a href="https://tsukapah.github.io/tags/sqs/">Sqs</a></li>
+      <li><a href="https://tsukapah.github.io/tags/elasticmq/">ElasticMQ</a></li>
     </ul>
   </footer>
 </article>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2026 <a href="http://localhost:1313/">My New Hugo Project</a></span> · 
+        <span>&copy; 2026 <a href="https://tsukapah.github.io/">tsukapah のブログ</a></span> · 
 
     <span>
         Powered by

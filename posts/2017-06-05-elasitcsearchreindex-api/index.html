@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto" data-theme="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
-<title>ElasitcsearchのReindex APIを使ってみた | My New Hugo Project</title>
+<meta name="robots" content="index, follow">
+<title>ElasitcsearchのReindex APIを使ってみた | tsukapah のブログ</title>
 <meta name="keywords" content="Elasticsearch, Docker, docker-machine">
 <meta name="description" content="[Reindex API](https://www.elastic.co/guide/en/elasticsearch/reference/5.4/docs-reindex.html)が便利そうだったので検証してみました。">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/posts/2017-06-05-elasitcsearchreindex-api/">
+<link rel="canonical" href="https://tsukapah.github.io/posts/2017-06-05-elasitcsearchreindex-api/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.199042e659bc7245f5609d333d6c044eb554a0640849bb874e1dff8eb0f57209.css" integrity="sha256-GZBC5lm8ckX1YJ0zPWwETrVUoGQISbuHTh3/jrD1cgk=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://tsukapah.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://tsukapah.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://tsukapah.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://tsukapah.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://tsukapah.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/2017-06-05-elasitcsearchreindex-api/">
+<link rel="alternate" hreflang="en" href="https://tsukapah.github.io/posts/2017-06-05-elasitcsearchreindex-api/">
 <noscript>
     <style>
         #theme-toggle,
@@ -70,13 +70,79 @@
         document.querySelector("html").dataset.theme = 'light';
     }
 
+</script><meta property="og:url" content="https://tsukapah.github.io/posts/2017-06-05-elasitcsearchreindex-api/">
+  <meta property="og:site_name" content="tsukapah のブログ">
+  <meta property="og:title" content="ElasitcsearchのReindex APIを使ってみた">
+  <meta property="og:description" content="[Reindex API](https://www.elastic.co/guide/en/elasticsearch/reference/5.4/docs-reindex.html)が便利そうだったので検証してみました。">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2017-06-05T16:55:29+09:00">
+    <meta property="article:modified_time" content="2017-12-28T16:02:44+09:00">
+    <meta property="article:tag" content="Elasticsearch">
+    <meta property="article:tag" content="Docker">
+    <meta property="article:tag" content="Docker-Machine">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="ElasitcsearchのReindex APIを使ってみた">
+  <meta name="twitter:description" content="[Reindex API](https://www.elastic.co/guide/en/elasticsearch/reference/5.4/docs-reindex.html)が便利そうだったので検証してみました。">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://tsukapah.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "ElasitcsearchのReindex APIを使ってみた",
+      "item": "https://tsukapah.github.io/posts/2017-06-05-elasitcsearchreindex-api/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "ElasitcsearchのReindex APIを使ってみた",
+  "name": "ElasitcsearchのReindex APIを使ってみた",
+  "description": "[Reindex API](https://www.elastic.co/guide/en/elasticsearch/reference/5.4/docs-reindex.html)が便利そうだったので検証してみました。",
+  "keywords": [
+    "Elasticsearch", "Docker", "docker-machine"
+  ],
+  "articleBody": "Reindex APIが便利そうだったので検証してみました。\n検証環境 Mac OS X El Capitan(10.11.6) Docker version 17.03.1-ce, build c6d412e docker-machine version 0.10.0, build 76ed2a6 VirtualBox 5.1.14 r112924 (Qt5.6.2) 検証開始 コンテナホストの起動 $ docker-machine create elasticsearch --driver virtualbox Elasticsearchコンテナの起動 $ eval $(docker-machine env elasticsearch) $ docker run -d \\ -e \"http.host=0.0.0.0\" \\ -e \"transport.host=127.0.0.1\" \\ -e \"xpack.security.enabled=false\" \\ -e \"xpack.monitoring.enabled=false\" \\ -e \"xpack.watcher.enabled=false\" \\ -e \"xpack.graph.enabled=false\" \\ -e \"xpack.ml.enabled=false\" \\ -e \"ES_JAVA_OPTS=-Xms512m -Xmx512m\" \\ -p 9200:9200 \\ -p 9300:9300 \\ --name elasticsearch \\ docker.elastic.co/elasticsearch/elasticsearch:5.4.1 $ curl $(docker-machine ip elasticsearch):9200 { \"name\" : \"3VeUTYk\", \"cluster_name\" : \"docker-cluster\", \"cluster_uuid\" : \"BCo9uLM_SZqThWdYIMO9AA\", \"version\" : { \"number\" : \"5.4.1\", \"build_hash\" : \"2cfe0df\", \"build_date\" : \"2017-05-29T16:05:51.443Z\", \"build_snapshot\" : false, \"lucene_version\" : \"6.5.1\" }, \"tagline\" : \"You Know, for Search\" } インデックスの作成 ひとまず細かい設定はしない状態のインデックスを作成してみます。\n$ curl -XPUT $(docker-machine ip elasticsearch):9200/test1?pretty { \"acknowledged\" : true, \"shards_acknowledged\" : true } $ curl $(docker-machine ip elasticsearch):9200/_cat/shards?v index shard prirep state docs store ip node test1 3 p STARTED 0 130b 127.0.0.1 3VeUTYk test1 3 r UNASSIGNED test1 4 p STARTED 0 130b 127.0.0.1 3VeUTYk test1 4 r UNASSIGNED test1 1 p STARTED 0 130b 127.0.0.1 3VeUTYk test1 1 r UNASSIGNED test1 2 p STARTED 0 130b 127.0.0.1 3VeUTYk test1 2 r UNASSIGNED test1 0 p STARTED 0 130b 127.0.0.1 3VeUTYk test1 0 r UNASSIGNED インデックス test1 が作成され、5つのプライマリシャードが作成できました。 1ノードクラスタなのでレプリカシャードはUNASSIGNEDです。\nデータ投入 まずは1件データを投入してみたいと思うので、投入用のデータを作成します。\n{ \"user\" : \"tsukapah\", \"message\" : \"I have a pen.\" } このドキュメントをtest1インデックスに投入します。\n# データ投入 $ curl -XPOST $(docker-machine ip elasticsearch):9200/test1/ppap?pretty --data @test1data.json { \"_index\" : \"test1\", \"_type\" : \"ppap\", \"_id\" : \"AVx2XNnewZBo_GQ4tz7S\", \"_version\" : 1, \"result\" : \"created\", \"_shards\" : { \"total\" : 2, \"successful\" : 1, \"failed\" : 0 }, \"created\" : true } # データの確認 $ curl $(docker-machine ip elasticsearch):9200/test1/ppap/AVx2XNnewZBo_GQ4tz7S?pretty { \"_index\" : \"test1\", \"_type\" : \"ppap\", \"_id\" : \"AVx2XNnewZBo_GQ4tz7S\", \"_version\" : 1, \"found\" : true, \"_source\" : { \"user\" : \"tsukapah\", \"message\" : \"I have a pen.\" } } 入りました。これからこのインデックスを作り直したいと思います。\nインデックステンプレートの作成 作り直すインデックスにはインデックステンプレートを適用してみたいと思います。 プライマリシャードを6つにしてみようと思います。\n新しいインデックス名：test2 プライマリシャードの数：6\n{ \"template\" : \"test2\", \"version\": 1, \"settings\": { \"number_of_shards\": 6 } } テンプレートを適用してみます。\n# テンプレートの適用 $ curl $(docker-machine ip elasticsearch):9200/_template/test2 --data @template.json {\"acknowledged\":true} # テンプレートの確認 $ curl $(docker-machine ip elasticsearch):9200/_template?pretty { \"test2\" : { \"order\" : 0, \"version\" : 1, \"template\" : \"test2\", \"settings\" : { \"index\" : { \"number_of_shards\" : \"6\" } }, \"mappings\" : { }, \"aliases\" : { } } } インデックスの再作成 Reindexする処理内容をjsonで定義します。 test1からtest2にインデックスを移し替えるので以下のようになります。\n{ \"source\": { \"index\": \"test1\" }, \"dest\": { \"index\": \"test2\" } } Reindexしてみます。\n$ curl -XPOST $(docker-machine ip elasticsearch):9200/_reindex?pretty --data @reindex.json { \"took\" : 308, \"timed_out\" : false, \"total\" : 1, \"updated\" : 0, \"created\" : 1, \"deleted\" : 0, \"batches\" : 1, \"version_conflicts\" : 0, \"noops\" : 0, \"retries\" : { \"bulk\" : 0, \"search\" : 0 }, \"throttled_millis\" : 0, \"requests_per_second\" : -1.0, \"throttled_until_millis\" : 0, \"failures\" : [ ] } 新しいインデックスにドキュメントがあることを確認します。\n$ curl $(docker-machine ip elasticsearch):9200/test2/ppap/AVx2XNnewZBo_GQ4tz7S?pretty { \"_index\" : \"test2\", \"_type\" : \"ppap\", \"_id\" : \"AVx2XNnewZBo_GQ4tz7S\", \"_version\" : 1, \"found\" : true, \"_source\" : { \"user\" : \"tsukapah\", \"message\" : \"I have a pen.\" } } シャードの状態を確認します。\n$ curl $(docker-machine ip elasticsearch):9200/_cat/shards?v index shard prirep state docs store ip node test1 3 p STARTED 0 130b 127.0.0.1 3VeUTYk test1 3 r UNASSIGNED test1 4 p STARTED 1 4kb 127.0.0.1 3VeUTYk test1 4 r UNASSIGNED test1 1 p STARTED 0 130b 127.0.0.1 3VeUTYk test1 1 r UNASSIGNED test1 2 p STARTED 0 130b 127.0.0.1 3VeUTYk test1 2 r UNASSIGNED test1 0 p STARTED 0 130b 127.0.0.1 3VeUTYk test1 0 r UNASSIGNED test2 5 p STARTED 0 130b 127.0.0.1 3VeUTYk test2 5 r UNASSIGNED test2 3 p STARTED 0 130b 127.0.0.1 3VeUTYk test2 3 r UNASSIGNED test2 4 p STARTED 0 130b 127.0.0.1 3VeUTYk test2 4 r UNASSIGNED test2 1 p STARTED 0 130b 127.0.0.1 3VeUTYk test2 1 r UNASSIGNED test2 2 p STARTED 1 4kb 127.0.0.1 3VeUTYk test2 2 r UNASSIGNED test2 0 p STARTED 0 130b 127.0.0.1 3VeUTYk test2 0 r UNASSIGNED test2インデックスが0〜5の6つのシャードで構成されていることが確認できました。\nまとめ 便利！ Elasticsearchはマッピングの設定やシャーディングの設定はインデックス作成時にしかできません。 今回検証したReindex APIとIndex Aliases APIを利用すればアプリケーションコードに変更を加えずに簡単にインデックスの作り直しができそうですね。\n今回はドキュメントが1つだけだったので瞬殺で終わりましたが、ドキュメントが多くなった場合はそれなりに時間かかるんでしょうかねー。\n",
+  "wordCount" : "641",
+  "inLanguage": "en",
+  "datePublished": "2017-06-05T16:55:29+09:00",
+  "dateModified": "2017-12-28T16:02:44+09:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://tsukapah.github.io/posts/2017-06-05-elasitcsearchreindex-api/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "tsukapah のブログ",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://tsukapah.github.io/favicon.ico"
+    }
+  }
+}
 </script>
 </head>
 <body id="top">
     <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="My New Hugo Project (Alt + H)">My New Hugo Project</a>
+            <a href="https://tsukapah.github.io/" accesskey="h" title="tsukapah のブログ (Alt + H)">tsukapah のブログ</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -330,16 +396,16 @@ Elasticsearchはマッピングの設定やシャーディングの設定はイ�
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/elasticsearch/">Elasticsearch</a></li>
-      <li><a href="http://localhost:1313/tags/docker/">Docker</a></li>
-      <li><a href="http://localhost:1313/tags/docker-machine/">Docker-Machine</a></li>
+      <li><a href="https://tsukapah.github.io/tags/elasticsearch/">Elasticsearch</a></li>
+      <li><a href="https://tsukapah.github.io/tags/docker/">Docker</a></li>
+      <li><a href="https://tsukapah.github.io/tags/docker-machine/">Docker-Machine</a></li>
     </ul>
   </footer>
 </article>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2026 <a href="http://localhost:1313/">My New Hugo Project</a></span> · 
+        <span>&copy; 2026 <a href="https://tsukapah.github.io/">tsukapah のブログ</a></span> · 
 
     <span>
         Powered by

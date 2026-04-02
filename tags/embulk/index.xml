@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Embulk on My New Hugo Project</title>
-    <link>http://localhost:1313/tags/embulk/</link>
-    <description>Recent content in Embulk on My New Hugo Project</description>
+    <title>Embulk on tsukapah のブログ</title>
+    <link>https://tsukapah.github.io/tags/embulk/</link>
+    <description>Recent content in Embulk on tsukapah のブログ</description>
     <generator>Hugo</generator>
-    <language>en-us</language>
+    <language>ja</language>
     <lastBuildDate>Thu, 21 Apr 2022 17:18:34 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/embulk/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://tsukapah.github.io/tags/embulk/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Common Log Formatのdate型ログをEmbulkでElasticsearchにdate型で入れたメモ</title>
-      <link>http://localhost:1313/posts/2017-02-07-common-log-formatdateembulkelasticsearchdate/</link>
+      <link>https://tsukapah.github.io/posts/2017-02-07-common-log-formatdateembulkelasticsearchdate/</link>
       <pubDate>Tue, 07 Feb 2017 21:53:46 +0900</pubDate>
-      <guid>http://localhost:1313/posts/2017-02-07-common-log-formatdateembulkelasticsearchdate/</guid>
+      <guid>https://tsukapah.github.io/posts/2017-02-07-common-log-formatdateembulkelasticsearchdate/</guid>
       <description>※こちらの記事は[個人ブログ](https://tech.tsukapah.com/common-log-format-elasticsearch-embulk/)に移行しました</description>
     </item>
     <item>
       <title>ELBのログをEmbulkでElasticsearchに入れたメモ</title>
-      <link>http://localhost:1313/posts/2017-02-06-elbembulkelasticsearch/</link>
+      <link>https://tsukapah.github.io/posts/2017-02-06-elbembulkelasticsearch/</link>
       <pubDate>Mon, 06 Feb 2017 22:07:45 +0900</pubDate>
-      <guid>http://localhost:1313/posts/2017-02-06-elbembulkelasticsearch/</guid>
+      <guid>https://tsukapah.github.io/posts/2017-02-06-elbembulkelasticsearch/</guid>
       <description>※こちらの記事は[個人ブログ](https://tech.tsukapah.com/elb-elasticsearch-with-embulk/)に移行しました</description>
     </item>
   </channel>

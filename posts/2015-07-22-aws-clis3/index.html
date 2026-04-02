@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto" data-theme="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
-<title>aws-cliを使ってS3で静的コンテンツを公開する | My New Hugo Project</title>
+<meta name="robots" content="index, follow">
+<title>aws-cliを使ってS3で静的コンテンツを公開する | tsukapah のブログ</title>
 <meta name="keywords" content="AWS, S3, aws-cli">
 <meta name="description" content="※こちらの記事は[個人ブログ](https://tech.tsukapah.com/publish-your-site-on-s3-using-the-command-line/)に移行しました。">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/posts/2015-07-22-aws-clis3/">
+<link rel="canonical" href="https://tsukapah.github.io/posts/2015-07-22-aws-clis3/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.199042e659bc7245f5609d333d6c044eb554a0640849bb874e1dff8eb0f57209.css" integrity="sha256-GZBC5lm8ckX1YJ0zPWwETrVUoGQISbuHTh3/jrD1cgk=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://tsukapah.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://tsukapah.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://tsukapah.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://tsukapah.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://tsukapah.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/2015-07-22-aws-clis3/">
+<link rel="alternate" hreflang="en" href="https://tsukapah.github.io/posts/2015-07-22-aws-clis3/">
 <noscript>
     <style>
         #theme-toggle,
@@ -70,13 +70,79 @@
         document.querySelector("html").dataset.theme = 'light';
     }
 
+</script><meta property="og:url" content="https://tsukapah.github.io/posts/2015-07-22-aws-clis3/">
+  <meta property="og:site_name" content="tsukapah のブログ">
+  <meta property="og:title" content="aws-cliを使ってS3で静的コンテンツを公開する">
+  <meta property="og:description" content="※こちらの記事は[個人ブログ](https://tech.tsukapah.com/publish-your-site-on-s3-using-the-command-line/)に移行しました。">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2015-07-22T12:39:04+09:00">
+    <meta property="article:modified_time" content="2022-04-04T13:54:55+09:00">
+    <meta property="article:tag" content="AWS">
+    <meta property="article:tag" content="S3">
+    <meta property="article:tag" content="Aws-Cli">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="aws-cliを使ってS3で静的コンテンツを公開する">
+  <meta name="twitter:description" content="※こちらの記事は[個人ブログ](https://tech.tsukapah.com/publish-your-site-on-s3-using-the-command-line/)に移行しました。">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://tsukapah.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "aws-cliを使ってS3で静的コンテンツを公開する",
+      "item": "https://tsukapah.github.io/posts/2015-07-22-aws-clis3/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "aws-cliを使ってS3で静的コンテンツを公開する",
+  "name": "aws-cliを使ってS3で静的コンテンツを公開する",
+  "description": "※こちらの記事は[個人ブログ](https://tech.tsukapah.com/publish-your-site-on-s3-using-the-command-line/)に移行しました。",
+  "keywords": [
+    "AWS", "S3", "aws-cli"
+  ],
+  "articleBody": "※こちらの記事は個人ブログに移行しました。\n#前提\naws-cliが入っていること\nIAMのパーミッションがいい感じに設定されていること\nCredentialがconfigureもしくは環境変数に設定されてること ※ --profile使ってもいいです\ndefault region が ap-northeast-1 で設定してあること ※ 別にいいんだけど適宜いい感じに読み替えて下さい\nMac想定してるのでWindowsの人はEC2使うとかいい感じに読み替えるとかしてください\nloggingの設定はこの手順には含まれてません\n#手順\nバケットの作成 コンテンツの設置 Static Website Hostingを有効にする BucketPolicyを設定する ##バケットの作成\n$ BUCKET_NAME=backetnonamae $ aws s3 mb s3://${BUCKET_NAME} make_bucket: s3://backetnonamae/ ##コンテンツの設置 コンテンツはカレントディレクトリにあるものとして記載しています。 置いてあるファイルは/index.htmlと/css/index.cssの2つです。\n$ SC_DIR=$(pwd) $ aws s3 sync ${SC_DIR}/ s3://${BUCKET_NAME}/ upload: css/index.css to s3://backetnonamae/css/index.css upload: ./index.html to s3://backetnonamae/index.html ##Static Website Hostingを有効にする\n$ aws s3 website s3://${BUCKET_NAME} --index-document index.html (なし) ##BucketPolicyを設定する このポリシーを適用することでアップロードしたファイルはすべてpublicになります。 ###ポリシー用のjson作成\n$ PUBLIC_POLICY=public.json $ cat \u003c\u003c EOF \u003e ${PUBLIC_POLICY} { \"Version\": \"2012-10-17\", \"Id\": \"PublicRead\", \"Statement\": [ { \"Sid\": \"ReadAccess\", \"Effect\": \"Allow\", \"Principal\": \"*\", \"Action\": \"s3:GetObject\", \"Resource\": \"arn:aws:s3:::${BUCKET_NAME}/*\" } ] } EOF { \"Version\": \"2012-10-17\", \"Id\": \"PublicRead\", \"Statement\": [ { \"Sid\": \"ReadAccess\", \"Effect\": \"Allow\", \"Principal\": \"*\", \"Action\": \"s3:GetObject\", \"Resource\": \"arn:aws:s3:::backetnonamae/*\" } ] } ###ポリシーの適用\n$ aws s3api put-bucket-policy --bucket ${BUCKET_NAME} --policy file://${PUBLIC_POLICY} (なし) ###表示確認\n$ open http://${BUCKET_NAME}.s3-website-ap-northeast-1.amazonaws.com ",
+  "wordCount" : "131",
+  "inLanguage": "en",
+  "datePublished": "2015-07-22T12:39:04+09:00",
+  "dateModified": "2022-04-04T13:54:55+09:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://tsukapah.github.io/posts/2015-07-22-aws-clis3/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "tsukapah のブログ",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://tsukapah.github.io/favicon.ico"
+    }
+  }
+}
 </script>
 </head>
 <body id="top">
     <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="My New Hugo Project (Alt + H)">My New Hugo Project</a>
+            <a href="https://tsukapah.github.io/" accesskey="h" title="tsukapah のブログ (Alt + H)">tsukapah のブログ</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -207,16 +273,16 @@ EOF
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/aws/">AWS</a></li>
-      <li><a href="http://localhost:1313/tags/s3/">S3</a></li>
-      <li><a href="http://localhost:1313/tags/aws-cli/">Aws-Cli</a></li>
+      <li><a href="https://tsukapah.github.io/tags/aws/">AWS</a></li>
+      <li><a href="https://tsukapah.github.io/tags/s3/">S3</a></li>
+      <li><a href="https://tsukapah.github.io/tags/aws-cli/">Aws-Cli</a></li>
     </ul>
   </footer>
 </article>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2026 <a href="http://localhost:1313/">My New Hugo Project</a></span> · 
+        <span>&copy; 2026 <a href="https://tsukapah.github.io/">tsukapah のブログ</a></span> · 
 
     <span>
         Powered by

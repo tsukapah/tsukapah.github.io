@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto" data-theme="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
-<title>[社内向け]Docker勉強会(入門) | My New Hugo Project</title>
+<meta name="robots" content="index, follow">
+<title>[社内向け]Docker勉強会(入門) | tsukapah のブログ</title>
 <meta name="keywords" content="社内勉強会, Docker">
 <meta name="description" content="@IT [超入門Docker:第1回　Dockerとは](http://www.atmarkit.co.jp/ait/articles/1701/30/news037.html) 参照">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/posts/2017-04-24-docker/">
+<link rel="canonical" href="https://tsukapah.github.io/posts/2017-04-24-docker/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.199042e659bc7245f5609d333d6c044eb554a0640849bb874e1dff8eb0f57209.css" integrity="sha256-GZBC5lm8ckX1YJ0zPWwETrVUoGQISbuHTh3/jrD1cgk=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://tsukapah.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://tsukapah.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://tsukapah.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://tsukapah.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://tsukapah.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/2017-04-24-docker/">
+<link rel="alternate" hreflang="en" href="https://tsukapah.github.io/posts/2017-04-24-docker/">
 <noscript>
     <style>
         #theme-toggle,
@@ -70,13 +70,78 @@
         document.querySelector("html").dataset.theme = 'light';
     }
 
+</script><meta property="og:url" content="https://tsukapah.github.io/posts/2017-04-24-docker/">
+  <meta property="og:site_name" content="tsukapah のブログ">
+  <meta property="og:title" content="[社内向け]Docker勉強会(入門)">
+  <meta property="og:description" content="@IT [超入門Docker:第1回　Dockerとは](http://www.atmarkit.co.jp/ait/articles/1701/30/news037.html) 参照">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2017-04-24T20:15:58+09:00">
+    <meta property="article:modified_time" content="2017-04-25T10:23:27+09:00">
+    <meta property="article:tag" content="社内勉強会">
+    <meta property="article:tag" content="Docker">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="[社内向け]Docker勉強会(入門)">
+  <meta name="twitter:description" content="@IT [超入門Docker:第1回　Dockerとは](http://www.atmarkit.co.jp/ait/articles/1701/30/news037.html) 参照">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://tsukapah.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "[社内向け]Docker勉強会(入門)",
+      "item": "https://tsukapah.github.io/posts/2017-04-24-docker/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "[社内向け]Docker勉強会(入門)",
+  "name": "[社内向け]Docker勉強会(入門)",
+  "description": "@IT [超入門Docker:第1回　Dockerとは](http://www.atmarkit.co.jp/ait/articles/1701/30/news037.html) 参照",
+  "keywords": [
+    "社内勉強会", "Docker"
+  ],
+  "articleBody": "Dockerってなによ？ @IT 超入門Docker:第1回　Dockerとは 参照\nDockerで開発してみる ローカルにDockerを導入する Docker for Mac -\u003e ネットワーク周りが微妙に特殊 Docker for Windows -\u003e Windows10からなのが残念 Docker Toolbox -\u003e Windows7は64bitOSである必要あり VirtualBox+Vagrant -\u003e たぶんいちばん汎用的 ほかにもあるけどこの辺がおそらく主流\nとりあえずDockerでHello world! $ docker container run hello-world なにが起こったの？ Docker Hubからhello-worldのイメージをダウンロード(docker image pull) hello-worldイメージをフォアグラウンドで実行 hello-worldイメージはなにをしているのか見てみよう Dockerfileを見てみるとわかります\nこれを踏まえて開発の流れ ベースイメージを決める Dockerfileを作成する Dockerfileを元にイメージをbuild(docker image build) buildしたイメージをデプロイ(実行) (ベースイメージ内で作業した内容をcommitする方法もあるけどアンチパターンだと思う)\ngolangでhello-worldしてみよう 1. ベースイメージを決める golangの公式イメージ(golang:1.7.5)を使用することにします。 当然、まっさらなイメージを選択して自分でgolangのインストールから実施するのもOKです。\n2. Dockerfileを作成する FROM golang:1.7.5 COPY hello-world.go /src/ RUN go build /src/hello-world.go \u0026\u0026 rm /src/hello-world.go ENTRYPOINT ./hello-world package main import \"fmt\" func main() { fmt.Printf(\"Hello world\\n\") } 3. Dockerfileを元にイメージをbuild $ docker image build . -t dockertest:1.0 4. buildしたイメージをデプロイ(実行) $ docker container run dockertest:1.0 Dockerfile書き始める前に色々試したい ベースイメージでbashを実行して作業しましょう。\n$ docker container run -it --rm golang:1.7.5 /bin/bash とりあえず今日はこのあたりまで。指摘とかあったら修正します。 次回(あるのか!?)はコンテナ間の通信について、とかかな。\n",
+  "wordCount" : "107",
+  "inLanguage": "en",
+  "datePublished": "2017-04-24T20:15:58+09:00",
+  "dateModified": "2017-04-25T10:23:27+09:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://tsukapah.github.io/posts/2017-04-24-docker/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "tsukapah のブログ",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://tsukapah.github.io/favicon.ico"
+    }
+  }
+}
 </script>
 </head>
 <body id="top">
     <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="My New Hugo Project (Alt + H)">My New Hugo Project</a>
+            <a href="https://tsukapah.github.io/" accesskey="h" title="tsukapah のブログ (Alt + H)">tsukapah のブログ</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -177,15 +242,15 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/%E7%A4%BE%E5%86%85%E5%8B%89%E5%BC%B7%E4%BC%9A/">社内勉強会</a></li>
-      <li><a href="http://localhost:1313/tags/docker/">Docker</a></li>
+      <li><a href="https://tsukapah.github.io/tags/%E7%A4%BE%E5%86%85%E5%8B%89%E5%BC%B7%E4%BC%9A/">社内勉強会</a></li>
+      <li><a href="https://tsukapah.github.io/tags/docker/">Docker</a></li>
     </ul>
   </footer>
 </article>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2026 <a href="http://localhost:1313/">My New Hugo Project</a></span> · 
+        <span>&copy; 2026 <a href="https://tsukapah.github.io/">tsukapah のブログ</a></span> · 
 
     <span>
         Powered by

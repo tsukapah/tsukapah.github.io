@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto" data-theme="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
-<title>[社内向け]Docker勉強会(コンテナ同士の通信) | My New Hugo Project</title>
+<meta name="robots" content="index, follow">
+<title>[社内向け]Docker勉強会(コンテナ同士の通信) | tsukapah のブログ</title>
 <meta name="keywords" content="社内勉強会, Docker">
 <meta name="description" content="[前回](http://qiita.com/tsukapah/items/79a3ba40395b6d691b06)で、コンテナを使ってアプリケーションを実行するキホンは伝わったと信じてます。">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/posts/2017-05-18-docker/">
+<link rel="canonical" href="https://tsukapah.github.io/posts/2017-05-18-docker/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.199042e659bc7245f5609d333d6c044eb554a0640849bb874e1dff8eb0f57209.css" integrity="sha256-GZBC5lm8ckX1YJ0zPWwETrVUoGQISbuHTh3/jrD1cgk=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://tsukapah.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://tsukapah.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://tsukapah.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://tsukapah.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://tsukapah.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/2017-05-18-docker/">
+<link rel="alternate" hreflang="en" href="https://tsukapah.github.io/posts/2017-05-18-docker/">
 <noscript>
     <style>
         #theme-toggle,
@@ -70,13 +70,78 @@
         document.querySelector("html").dataset.theme = 'light';
     }
 
+</script><meta property="og:url" content="https://tsukapah.github.io/posts/2017-05-18-docker/">
+  <meta property="og:site_name" content="tsukapah のブログ">
+  <meta property="og:title" content="[社内向け]Docker勉強会(コンテナ同士の通信)">
+  <meta property="og:description" content="[前回](http://qiita.com/tsukapah/items/79a3ba40395b6d691b06)で、コンテナを使ってアプリケーションを実行するキホンは伝わったと信じてます。">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2017-05-18T22:07:46+09:00">
+    <meta property="article:modified_time" content="2017-05-18T22:07:46+09:00">
+    <meta property="article:tag" content="社内勉強会">
+    <meta property="article:tag" content="Docker">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="[社内向け]Docker勉強会(コンテナ同士の通信)">
+  <meta name="twitter:description" content="[前回](http://qiita.com/tsukapah/items/79a3ba40395b6d691b06)で、コンテナを使ってアプリケーションを実行するキホンは伝わったと信じてます。">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://tsukapah.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "[社内向け]Docker勉強会(コンテナ同士の通信)",
+      "item": "https://tsukapah.github.io/posts/2017-05-18-docker/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "[社内向け]Docker勉強会(コンテナ同士の通信)",
+  "name": "[社内向け]Docker勉強会(コンテナ同士の通信)",
+  "description": "[前回](http://qiita.com/tsukapah/items/79a3ba40395b6d691b06)で、コンテナを使ってアプリケーションを実行するキホンは伝わったと信じてます。",
+  "keywords": [
+    "社内勉強会", "Docker"
+  ],
+  "articleBody": "前回で、コンテナを使ってアプリケーションを実行するキホンは伝わったと信じてます。\nコンテナの通信 アプリケーションを実行できるようになってくると、自然と別のコンテナと通信したいケースに出くわします。 コンテナ間の通信には大きく別けて2種類存在しています。\n異なるホストで動くコンテナ間の通信 こちらの場合、接続元コンテナは接続先コンテナが動くコンテナホストのIPアドレスに向かって通信すれば良いだけです。 サービスディスカバリを理由にコンテナホストを意識したくない場合は後述するoverlayネットワークを使用することになりますが、当記事では詳しく扱いません。\n同一ホスト内で動く異なるコンテナ間の通信 今回は主にこちらについて記載します。\nDockerのネットワーク Dockerはコンテナ間の通信をサポートしており、デフォルトでDocker Engine内に3つのネットワークを作成します。\n$ docker network ls NETWORK ID NAME DRIVER SCOPE fea25e294b20 bridge bridge local 3762bcd6bffb host host local f21c4ff0a40e none null local DRIVERという項目があるのでまずはその説明をします。\nDRIVER名 説明 bridge コンテナ内にループバックインターフェースloと、仮想インターフェースeth0を作ります。eth0には同一bridgeネットワーク内で一意のIPアドレスが割り当てられます。eth0はホスト上の仮想インターフェースにパイプされ、ポートマッピングをすることで公開することができます。bridgeネットワークは単一のホスト内で完結します。 host ホスト上のインターフェースがそのまま利用されます。 none インターフェースを作りません。 overlay 複数ホストにまたがったbridgeネットワークを作成できます。overlayネットワークは管理のためにKVSを必要とし、現在サポートされているのはConsul、Etcd、Zookeeperです。 特別な理由がない限りbridgeネットワークを選択すればよいです。 なにも指定せずにdocker runした場合、デフォルトのbridgeネットワークに参加します。 ただし、デフォルトのbridgeネットワークはサービスディスカバリをサポートしていない(名前解決してくれない)ため、このネットワークを使ってコンテナ同士を通信する場合は自力でIPアドレスを探し出して通信先に指定する必要がありますが、それは現実的ではありません。\nユーザ定義bridgeネットワーク 自分で個別にbridgeネットワークを作成することも可能です。 ユーザが定義したbridgeネットワークについてはサービスディスカバリがサポートされています。\nユーザ定義bridgeネットワークの作成 特に意味のあるシステム構成ではないですが、違いがお手軽にわかりやすいので以下のような構成を作りたいと思います。 環境はDocker for Macでやってますが他の環境でも基本的には変わりません。 $ docker network create --driver bridge web 3bc07243ffaeec96d384b7310bee747cba5b3afa5971ed30ae8eb08e3cae4176 $ docker network ls NETWORK ID NAME DRIVER SCOPE fea25e294b20 bridge bridge local 3762bcd6bffb host host local f21c4ff0a40e none null local 3bc07243ffae web bridge local $ docker network inspect web [ { \"Name\": \"web\", \"Id\": \"3bc07243ffaeec96d384b7310bee747cba5b3afa5971ed30ae8eb08e3cae4176\", \"Created\": \"2017-05-18T12:39:05.685712535Z\", \"Scope\": \"local\", \"Driver\": \"bridge\", \"EnableIPv6\": false, \"IPAM\": { \"Driver\": \"default\", \"Options\": {}, \"Config\": [ { \"Subnet\": \"172.19.0.0/16\", \"Gateway\": \"172.19.0.1\" } ] }, \"Internal\": false, \"Attachable\": false, \"Containers\": {}, \"Options\": {}, \"Labels\": {} } ] Apacheコンテナの起動 $ docker pull httpd Using default tag: latest latest: Pulling from library/httpd 10a267c67f42: Already exists 0782edf7745a: Pull complete f3a72c4d9d02: Pull complete dd6ec65d8a55: Pull complete 1b7920e1c0df: Pull complete 5b99e4053015: Pull complete e720548ad189: Pull complete Digest: sha256:72b55a7c15a4ee3d56ff19f83b57b82287714f91070b1f556a54e90da5eee3fa Status: Downloaded newer image for httpd:latest $ docker run -d -p 8080:80 --name=apache --net=web httpd a274776cd3cc274e4ab72d7a2964532fd0b6de0620f5d2235c3b0cab927d5f14 $ curl -v localhost:8080 * Rebuilt URL to: localhost:8080/ * Trying 127.0.0.1... * Connected to localhost (127.0.0.1) port 8080 (#0) \u003e GET / HTTP/1.1 \u003e Host: localhost:8080 \u003e User-Agent: curl/7.43.0 \u003e Accept: */* \u003e \u003c HTTP/1.1 200 OK \u003c Date: Thu, 18 May 2017 12:48:59 GMT \u003c Server: Apache/2.4.25 (Unix) \u003c Last-Modified: Mon, 11 Jun 2007 18:53:14 GMT \u003c ETag: \"2d-432a5e4a73a80\" \u003c Accept-Ranges: bytes \u003c Content-Length: 45 \u003c Content-Type: text/html \u003c It works! * Connection #0 to host localhost left intact 起動してホストOS側にApacheがポートを公開できていることが確認できました。\nnginxコンテナの起動 $ docker pull nginx Using default tag: latest latest: Pulling from library/nginx ff3d52d8f55f: Pull complete b05436c68d6a: Pull complete 961dd3f5d836: Pull complete Digest: sha256:12d30ce421ad530494d588f87b2328ddc3cae666e77ea1ae5ac3a6661e52cde6 Status: Downloaded newer image for nginx:latest $ docker run -d -p 8090:80 --name=nginx --net=web nginx 40839a2909d25769f3a2b3a40d51fd348ffd8b24d5005612d146217a08e02270 $ curl -v localhost:8090 * Rebuilt URL to: localhost:8090/ * Trying 127.0.0.1... * Connected to localhost (127.0.0.1) port 8090 (#0) \u003e GET / HTTP/1.1 \u003e Host: localhost:8090 \u003e User-Agent: curl/7.43.0 \u003e Accept: */* \u003e \u003c HTTP/1.1 200 OK \u003c Server: nginx/1.13.0 \u003c Date: Thu, 18 May 2017 12:52:08 GMT \u003c Content-Type: text/html \u003c Content-Length: 612 \u003c Last-Modified: Tue, 25 Apr 2017 11:30:31 GMT \u003c Connection: keep-alive \u003c ETag: \"58ff3357-264\" \u003c Accept-Ranges: bytes \u003c \u003c!DOCTYPE html\u003e Welcome to nginx! Welcome to nginx! If you see this page, the nginx web server is successfully installed and working. Further configuration is required.\nFor online documentation and support please refer to nginx.org. Commercial support is available at nginx.com.\nThank you for using nginx.\n* Connection #0 to host localhost left intact こちらも起動してホストOS側にnginxがポートを公開できていることが確認できました。\nWebクライアントコンテナの起動 $ docker pull centos Using default tag: latest latest: Pulling from library/centos 343b09361036: Pull complete Digest: sha256:bba1de7c9d900a898e3cadbae040dfe8a633c06bc104a0df76ae24483e03c077 Status: Downloaded newer image for centos:latest $ docker run -it --rm --name=client --net=web centos bash [root@e95e6b29aed4 /]# Webクライアントコンテナから他のコンテナにhttpリクエストをしてみる まずはApache\n[root@e95e6b29aed4 /]# curl -v apache * About to connect() to apache port 80 (#0) * Trying 172.19.0.2... * Connected to apache (172.19.0.2) port 80 (#0) \u003e GET / HTTP/1.1 \u003e User-Agent: curl/7.29.0 \u003e Host: apache \u003e Accept: */* \u003e \u003c HTTP/1.1 200 OK \u003c Date: Thu, 18 May 2017 12:57:03 GMT \u003c Server: Apache/2.4.25 (Unix) \u003c Last-Modified: Mon, 11 Jun 2007 18:53:14 GMT \u003c ETag: \"2d-432a5e4a73a80\" \u003c Accept-Ranges: bytes \u003c Content-Length: 45 \u003c Content-Type: text/html \u003c It works! * Connection #0 to host apache left intact コンテナ名で通信できました。\n続いてnginx\n[root@e95e6b29aed4 /]# curl -v nginx * About to connect() to nginx port 80 (#0) * Trying 172.19.0.3... * Connected to nginx (172.19.0.3) port 80 (#0) \u003e GET / HTTP/1.1 \u003e User-Agent: curl/7.29.0 \u003e Host: nginx \u003e Accept: */* \u003e \u003c HTTP/1.1 200 OK \u003c Server: nginx/1.13.0 \u003c Date: Thu, 18 May 2017 12:59:15 GMT \u003c Content-Type: text/html \u003c Content-Length: 612 \u003c Last-Modified: Tue, 25 Apr 2017 11:30:31 GMT \u003c Connection: keep-alive \u003c ETag: \"58ff3357-264\" \u003c Accept-Ranges: bytes \u003c \u003c!DOCTYPE html\u003e Welcome to nginx! Welcome to nginx! If you see this page, the nginx web server is successfully installed and working. Further configuration is required.\nFor online documentation and support please refer to nginx.org. Commercial support is available at nginx.com.\nThank you for using nginx.\n* Connection #0 to host nginx left intact こちらもコンテナ名で通信できました。\n以上でコンテナ同士の通信に関しては終わりです。 最後に補足ですが、 Bridgeネットワーク内の通信なので、それぞれホスト側で公開したport(8080や8090)ではなく、 元々コンテナ自身がListenしているポート(80)でアクセスできていることにも注目してもらえると良いと思います。\nおかしなところなどありましたらご指摘頂ければ修正します。\n",
+  "wordCount" : "747",
+  "inLanguage": "en",
+  "datePublished": "2017-05-18T22:07:46+09:00",
+  "dateModified": "2017-05-18T22:07:46+09:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://tsukapah.github.io/posts/2017-05-18-docker/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "tsukapah のブログ",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://tsukapah.github.io/favicon.ico"
+    }
+  }
+}
 </script>
 </head>
 <body id="top">
     <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="My New Hugo Project (Alt + H)">My New Hugo Project</a>
+            <a href="https://tsukapah.github.io/" accesskey="h" title="tsukapah のブログ (Alt + H)">tsukapah のブログ</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -392,15 +457,15 @@ Bridgeネットワーク内の通信なので、それぞれホスト側で公�
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/%E7%A4%BE%E5%86%85%E5%8B%89%E5%BC%B7%E4%BC%9A/">社内勉強会</a></li>
-      <li><a href="http://localhost:1313/tags/docker/">Docker</a></li>
+      <li><a href="https://tsukapah.github.io/tags/%E7%A4%BE%E5%86%85%E5%8B%89%E5%BC%B7%E4%BC%9A/">社内勉強会</a></li>
+      <li><a href="https://tsukapah.github.io/tags/docker/">Docker</a></li>
     </ul>
   </footer>
 </article>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2026 <a href="http://localhost:1313/">My New Hugo Project</a></span> · 
+        <span>&copy; 2026 <a href="https://tsukapah.github.io/">tsukapah のブログ</a></span> · 
 
     <span>
         Powered by
