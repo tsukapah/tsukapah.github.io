@@ -112,7 +112,7 @@ $ open http://$(docker-machine ip test-machine):5601
 ※Docker for Mac等の場合は宛先はlocalhost:5601とかになります。
 
 こんな感じでエラーが出ないで初期画面が表示されれば成功。
-![Kibana5.0.0.png](https://qiita-image-store.s3.amazonaws.com/0/32208/4cd881d1-4e5d-6f27-4a28-a9fd1623f931.png "Kibana5.0.0.png")
+![Kibana5.0.0.png](/images/4cd881d1-4e5d-6f27-4a28-a9fd1623f931.png "Kibana5.0.0.png")
 
 あとはもう好きなようにデータをElasticsearchに投げつけちゃいましょう。
 X-PackのSecurityをfalseにしているので認証無しでデータを投入できます。

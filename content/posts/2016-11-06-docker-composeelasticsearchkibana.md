@@ -21,7 +21,7 @@ Docker Composeは複数のコンテナをまとめて定義・実行するため
 Docker Composeを使わないで個別に起動する方法は[こちら](http://qiita.com/tsukapah/items/24bab0f5ab9bb4e12309)です。
 
 # 実行環境
-![DockerEngine.png](https://qiita-image-store.s3.amazonaws.com/0/32208/b1a56210-672a-88ea-e5cf-09ca1ee46c6c.png "DockerEngine.png")
+![DockerEngine.png](/images/b1a56210-672a-88ea-e5cf-09ca1ee46c6c.png "DockerEngine.png")
 
 ```bash
 $ uname -v
@@ -81,7 +81,7 @@ $ curl localhost:9200
 }
 $ open http://localhost:5601
 ```
-![Kibana5.0.0.png](https://qiita-image-store.s3.amazonaws.com/0/32208/4cd881d1-4e5d-6f27-4a28-a9fd1623f931.png "Kibana5.0.0.png")
+![Kibana5.0.0.png](/images/4cd881d1-4e5d-6f27-4a28-a9fd1623f931.png "Kibana5.0.0.png")
 
 # クラスタの停止
 ```bash

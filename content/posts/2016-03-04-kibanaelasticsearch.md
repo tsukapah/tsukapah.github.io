@@ -35,7 +35,7 @@ params:
   "tagline" : "You Know, for Search"
 }
 ```
-![Kibana Version](https://qiita-image-store.s3.amazonaws.com/0/32208/a461fec4-1fce-277b-4988-713d488c4ed4.png)
+![Kibana Version](/images/a461fec4-1fce-277b-4988-713d488c4ed4.png)
 
 # 手順
 ## Visualizeを作成する
@@ -49,7 +49,7 @@ params:
 1. Y軸(縦軸)の設定をします。Y-Axisの *Aggregation* を`count`にします。  
 というかたぶん最初からそうなってると思います。  
 この時点での見た目はこんな感じです。
-![Kobito.CaCSV2.png](https://qiita-image-store.s3.amazonaws.com/0/32208/25ea0a05-94b3-d54a-d4e9-6df226b0d0f5.png "Kobito.CaCSV2.png")
+![Kobito.CaCSV2.png](/images/25ea0a05-94b3-d54a-d4e9-6df226b0d0f5.png "Kobito.CaCSV2.png")
 1. Select buckets typeから`X-Axis`を選択します。  
 これでX軸(横軸)が追加できるようになります。
 1. X-Axisの *Aggregation* を`Date Histogram`にします。  
@@ -58,7 +58,7 @@ params:
 いったんこの状態でグラフを描画してみましょう。  
 右向きの三角形を押すとグラフが更新されます。  
 この時点での見た目はこんな感じです。
-![Kobito.4LNmdn.png](https://qiita-image-store.s3.amazonaws.com/0/32208/f15db381-a70b-79bd-46d2-9c482deea9bc.png "Kobito.4LNmdn.png")
+![Kobito.4LNmdn.png](/images/f15db381-a70b-79bd-46d2-9c482deea9bc.png "Kobito.4LNmdn.png")
 1. 続いてトップページだけにフィルタリングを行います。  
 `Add sub-buckets`を押します。  
 選択肢が出てきますがとりあえず今回は`Split Bars`にしておきます。  
@@ -69,7 +69,7 @@ params:
 フィルタの設定ができたのでグラフを更新しましょう。 
 右向き三角系を押します。  
 こんな感じのグラフになりました。
-![Kobito.bwZGvU.png](https://qiita-image-store.s3.amazonaws.com/0/32208/0dd6b46a-7c3f-dbea-17da-97305ee93651.png "Kobito.bwZGvU.png")
+![Kobito.bwZGvU.png](/images/0dd6b46a-7c3f-dbea-17da-97305ee93651.png "Kobito.bwZGvU.png")
 1. 作成したVisualizeを保存します。  
 右上の方にあるフロッピーディスクっぽいボタンを押します[^1]。  
 [^1]: どーでもいいですが、きっと若い人はフロッピーディスク見たことないですよね。見たことない人はSDカードっぽい絵のやつがそれです。
@@ -87,7 +87,7 @@ params:
 画面に先ほどのグラフが小さく出てきたと思います。  
 あとはグラフの右下をひっぱって好きな大きさにします。  
 こんな感じになりました。
-![Kobito.oaqexy.png](https://qiita-image-store.s3.amazonaws.com/0/32208/b4a4ea75-1ade-807b-b10f-ea476448a0c5.png "Kobito.oaqexy.png")
+![Kobito.oaqexy.png](/images/b4a4ea75-1ade-807b-b10f-ea476448a0c5.png "Kobito.oaqexy.png")
 1. 作成したDashboardを保存します。  
 右上のフロッピーディスクっぽいボタンを押します。  
 テキストボックスに好きな名前を入れて *save* します。  
@@ -108,7 +108,7 @@ params:
 
 タブから`Visualizations`を選択し、`TopPageHistgram`にチェックを入れた状態で`Export`ボタンを押します。  
 画面はこんな感じ。
-![Kobito.57Lmex.png](https://qiita-image-store.s3.amazonaws.com/0/32208/ae46f819-be63-a274-dd53-f3361ff14430.png "Kobito.57Lmex.png")
+![Kobito.57Lmex.png](/images/ae46f819-be63-a274-dd53-f3361ff14430.png "Kobito.57Lmex.png")
 *export.json* がダウンロードできたと思います。
 
 ```export.json

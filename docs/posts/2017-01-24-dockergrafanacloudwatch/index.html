@@ -223,13 +223,13 @@ Grafanaは3000ポートでListenしているのでそれもあわせてマッピ
 <h1 id="grafanaにデータを追加">Grafanaにデータを追加<a hidden class="anchor" aria-hidden="true" href="#grafanaにデータを追加">#</a></h1>
 <p>接続してみる。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ open http://localhost:3000
-</span></span></code></pre></div><p><img alt="screencapture-localhost-3000-login-1484041461957.png" loading="lazy" src="https://qiita-image-store.s3.amazonaws.com/0/32208/89b5cc36-ef2d-de38-2854-fe5e86ed7500.png" title="screencapture-localhost-3000-login-1484041461957.png"></p>
+</span></span></code></pre></div><p><img alt="screencapture-localhost-3000-login-1484041461957.png" loading="lazy" src="/images/89b5cc36-ef2d-de38-2854-fe5e86ed7500.png" title="screencapture-localhost-3000-login-1484041461957.png"></p>
 <p>デフォルトのログインID/PWは<code>admin/admin</code>。
 ログインするとこんな感じ。
-<img alt="Kobito.cKv8Tt.png" loading="lazy" src="https://qiita-image-store.s3.amazonaws.com/0/32208/7ea01852-2ca2-daed-844d-d63f92e0af53.png" title="Kobito.cKv8Tt.png">
+<img alt="Kobito.cKv8Tt.png" loading="lazy" src="/images/7ea01852-2ca2-daed-844d-d63f92e0af53.png" title="Kobito.cKv8Tt.png">
 なんか前見たときよりUIがよくなってるかも。
 ちょっと目立つ感じになってる<code>Add data source</code>ボタンを押す。</p>
-<p><img alt="Kobito.b6Dvv3.png" loading="lazy" src="https://qiita-image-store.s3.amazonaws.com/0/32208/f8a13f8e-721e-965c-5d0e-5d97d08b9366.png" title="Kobito.b6Dvv3.png">
+<p><img alt="Kobito.b6Dvv3.png" loading="lazy" src="/images/f8a13f8e-721e-965c-5d0e-5d97d08b9366.png" title="Kobito.b6Dvv3.png">
 こんな画面になる。
 Nameには任意のData Sourceの名前をつけてる。
 Typeのプルダウンから<code>CloudWatch</code>を選択。
@@ -237,10 +237,10 @@ Auth Providerは<code>Credentials file</code>以外にも<code>Access &amp; secr
 Default Regionは適宜選択すること。
 Custom Metrics namespaceはなにかあれば入力するが、とりあえず空のままでOK。
 左下の<code>Add</code>ボタンを押して、<code>Success</code>と表示されれば登録できてるっぽい。</p>
-<p><img alt="Kobito.KIPEF2.png" loading="lazy" src="https://qiita-image-store.s3.amazonaws.com/0/32208/cf34f400-3211-b981-fce3-4d0fbe213c9f.png" title="Kobito.KIPEF2.png">
+<p><img alt="Kobito.KIPEF2.png" loading="lazy" src="/images/cf34f400-3211-b981-fce3-4d0fbe213c9f.png" title="Kobito.KIPEF2.png">
 こんな感じで登録できた。</p>
 <p>あとはdashboardでポチポチグラフを追加していい感じの画面を作ればOK。
-<img alt="Kobito.TV43uj.png" loading="lazy" src="https://qiita-image-store.s3.amazonaws.com/0/32208/794fceed-20b8-1b24-ddea-675974f952a4.png" title="Kobito.TV43uj.png"></p>
+<img alt="Kobito.TV43uj.png" loading="lazy" src="/images/794fceed-20b8-1b24-ddea-675974f952a4.png" title="Kobito.TV43uj.png"></p>
 <hr>
 <p>Dockerで起動しているのでこのままだとデータの永続化とかはできてないけど、とりあえず簡単に起動できて便利。</p>
 

@@ -187,7 +187,7 @@
   </header> 
   <div class="post-content"><p>※こちらの記事は<a href="https://tech.tsukapah.com/limited-codedeploy/">個人ブログ</a>に移行しました。</p>
 <p>AutoScaleでEC2を100台にした後にデプロイしてみたらFailしました。
-<img alt="codedeploy.jpg" loading="lazy" src="https://qiita-image-store.s3.amazonaws.com/0/32208/3e09aa5c-df76-5d69-5166-36c6e7ba35af.jpeg" title="codedeploy.jpg">
+<img alt="codedeploy.jpg" loading="lazy" src="/images/3e09aa5c-df76-5d69-5166-36c6e7ba35af.jpeg" title="codedeploy.jpg">
 どうやら<a href="http://docs.aws.amazon.com/ja_jp/codedeploy/latest/userguide/limits.html">Limit</a>に引っかかったようです。</p>
 <p>本番当日だったので泣きそうになりましたが、
 まずは落ち着いて<a href="https://console.aws.amazon.com/support/home#/case/create%3FissueType=service-limit-increase">request a limit increase</a>しつつ、いったんEC2を50台まで減らしてからデプロイし、改めて100台に増やしました。

@@ -189,11 +189,11 @@
 <p>アプリケーションを実行できるようになってくると、自然と別のコンテナと通信したいケースに出くわします。
 コンテナ間の通信には大きく別けて2種類存在しています。</p>
 <h2 id="異なるホストで動くコンテナ間の通信">異なるホストで動くコンテナ間の通信<a hidden class="anchor" aria-hidden="true" href="#異なるホストで動くコンテナ間の通信">#</a></h2>
-<p><img alt="コンテナホスト間の通信.png" loading="lazy" src="https://qiita-image-store.s3.amazonaws.com/0/32208/c098babe-6a13-583a-54f8-07ad6a91d79f.png" title="コンテナホスト間の通信.png">
+<p><img alt="コンテナホスト間の通信.png" loading="lazy" src="/images/c098babe-6a13-583a-54f8-07ad6a91d79f.png" title="コンテナホスト間の通信.png">
 こちらの場合、接続元コンテナは接続先コンテナが動くコンテナホストのIPアドレスに向かって通信すれば良いだけです。
 サービスディスカバリを理由にコンテナホストを意識したくない場合は後述するoverlayネットワークを使用することになりますが、当記事では詳しく扱いません。</p>
 <h2 id="同一ホスト内で動く異なるコンテナ間の通信">同一ホスト内で動く異なるコンテナ間の通信<a hidden class="anchor" aria-hidden="true" href="#同一ホスト内で動く異なるコンテナ間の通信">#</a></h2>
-<p><img alt="同一ホスト内の通信.png" loading="lazy" src="https://qiita-image-store.s3.amazonaws.com/0/32208/79d77986-03df-bd59-163f-795b68350394.png" title="同一ホスト内の通信.png">
+<p><img alt="同一ホスト内の通信.png" loading="lazy" src="/images/79d77986-03df-bd59-163f-795b68350394.png" title="同一ホスト内の通信.png">
 今回は主にこちらについて記載します。</p>
 <h1 id="dockerのネットワーク">Dockerのネットワーク<a hidden class="anchor" aria-hidden="true" href="#dockerのネットワーク">#</a></h1>
 <p>Dockerはコンテナ間の通信をサポートしており、デフォルトでDocker Engine内に3つのネットワークを作成します。</p>
@@ -238,7 +238,7 @@
 <h2 id="ユーザ定義bridgeネットワークの作成">ユーザ定義bridgeネットワークの作成<a hidden class="anchor" aria-hidden="true" href="#ユーザ定義bridgeネットワークの作成">#</a></h2>
 <p>特に意味のあるシステム構成ではないですが、違いがお手軽にわかりやすいので以下のような構成を作りたいと思います。
 環境はDocker for Macでやってますが他の環境でも基本的には変わりません。
-<img alt="同一ホスト内の通信構成.png" loading="lazy" src="https://qiita-image-store.s3.amazonaws.com/0/32208/f52a46f1-7346-61a6-e07e-95508dc910a5.png" title="同一ホスト内の通信構成.png"></p>
+<img alt="同一ホスト内の通信構成.png" loading="lazy" src="/images/f52a46f1-7346-61a6-e07e-95508dc910a5.png" title="同一ホスト内の通信構成.png"></p>
 <pre tabindex="0"><code class="language-bash:bridgeネットワークの作成" data-lang="bash:bridgeネットワークの作成">$ docker network create --driver bridge web
 3bc07243ffaeec96d384b7310bee747cba5b3afa5971ed30ae8eb08e3cae4176
 $ docker network ls

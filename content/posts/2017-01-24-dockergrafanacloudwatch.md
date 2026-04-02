@@ -72,15 +72,15 @@ $ docker run -d -p 3000:3000 -v ~/.aws/credentials:/usr/share/grafana/.aws/crede
 $ open http://localhost:3000
 ```
 
-![screencapture-localhost-3000-login-1484041461957.png](https://qiita-image-store.s3.amazonaws.com/0/32208/89b5cc36-ef2d-de38-2854-fe5e86ed7500.png "screencapture-localhost-3000-login-1484041461957.png")
+![screencapture-localhost-3000-login-1484041461957.png](/images/89b5cc36-ef2d-de38-2854-fe5e86ed7500.png "screencapture-localhost-3000-login-1484041461957.png")
 
 デフォルトのログインID/PWは`admin/admin`。
 ログインするとこんな感じ。
-![Kobito.cKv8Tt.png](https://qiita-image-store.s3.amazonaws.com/0/32208/7ea01852-2ca2-daed-844d-d63f92e0af53.png "Kobito.cKv8Tt.png")
+![Kobito.cKv8Tt.png](/images/7ea01852-2ca2-daed-844d-d63f92e0af53.png "Kobito.cKv8Tt.png")
 なんか前見たときよりUIがよくなってるかも。
 ちょっと目立つ感じになってる`Add data source`ボタンを押す。
 
-![Kobito.b6Dvv3.png](https://qiita-image-store.s3.amazonaws.com/0/32208/f8a13f8e-721e-965c-5d0e-5d97d08b9366.png "Kobito.b6Dvv3.png")
+![Kobito.b6Dvv3.png](/images/f8a13f8e-721e-965c-5d0e-5d97d08b9366.png "Kobito.b6Dvv3.png")
 こんな画面になる。
 Nameには任意のData Sourceの名前をつけてる。
 Typeのプルダウンから`CloudWatch`を選択。
@@ -89,11 +89,11 @@ Default Regionは適宜選択すること。
 Custom Metrics namespaceはなにかあれば入力するが、とりあえず空のままでOK。
 左下の`Add`ボタンを押して、`Success`と表示されれば登録できてるっぽい。
 
-![Kobito.KIPEF2.png](https://qiita-image-store.s3.amazonaws.com/0/32208/cf34f400-3211-b981-fce3-4d0fbe213c9f.png "Kobito.KIPEF2.png")
+![Kobito.KIPEF2.png](/images/cf34f400-3211-b981-fce3-4d0fbe213c9f.png "Kobito.KIPEF2.png")
 こんな感じで登録できた。
 
 あとはdashboardでポチポチグラフを追加していい感じの画面を作ればOK。
-![Kobito.TV43uj.png](https://qiita-image-store.s3.amazonaws.com/0/32208/794fceed-20b8-1b24-ddea-675974f952a4.png "Kobito.TV43uj.png")
+![Kobito.TV43uj.png](/images/794fceed-20b8-1b24-ddea-675974f952a4.png "Kobito.TV43uj.png")
 
 ---
 

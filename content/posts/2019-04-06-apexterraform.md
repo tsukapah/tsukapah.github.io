@@ -29,7 +29,7 @@ Lambdaのデプロイは開発チームが利用していたServerless Framework
 ※当エントリではApexやTerraformの導入については触れません
 
 # 作る環境
-<img width="1124" alt="APIGateway-Lambda.png" src="https://qiita-image-store.s3.amazonaws.com/0/32208/a88ba059-890b-2b48-e562-9a4e0b664eae.png">
+<img width="1124" alt="APIGateway-Lambda.png" src="/images/a88ba059-890b-2b48-e562-9a4e0b664eae.png">
 Lambdaで使用するIAM Roleや、API GatewayはTerraformに管理を任せ、LambdaそのものはApexに管理してもらいます。
 
 # ファイル構成

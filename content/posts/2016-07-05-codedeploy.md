@@ -16,7 +16,7 @@ params:
 ※こちらの記事は[個人ブログ](https://tech.tsukapah.com/limited-codedeploy/)に移行しました。
 
 AutoScaleでEC2を100台にした後にデプロイしてみたらFailしました。
-![codedeploy.jpg](https://qiita-image-store.s3.amazonaws.com/0/32208/3e09aa5c-df76-5d69-5166-36c6e7ba35af.jpeg "codedeploy.jpg")
+![codedeploy.jpg](/images/3e09aa5c-df76-5d69-5166-36c6e7ba35af.jpeg "codedeploy.jpg")
 どうやら[Limit](http://docs.aws.amazon.com/ja_jp/codedeploy/latest/userguide/limits.html)に引っかかったようです。
 
 本番当日だったので泣きそうになりましたが、
