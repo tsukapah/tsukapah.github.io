@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Sqs on tsukapah のブログ</title>
+    <link>https://tsukapah.github.io/tags/sqs/</link>
+    <description>Recent content in Sqs on tsukapah のブログ</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Sun, 17 Apr 2022 22:59:05 +0900</lastBuildDate>
+    <atom:link href="https://tsukapah.github.io/tags/sqs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ローカルにAmazonSQS互換のMQを起動して使ってみる</title>
+      <link>https://tsukapah.github.io/posts/2016-11-23-amazonsqsmq/</link>
+      <pubDate>Wed, 23 Nov 2016 23:31:54 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2016-11-23-amazonsqsmq/</guid>
+      <description>※当記事は[個人ブログ](https://tech.tsukapah.com/elasticmq/)に移行しました</description>
+    </item>
+  </channel>
+</rss>

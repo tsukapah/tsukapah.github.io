@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Linux on tsukapah のブログ</title>
+    <link>https://tsukapah.github.io/tags/linux/</link>
+    <description>Recent content in Linux on tsukapah のブログ</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Mon, 11 Apr 2022 22:44:51 +0900</lastBuildDate>
+    <atom:link href="https://tsukapah.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>sedの区切り文字</title>
+      <link>https://tsukapah.github.io/posts/2016-08-26-sed/</link>
+      <pubDate>Fri, 26 Aug 2016 16:18:00 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2016-08-26-sed/</guid>
+      <description>※こちらの記事は[個人ブログ](https://tech.tsukapah.com/sed-delimiter/)に移行しました</description>
+    </item>
+  </channel>
+</rss>

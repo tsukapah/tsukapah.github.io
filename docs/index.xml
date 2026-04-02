@@ -6,165 +6,231 @@
     <description>Recent content on tsukapah のブログ</description>
     <generator>Hugo</generator>
     <language>ja</language>
+    <lastBuildDate>Sat, 30 Apr 2022 23:55:58 +0900</lastBuildDate>
     <atom:link href="https://tsukapah.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title></title>
-      <link>https://tsukapah.github.io/posts/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://tsukapah.github.io/posts/</guid>
-      <description>&lt;!DOCTYPE html&gt;
-&lt;html lang=&#34;en&#34; dir=&#34;auto&#34; data-theme=&#34;auto&#34;&gt;
-
-&lt;head&gt;&lt;meta charset=&#34;utf-8&#34;&gt;
-&lt;meta http-equiv=&#34;X-UA-Compatible&#34; content=&#34;IE=edge&#34;&gt;
-&lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1, shrink-to-fit=no&#34;&gt;
-&lt;meta name=&#34;robots&#34; content=&#34;index, follow&#34;&gt;
-&lt;title&gt;Posts | tsukapah のブログ&lt;/title&gt;
-&lt;meta name=&#34;keywords&#34; content=&#34;&#34;&gt;
-&lt;meta name=&#34;description&#34; content=&#34;Posts - tsukapah のブログ&#34;&gt;
-&lt;meta name=&#34;author&#34; content=&#34;&#34;&gt;
-&lt;link rel=&#34;canonical&#34; href=&#34;https://tsukapah.github.io/posts/&#34;&gt;
-&lt;link crossorigin=&#34;anonymous&#34; href=&#34;https://tsukapah.github.io/assets/css/stylesheet.199042e659bc7245f5609d333d6c044eb554a0640849bb874e1dff8eb0f57209.css&#34; integrity=&#34;sha256-GZBC5lm8ckX1YJ0zPWwETrVUoGQISbuHTh3/jrD1cgk=&#34; rel=&#34;preload stylesheet&#34; as=&#34;style&#34;&gt;
-&lt;link rel=&#34;icon&#34; href=&#34;https://tsukapah.github.io/favicon.ico&#34;&gt;
-&lt;link rel=&#34;icon&#34; type=&#34;image/png&#34; sizes=&#34;16x16&#34; href=&#34;https://tsukapah.github.io/favicon-16x16.png&#34;&gt;
-&lt;link rel=&#34;icon&#34; type=&#34;image/png&#34; sizes=&#34;32x32&#34; href=&#34;https://tsukapah.github.io/favicon-32x32.png&#34;&gt;
-&lt;link rel=&#34;apple-touch-icon&#34; href=&#34;https://tsukapah.github.io/apple-touch-icon.png&#34;&gt;
-&lt;link rel=&#34;mask-icon&#34; href=&#34;https://tsukapah.github.io/safari-pinned-tab.svg&#34;&gt;
-&lt;meta name=&#34;theme-color&#34; content=&#34;#2e2e33&#34;&gt;
-&lt;meta name=&#34;msapplication-TileColor&#34; content=&#34;#2e2e33&#34;&gt;
-&lt;link rel=&#34;alternate&#34; type=&#34;application/rss+xml&#34; href=&#34;https://tsukapah.github.io/posts/index.xml&#34; title=&#34;rss&#34;&gt;
-&lt;link rel=&#34;alternate&#34; hreflang=&#34;en&#34; href=&#34;https://tsukapah.github.io/posts/&#34;&gt;
-&lt;noscript&gt;
-    &lt;style&gt;
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    &lt;/style&gt;
-    &lt;style&gt;
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --code-block-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-                color-scheme: dark;
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .toc {
-                background: var(--entry);
-            }
-        }
-
-        @media (prefers-color-scheme: light) {
-            .list::-webkit-scrollbar-thumb {
-                border-color: var(--code-bg);
-            }
-        }
-
-    &lt;/style&gt;
-&lt;/noscript&gt;
-&lt;script&gt;
-    if (localStorage.getItem(&#34;pref-theme&#34;) === &#34;dark&#34;) {
-        document.querySelector(&#34;html&#34;).dataset.theme = &#39;dark&#39;;
-    } else if (localStorage.getItem(&#34;pref-theme&#34;) === &#34;light&#34;) {
-       document.querySelector(&#34;html&#34;).dataset.theme = &#39;light&#39;;
-    } else if (window.matchMedia(&#39;(prefers-color-scheme: dark)&#39;).matches) {
-        document.querySelector(&#34;html&#34;).dataset.theme = &#39;dark&#39;;
-    } else {
-        document.querySelector(&#34;html&#34;).dataset.theme = &#39;light&#39;;
-    }
-
-&lt;/script&gt;&lt;meta property=&#34;og:url&#34; content=&#34;https://tsukapah.github.io/posts/&#34;&gt;
-  &lt;meta property=&#34;og:site_name&#34; content=&#34;tsukapah のブログ&#34;&gt;
-  &lt;meta property=&#34;og:title&#34; content=&#34;Posts&#34;&gt;
-  &lt;meta property=&#34;og:locale&#34; content=&#34;ja&#34;&gt;
-  &lt;meta property=&#34;og:type&#34; content=&#34;website&#34;&gt;
-
-  &lt;meta name=&#34;twitter:card&#34; content=&#34;summary&#34;&gt;
-  &lt;meta name=&#34;twitter:title&#34; content=&#34;Posts&#34;&gt;
-
-
-&lt;script type=&#34;application/ld+json&#34;&gt;
-{
-  &#34;@context&#34;: &#34;https://schema.org&#34;,
-  &#34;@type&#34;: &#34;BreadcrumbList&#34;,
-  &#34;itemListElement&#34;: [
-    {
-      &#34;@type&#34;: &#34;ListItem&#34;,
-      &#34;position&#34;:  1 ,
-      &#34;name&#34;: &#34;Posts&#34;,
-      &#34;item&#34;: &#34;https://tsukapah.github.io/posts/&#34;
-    }
-  ]
-}
-&lt;/script&gt;
-&lt;/head&gt;
-&lt;body class=&#34;list&#34; id=&#34;top&#34;&gt;
-    &lt;header class=&#34;header&#34;&gt;
-    &lt;nav class=&#34;nav&#34;&gt;
-        &lt;div class=&#34;logo&#34;&gt;
-            &lt;a href=&#34;https://tsukapah.github.io/&#34; accesskey=&#34;h&#34; title=&#34;tsukapah のブログ (Alt + H)&#34;&gt;tsukapah のブログ&lt;/a&gt;
-            &lt;div class=&#34;logo-switches&#34;&gt;
-                &lt;button id=&#34;theme-toggle&#34; accesskey=&#34;t&#34; title=&#34;(Alt + T)&#34; aria-label=&#34;Toggle theme&#34;&gt;
-                    &lt;svg id=&#34;moon&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;24&#34; height=&#34;18&#34; viewBox=&#34;0 0 24 24&#34;
-                        fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-                        stroke-linejoin=&#34;round&#34;&gt;
-                        &lt;path d=&#34;M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z&#34;&gt;&lt;/path&gt;
-                    &lt;/svg&gt;
-                    &lt;svg id=&#34;sun&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;24&#34; height=&#34;18&#34; viewBox=&#34;0 0 24 24&#34;
-                        fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34;
-                        stroke-linejoin=&#34;round&#34;&gt;
-                        &lt;circle cx=&#34;12&#34; cy=&#34;12&#34; r=&#34;5&#34;&gt;&lt;/circle&gt;
-                        &lt;line x1=&#34;12&#34; y1=&#34;1&#34; x2=&#34;12&#34; y2=&#34;3&#34;&gt;&lt;/line&gt;
-                        &lt;line x1=&#34;12&#34; y1=&#34;21&#34; x2=&#34;12&#34; y2=&#34;23&#34;&gt;&lt;/line&gt;
-                        &lt;line x1=&#34;4.22&#34; y1=&#34;4.22&#34; x2=&#34;5.64&#34; y2=&#34;5.64&#34;&gt;&lt;/line&gt;
-                        &lt;line x1=&#34;18.36&#34; y1=&#34;18.36&#34; x2=&#34;19.78&#34; y2=&#34;19.78&#34;&gt;&lt;/line&gt;
-                        &lt;line x1=&#34;1&#34; y1=&#34;12&#34; x2=&#34;3&#34; y2=&#34;12&#34;&gt;&lt;/line&gt;
-                        &lt;line x1=&#34;21&#34; y1=&#34;12&#34; x2=&#34;23&#34; y2=&#34;12&#34;&gt;&lt;/line&gt;
-                        &lt;line x1=&#34;4.22&#34; y1=&#34;19.78&#34; x2=&#34;5.64&#34; y2=&#34;18.36&#34;&gt;&lt;/line&gt;
-                        &lt;line x1=&#34;18.36&#34; y1=&#34;5.64&#34; x2=&#34;19.78&#34; y2=&#34;4.22&#34;&gt;&lt;/line&gt;
-                    &lt;/svg&gt;
-                &lt;/button&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-        &lt;ul id=&#34;menu&#34;&gt;
-        &lt;/ul&gt;
-    &lt;/nav&gt;
-&lt;/header&gt;
-&lt;main class=&#34;main&#34;&gt; 
-&lt;header class=&#34;page-header&#34;&gt;
-  &lt;h1&gt;
-    Posts
-  &lt;/h1&gt;
-&lt;/header&gt;
-
-&lt;article class=&#34;post-entry&#34;&gt; 
-  &lt;header class=&#34;entry-header&#34;&gt;
-    &lt;h2 class=&#34;entry-hint-parent&#34;&gt;CI/CDは誰のものか
-    &lt;/h2&gt;
-  &lt;/header&gt;
-  &lt;div class=&#34;entry-content&#34;&gt;
-    &lt;p&gt; この記事はCI/CD Advent Calendar 2019の16日目の記事です。
-こんにちは、16日目のアドベントカレンダーを担当させて頂きます。
-はじめに 早速ですが、CI/CDと聞いて皆さんが最初に思い浮かべることは何でしょうか？ おそらく自動テストの実装やデプロイの自動化など、自動化技術のことを思い浮かべる方が多いのではないでしょうか。 弊社でもこのような自動化には取り組んでおり、Bitbucket PipelinesやJenkins等を利用したりしていますが、タイトルの通りこれから書くのはCI/CDの技術的側面についてではありません。 技術的な内容については他のアドベントカレンダーの記事に期待してます。皆さん、応援してます！ なお、この投稿は個人の意見にもとづくものであり、所属する組織を代表するものではありません。 異論などもあるかと思いますが、こんな考え方もあるんだなくらいで参考にして頂ければと思います。
-CI/CDとは おそらくこの記事をご覧の方はCI/CD = Continuous Integration／Continuous DeliveryあるいはContinuous deployment(日本語では継続的インテグレーション／継続的デリバリーあるいは継続的デプロイ)という言葉の略だということはすでにご存知ではないでしょうか。 この言葉に向きあってみると、本質的には技術的な何かを指すのではなく、習慣のことを指すのだということに気づいてきます。 実際にWikipediaにも以下のように記載されています。
-継続的インテグレーション、CI（英: continuous integration）とは、主にプログラマーのアプリケーション作成時の品質改善や納期の短縮のための習慣のことである。
-常に一定以上の品質のテストができるようにする(もしくは繰り返す、継続する)ことで変更しやすくする、 一定のデプロイ手順を定義し繰り返す、継続することでリリースに対する心理的負担を軽減する、 その習慣そのものがCI/CDであり、習慣を継続しやすくするための手法として注目されているのが自動テストやデプロイ自動化のような技術なのだと思います。
-自動化がないときテスト/デプロイは誰がするのか 少し話が横にそれますが、ある程度プロジェクトやプロダクトが大きくなると、おそらく技術要素によって役割分担されたチームが出来上がることが多いと思います。 弊社も漏れなくそんな感じです。全員がフルスタックにはなれません。 フロントエンド開発をする役割・バックエンド開発をする役割・インフラ構築をする役割などになると思いますが、 すべての役割で共通して発生する業務がテストとデプロイ(リリース)です。 もちろんテストエンジニアのようなその部分に特化した役割があることもあると思いますが、その手前で多かれ少なかれ何かしらの確認はすると思います。 つまり、テスト/デプロイは中身は違っても全員がする作業なのです。
-CI/CDは誰のものか ここでタイトルに戻ります。 皆さんの開発現場では、自動化職人が生まれてしまっていませんか？ 特定の技術領域の人に自動化の実装・保守が偏ってしまっていることはありませんか？ 前述の通り、テスト/デプロイは全員に必要な作業です。 自分が作った成果物がどのような(どのように)テストを経ているのか知らない、どのような手順を踏んでビルドされデプロイされているのか知らない、ということはありませんか？ そんなときにチームが使っている自動化環境が壊れてしまったらどうしますか？ そのようなことを考えると、人任せにしていていい気がしなくなってきませんか？ CI/CDという習慣は、誰か特定の役割の人たちのものではなく全員のものではないでしょうか。 全員がオーナーシップを持って育てていくものだと思います。
-最後に CI/CDは習慣であり、みんなのものです。 だからといって自動化難しそうだなと敬遠している人は大勢いると思います。 でも、取り組み始めると面白いですし、最初から壮大なことをする必要はありません。 できることから一緒に楽しんで取り組んでみんなで育てましょう。
-&lt;/p&gt;</description>
+      <title>CI/CDは誰のものか</title>
+      <link>https://tsukapah.github.io/posts/2019-12-16-cicd/</link>
+      <pubDate>Mon, 16 Dec 2019 10:34:15 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2019-12-16-cicd/</guid>
+      <description>&amp;gt;この記事は[CI/CD Advent Calendar 2019](https://qiita.com/advent-calendar/2019/ci-cd)の16日目の記事です。</description>
+    </item>
+    <item>
+      <title>Apex&#43;Terraformでサーバレスアーキテクチャをフルコード化</title>
+      <link>https://tsukapah.github.io/posts/2019-04-06-apexterraform/</link>
+      <pubDate>Sat, 06 Apr 2019 00:16:08 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2019-04-06-apexterraform/</guid>
+      <description>私のチームではAWSにおけるインフラの構成管理にTerraformを利用しています。</description>
+    </item>
+    <item>
+      <title>Bitbucket Pilelines/Deployments入門</title>
+      <link>https://tsukapah.github.io/posts/2018-03-05-bitbucket-pilelinesdeployments/</link>
+      <pubDate>Mon, 05 Mar 2018 17:25:53 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2018-03-05-bitbucket-pilelinesdeployments/</guid>
+      <description>Amazon S3とCloudFrontを使用してスタティックなWebコンテンツを配信・運用しているんですが、</description>
+    </item>
+    <item>
+      <title>複数行をまとめて置換したかったのでsedとpythonで比べてみた</title>
+      <link>https://tsukapah.github.io/posts/2018-02-08-sedpython/</link>
+      <pubDate>Thu, 08 Feb 2018 22:13:00 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2018-02-08-sedpython/</guid>
+      <description>```before.txt</description>
+    </item>
+    <item>
+      <title>AWS Fargateを使用してNginxを起動した(ENI使用)</title>
+      <link>https://tsukapah.github.io/posts/2017-12-05-aws-fargatenginxeni/</link>
+      <pubDate>Tue, 05 Dec 2017 21:36:02 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2017-12-05-aws-fargatenginxeni/</guid>
+      <description>AWS re:Invent2017でAWSが発表したコンテナホスト(インスタンス)を意識せずにコンテナを管理できるオーケストレーションサービスです。</description>
+    </item>
+    <item>
+      <title>Macにpyenvを入れたらbrew doctorで怒られるようになったので対応したメモ</title>
+      <link>https://tsukapah.github.io/posts/2017-08-14-macpyenvbrew-doctor/</link>
+      <pubDate>Mon, 14 Aug 2017 15:39:37 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2017-08-14-macpyenvbrew-doctor/</guid>
+      <description>Ansibleの1.9系と2.0系を両方使いたくてpyenvを導入したらHomebrewに怒られた。</description>
+    </item>
+    <item>
+      <title>ElasitcsearchのReindex APIを使ってみた</title>
+      <link>https://tsukapah.github.io/posts/2017-06-05-elasitcsearchreindex-api/</link>
+      <pubDate>Mon, 05 Jun 2017 16:55:29 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2017-06-05-elasitcsearchreindex-api/</guid>
+      <description>[Reindex API](https://www.elastic.co/guide/en/elasticsearch/reference/5.4/docs-reindex.html)が便利そうだったので検証してみました。</description>
+    </item>
+    <item>
+      <title>Elasticsearchクラスタにノードを追加してみる</title>
+      <link>https://tsukapah.github.io/posts/2017-06-02-elasticsearch/</link>
+      <pubDate>Fri, 02 Jun 2017 19:54:55 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2017-06-02-elasticsearch/</guid>
+      <description>[こちら](http://qiita.com/tsukapah/items/1df305026f55cdc77b4b)の記事でElasticsearchの複数台クラスタが作れるようになりました。</description>
+    </item>
+    <item>
+      <title>Dockerを使用した複数ホストでのElasticsearchクラスタの構築検証</title>
+      <link>https://tsukapah.github.io/posts/2017-06-02-dockerelasticsearch/</link>
+      <pubDate>Fri, 02 Jun 2017 00:33:23 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2017-06-02-dockerelasticsearch/</guid>
+      <description>※この記事は[個人ブログ](https://tech.tsukapah.com/elasticsearch-cluster-with-docker/)に移行しました</description>
+    </item>
+    <item>
+      <title>[社内向け]Docker勉強会(コンテナ同士の通信)</title>
+      <link>https://tsukapah.github.io/posts/2017-05-18-docker/</link>
+      <pubDate>Thu, 18 May 2017 22:07:46 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2017-05-18-docker/</guid>
+      <description>[前回](http://qiita.com/tsukapah/items/79a3ba40395b6d691b06)で、コンテナを使ってアプリケーションを実行するキホンは伝わったと信じてます。</description>
+    </item>
+    <item>
+      <title>[社内向け]Docker勉強会(入門)</title>
+      <link>https://tsukapah.github.io/posts/2017-04-24-docker/</link>
+      <pubDate>Mon, 24 Apr 2017 20:15:58 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2017-04-24-docker/</guid>
+      <description>@IT [超入門Docker:第1回　Dockerとは](http://www.atmarkit.co.jp/ait/articles/1701/30/news037.html) 参照</description>
+    </item>
+    <item>
+      <title>Common Log Formatのdate型ログをEmbulkでElasticsearchにdate型で入れたメモ</title>
+      <link>https://tsukapah.github.io/posts/2017-02-07-common-log-formatdateembulkelasticsearchdate/</link>
+      <pubDate>Tue, 07 Feb 2017 21:53:46 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2017-02-07-common-log-formatdateembulkelasticsearchdate/</guid>
+      <description>※こちらの記事は[個人ブログ](https://tech.tsukapah.com/common-log-format-elasticsearch-embulk/)に移行しました</description>
+    </item>
+    <item>
+      <title>ELBのログをEmbulkでElasticsearchに入れたメモ</title>
+      <link>https://tsukapah.github.io/posts/2017-02-06-elbembulkelasticsearch/</link>
+      <pubDate>Mon, 06 Feb 2017 22:07:45 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2017-02-06-elbembulkelasticsearch/</guid>
+      <description>※こちらの記事は[個人ブログ](https://tech.tsukapah.com/elb-elasticsearch-with-embulk/)に移行しました</description>
+    </item>
+    <item>
+      <title>Docker&#43;Grafanaでアカウントを横断してCloudWatchを可視化する</title>
+      <link>https://tsukapah.github.io/posts/2017-01-24-dockergrafanacloudwatch/</link>
+      <pubDate>Tue, 24 Jan 2017 19:39:34 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2017-01-24-dockergrafanacloudwatch/</guid>
+      <description>※こちらの記事は[個人ブログ](https://tech.tsukapah.com/docker-grafana/)に移行しました</description>
+    </item>
+    <item>
+      <title>Dockerのブリッジ・ネットワークでのコンテナ間名前解決がどうなっているのか見てみた</title>
+      <link>https://tsukapah.github.io/posts/2016-12-12-docker/</link>
+      <pubDate>Mon, 12 Dec 2016 21:05:19 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2016-12-12-docker/</guid>
+      <description>※こちらの記事は[個人ブログ](https://tech.tsukapah.com/docker-bridge-network/)に移行しました</description>
+    </item>
+    <item>
+      <title>Amazon AthenaでCloudFrontのログにクエリを投げたメモ</title>
+      <link>https://tsukapah.github.io/posts/2016-12-09-amazon-athenacloudfront/</link>
+      <pubDate>Fri, 09 Dec 2016 18:57:01 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2016-12-09-amazon-athenacloudfront/</guid>
+      <description>※当記事は[個人ブログ](https://tech.tsukapah.com/athena-cloudfront/)に移行しました</description>
+    </item>
+    <item>
+      <title>DockerのFluentd logging driverを通したltsv形式アクセスログをパースする</title>
+      <link>https://tsukapah.github.io/posts/2016-12-05-dockerfluentd-logging-driverltsv/</link>
+      <pubDate>Mon, 05 Dec 2016 12:37:50 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2016-12-05-dockerfluentd-logging-driverltsv/</guid>
+      <description>※当記事は[個人ブログ](https://tech.tsukapah.com/docker-fluentd-logging-driver/)に移行しました</description>
+    </item>
+    <item>
+      <title>ローカルにAmazonSQS互換のMQを起動して使ってみる</title>
+      <link>https://tsukapah.github.io/posts/2016-11-23-amazonsqsmq/</link>
+      <pubDate>Wed, 23 Nov 2016 23:31:54 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2016-11-23-amazonsqsmq/</guid>
+      <description>※当記事は[個人ブログ](https://tech.tsukapah.com/elasticmq/)に移行しました</description>
+    </item>
+    <item>
+      <title>Docker for Macでローカルの80番ポートにマッピングしたらつまづいた</title>
+      <link>https://tsukapah.github.io/posts/2016-11-08-docker-for-mac80/</link>
+      <pubDate>Tue, 08 Nov 2016 15:47:05 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2016-11-08-docker-for-mac80/</guid>
+      <description>※当故事は[個人ブログ](https://tech.tsukapah.com/docker-for-mac-port80/)に移行しました</description>
+    </item>
+    <item>
+      <title>よく使うのでDocker ComposeでElasticsearchとKibanaを一撃で起動する</title>
+      <link>https://tsukapah.github.io/posts/2016-11-06-docker-composeelasticsearchkibana/</link>
+      <pubDate>Sun, 06 Nov 2016 23:24:01 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2016-11-06-docker-composeelasticsearchkibana/</guid>
+      <description>※こちらの記事は[個人ブログ](https://tech.tsukapah.com/docker-compose-elasticsearch-kibana/)に移行しました</description>
+    </item>
+    <item>
+      <title>sedの区切り文字</title>
+      <link>https://tsukapah.github.io/posts/2016-08-26-sed/</link>
+      <pubDate>Fri, 26 Aug 2016 16:18:00 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2016-08-26-sed/</guid>
+      <description>※こちらの記事は[個人ブログ](https://tech.tsukapah.com/sed-delimiter/)に移行しました</description>
+    </item>
+    <item>
+      <title>CodeDeployの上限に引っかかった話</title>
+      <link>https://tsukapah.github.io/posts/2016-07-05-codedeploy/</link>
+      <pubDate>Tue, 05 Jul 2016 14:19:55 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2016-07-05-codedeploy/</guid>
+      <description>※こちらの記事は[個人ブログ](https://tech.tsukapah.com/limited-codedeploy/)に移行しました。</description>
+    </item>
+    <item>
+      <title>CloudFormationでCodeDeploy</title>
+      <link>https://tsukapah.github.io/posts/2016-06-07-cloudformationcodedeploy/</link>
+      <pubDate>Tue, 07 Jun 2016 19:42:52 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2016-06-07-cloudformationcodedeploy/</guid>
+      <description>こちらの記事は[個人ブログ](https://tech.tsukapah.com/cloudformation-codedeploy/)に移行しました</description>
+    </item>
+    <item>
+      <title>NIFTY CloudにVMインポートするのに手こずった件</title>
+      <link>https://tsukapah.github.io/posts/2016-05-12-nifty-cloudvm/</link>
+      <pubDate>Thu, 12 May 2016 18:49:54 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2016-05-12-nifty-cloudvm/</guid>
+      <description>VMware上で動いている仮想マシンをNIFTY CloudにVMインポートした際、ドキュメントがあまりないこともありかなり手こずったのでやったことを書いておきます。</description>
+    </item>
+    <item>
+      <title>NIFTY CloudのWebコンソールからサーバを操作する</title>
+      <link>https://tsukapah.github.io/posts/2016-05-09-nifty-cloudweb/</link>
+      <pubDate>Mon, 09 May 2016 13:52:02 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2016-05-09-nifty-cloudweb/</guid>
+      <description>VMインポートに失敗した時とか、iptablesの設定ミスっちゃったとかでsshできない時、LDAPの設定ミスって一般ユーザでログイン出来ないんだけどrootにssh許してない時とかに有効です。</description>
+    </item>
+    <item>
+      <title>Kibanaの設定をまるっと別のElasticsearchに移したい(改訂版)</title>
+      <link>https://tsukapah.github.io/posts/2016-03-04-kibanaelasticsearch/</link>
+      <pubDate>Fri, 04 Mar 2016 19:24:33 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2016-03-04-kibanaelasticsearch/</guid>
+      <description>※当記事は[個人ブログ](https://tech.tsukapah.com/new-migrate-kibana-settings/)に移行しました</description>
+    </item>
+    <item>
+      <title>Fluentdのout_fileプラグインで出力したファイルからElasticsearchにbulkインポートしたくなることってよくありますよね？</title>
+      <link>https://tsukapah.github.io/posts/2016-01-28-fluentdout-fileelasticsearchbulk/</link>
+      <pubDate>Thu, 28 Jan 2016 15:07:03 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2016-01-28-fluentdout-fileelasticsearchbulk/</guid>
+      <description>※当記事は[個人ブログ](https://tech.tsukapah.com/bulk-import-with-bash/)に移行しました</description>
+    </item>
+    <item>
+      <title>Kibanaの設定をまるっと別のElasticsearchに移したい！</title>
+      <link>https://tsukapah.github.io/posts/2015-12-14-kibanaelasticsearch/</link>
+      <pubDate>Mon, 14 Dec 2015 17:16:37 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2015-12-14-kibanaelasticsearch/</guid>
+      <description>※こちらの記事は[個人ブログ](https://tech.tsukapah.com/migrate-kibana-settings/)に移行しました</description>
+    </item>
+    <item>
+      <title>Dockerで Elasticsearch &#43; Kibana を動かしてみた</title>
+      <link>https://tsukapah.github.io/posts/2015-12-11-docker-elasticsearch-kibana/</link>
+      <pubDate>Fri, 11 Dec 2015 13:32:26 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2015-12-11-docker-elasticsearch-kibana/</guid>
+      <description>※こちらの記事は[個人ブログ](https://tech.tsukapah.com/docker-elasticsearch-kibana/)に移行しました。</description>
+    </item>
+    <item>
+      <title>CloudFormationを使ってS3で静的コンテンツを公開する</title>
+      <link>https://tsukapah.github.io/posts/2015-07-30-cloudformations3/</link>
+      <pubDate>Thu, 30 Jul 2015 19:49:25 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2015-07-30-cloudformations3/</guid>
+      <description>※こちらの記事は[個人ブログ](https://tech.tsukapah.com/publish-static-content-on-s3-using-cloudformation/)に移行しました。</description>
+    </item>
+    <item>
+      <title>aws-cliを使ってS3で静的コンテンツを公開する</title>
+      <link>https://tsukapah.github.io/posts/2015-07-22-aws-clis3/</link>
+      <pubDate>Wed, 22 Jul 2015 12:39:04 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2015-07-22-aws-clis3/</guid>
+      <description>※こちらの記事は[個人ブログ](https://tech.tsukapah.com/publish-your-site-on-s3-using-the-command-line/)に移行しました。</description>
+    </item>
+    <item>
+      <title>[EC2]SSHの秘密鍵をAWSからダウンロードするのはおかしいよね</title>
+      <link>https://tsukapah.github.io/posts/2015-03-05-ec2sshaws/</link>
+      <pubDate>Thu, 05 Mar 2015 18:08:12 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2015-03-05-ec2sshaws/</guid>
+      <description>※こちらの記事は[個人ブログ](https://tech.tsukapah.com/register-your-public-key-with-aws/)に移行しました。</description>
     </item>
   </channel>
 </rss>

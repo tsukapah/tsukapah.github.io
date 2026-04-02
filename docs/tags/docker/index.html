@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Docker | tsukapah のブログ</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="canonical" href="https://tsukapah.github.io/tags/docker/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.199042e659bc7245f5609d333d6c044eb554a0640849bb874e1dff8eb0f57209.css" integrity="sha256-GZBC5lm8ckX1YJ0zPWwETrVUoGQISbuHTh3/jrD1cgk=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://tsukapah.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://tsukapah.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://tsukapah.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://tsukapah.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://tsukapah.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://tsukapah.github.io/tags/docker/index.xml" title="rss">
+<link rel="alternate" hreflang="en" href="https://tsukapah.github.io/tags/docker/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="https://tsukapah.github.io/tags/docker/">
+  <meta property="og:site_name" content="tsukapah のブログ">
+  <meta property="og:title" content="Docker">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Docker">
+
+</head>
+<body class="list" id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://tsukapah.github.io/" accesskey="h" title="tsukapah のブログ (Alt + H)">tsukapah のブログ</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header">
+  <h1>
+    Docker
+  </h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">AWS Fargateを使用してNginxを起動した(ENI使用)
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>AWS Fargateとは AWS re:Invent2017でAWSが発表したコンテナホスト(インスタンス)を意識せずにコンテナを管理できるオーケストレーションサービスです。 現時点ではバージニア(us-east-1)リージョンのみでGAとなっています。 ちなみに、re:Inventに参加したので、現地でキーノートを聞いていましたが、同時にEKSも発表され待望のサービスが来た！という感じで私も会場もめちゃくちゃ興奮してました。
+やってみる クラスタの作成 リージョンはバージニアを選択し、Elastic Container Serviceの画面を開きます。 クラスターの作成ボタンを押してクラスタの作成を始めます。 (私の環境は元々別のクラスタが作成してあったので初めての場合表示が違うかもしれません) クラスタテンプレートの選択 以下の3つのクラスタテンプレートが選択できます。
+Network only EC2 Linux &#43; Networking EC2 Windows &#43; Networking Network onlyがFargateのようなので、こちらを選択して次のステップへ進みます。 クラスタの設定 ここではクラスタ名とネットワークの設定をします。 クラスタ名はFargateTestにしてみました。 また、このクラスタ用にVPCも合わせて作ってくれるオプションがあったので選択しました。 値はデフォルトのままで作成。 起動ステータスの確認 作成が始まるとCloudFormationスタックが走ります。 しばらくするとイイ感じにクラスタができあがります。 クラスタの状態を確認 当然ですが実行中のタスクもサービスもありません。 タスク定義作成 新しくNginxを起動するタスクを定義します。 (私の環境は元々別のタスクが登録してあったので初めての場合表示が違うかもしれません) ローンチタイプの選択 FARGATEとEC2が選択できるので、当然FARGATEを選んで次のステップに進みます。 タスク定義の設定 適当にタスク定義に名前をつけます。ここではTestNginxとしました。 タスクのサイズ指定でメモリとvCPUを選択できます。 メモリは0.5GBと1GB~30GBまで1GB刻みで調整できるようです。 CPUは0.25、0.5、1、2、4から選択します。 ここではどちらも最小値の0.5GB、0.25vCPUを選択しました。 続いてコンテナの追加を行います。 コンテナの追加 コンテナ名を適当に定義します。ここではTestNginxにしました。 また、使用するコンテナイメージを指定します。DockerHubで公開されているNginxイメージをそのまま指定しました。 Nginxコンテナはポート80でListenするのでポートマッピングの設定は80となります。 その他は特に変更せずに追加し、そのまま作成します。 ローンチステータスの確認 ECSタスクと必要なIAM Roleが定義されたようです。 サービスの作成 クラスタの一覧から今回作成したFargateTestを選択します。 サービスの作成 サービスタブ内から作成します。 サービスの設定 Launch Typeは当然FARGATEを選択します。 また、タスク定義は先程作成したTestNginxを指定します。 サービス名には適当な名前をつけます。ここではTestNginxとしました。 ネットワーク構成の設定 参加するVPCを指定します。たぶん最初に作ったVPC IDが指定されていると思います。 コンテナが起動するサブネットを追加します。AZごとに別れていると思います。 また、セキュリティグループを編集することで既存のセキュリティグループを指定したり新規作成の内容を微調整できるようです。デフォルトのままだとポート80をAnyで公開します。 今回はELBを使用せずに直接コンテナに接続してみたいのでELBタイプはなしを選択しました。 このまま次のステップに進みます。 ...</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-12-05 21:36:02 +0900 +0900'>December 5, 2017</span></footer>
+  <a class="entry-link" aria-label="post link to AWS Fargateを使用してNginxを起動した(ENI使用)" href="https://tsukapah.github.io/posts/2017-12-05-aws-fargatenginxeni/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">ElasitcsearchのReindex APIを使ってみた
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Reindex APIが便利そうだったので検証してみました。
+検証環境 Mac OS X El Capitan(10.11.6) Docker version 17.03.1-ce, build c6d412e docker-machine version 0.10.0, build 76ed2a6 VirtualBox 5.1.14 r112924 (Qt5.6.2) 検証開始 コンテナホストの起動 $ docker-machine create elasticsearch --driver virtualbox Elasticsearchコンテナの起動 $ eval $(docker-machine env elasticsearch) $ docker run -d \ -e &#34;http.host=0.0.0.0&#34; \ -e &#34;transport.host=127.0.0.1&#34; \ -e &#34;xpack.security.enabled=false&#34; \ -e &#34;xpack.monitoring.enabled=false&#34; \ -e &#34;xpack.watcher.enabled=false&#34; \ -e &#34;xpack.graph.enabled=false&#34; \ -e &#34;xpack.ml.enabled=false&#34; \ -e &#34;ES_JAVA_OPTS=-Xms512m -Xmx512m&#34; \ -p 9200:9200 \ -p 9300:9300 \ --name elasticsearch \ docker.elastic.co/elasticsearch/elasticsearch:5.4.1 $ curl $(docker-machine ip elasticsearch):9200 { &#34;name&#34; : &#34;3VeUTYk&#34;, &#34;cluster_name&#34; : &#34;docker-cluster&#34;, &#34;cluster_uuid&#34; : &#34;BCo9uLM_SZqThWdYIMO9AA&#34;, &#34;version&#34; : { &#34;number&#34; : &#34;5.4.1&#34;, &#34;build_hash&#34; : &#34;2cfe0df&#34;, &#34;build_date&#34; : &#34;2017-05-29T16:05:51.443Z&#34;, &#34;build_snapshot&#34; : false, &#34;lucene_version&#34; : &#34;6.5.1&#34; }, &#34;tagline&#34; : &#34;You Know, for Search&#34; } インデックスの作成 ひとまず細かい設定はしない状態のインデックスを作成してみます。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-06-05 16:55:29 +0900 +0900'>June 5, 2017</span></footer>
+  <a class="entry-link" aria-label="post link to ElasitcsearchのReindex APIを使ってみた" href="https://tsukapah.github.io/posts/2017-06-05-elasitcsearchreindex-api/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Elasticsearchクラスタにノードを追加してみる
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>こちらの記事でElasticsearchの複数台クラスタが作れるようになりました。 せっかくなので、あとからノードを追加する検証をしてみます。
+環境はこちらを再利用します。
+検証手順 現状の確認をする $ curl $(docker-machine ip elasticsearch1):9200/_cluster/health?pretty { &#34;cluster_name&#34; : &#34;docker-cluster&#34;, &#34;status&#34; : &#34;green&#34;, &#34;timed_out&#34; : false, &#34;number_of_nodes&#34; : 3, &#34;number_of_data_nodes&#34; : 3, &#34;active_primary_shards&#34; : 0, &#34;active_shards&#34; : 0, &#34;relocating_shards&#34; : 0, &#34;initializing_shards&#34; : 0, &#34;unassigned_shards&#34; : 0, &#34;delayed_unassigned_shards&#34; : 0, &#34;number_of_pending_tasks&#34; : 0, &#34;number_of_in_flight_fetch&#34; : 0, &#34;task_max_waiting_in_queue_millis&#34; : 0, &#34;active_shards_percent_as_number&#34; : 100.0 } $ curl $(docker-machine ip elasticsearch1):9200/_cat/shards?v index shard prirep state docs store ip node test 2 r STARTED 0 130b 192.168.99.105 bmXE705 test 2 p STARTED 0 130b 192.168.99.106 fyEAVyY test 1 p STARTED 0 130b 192.168.99.104 efZ1klG test 1 r STARTED 0 130b 192.168.99.106 fyEAVyY test 4 r STARTED 0 130b 192.168.99.105 bmXE705 test 4 p STARTED 0 130b 192.168.99.104 efZ1klG test 3 p STARTED 0 130b 192.168.99.105 bmXE705 test 3 r STARTED 0 130b 192.168.99.104 efZ1klG test 0 p STARTED 0 130b 192.168.99.105 bmXE705 test 0 r STARTED 0 130b 192.168.99.106 fyEAVyY インデックス作成時に特にシャーディングについての設定を実施していないので、 testインデックスのプライマリシャードは5、レプリカシャードは1でインデックスが作成されており、 各シャードは以下のように配置されています。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-06-02 19:54:55 +0900 +0900'>June 2, 2017</span></footer>
+  <a class="entry-link" aria-label="post link to Elasticsearchクラスタにノードを追加してみる" href="https://tsukapah.github.io/posts/2017-06-02-elasticsearch/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Dockerを使用した複数ホストでのElasticsearchクラスタの構築検証
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>※この記事は個人ブログに移行しました
+Elasticsearchは公式でコンテナイメージを提供してくれているのでそれを利用してクラスタを組みたいと思います。 ドキュメントにはdocker-compose.ymlも公開されていますが、docker-composeということはコンテナホストはひとつになるから可用性的にNGだなー、と感じました。(Swarm modeとか使うと解決できるのかな？) コンテナホストは複数台に分散したいと考えたので、検証してみました。
+検証環境 Mac OS X El Capitan(10.11.6) docker-machine version 0.10.0, build 76ed2a6 VirtualBox 5.1.14 r112924 (Qt5.6.2) ポイント docker-machineを利用してVirtualBox上に3つのコンテナホストを起動 各コンテナホストに公式のコンテナイメージをデプロイ Dockerのネットワークドライバはhostモードを利用する 検証手順 コンテナホストの準備 コンテナホストの作成 VirtualBox上にコンテナホストを3つ起動します。
+$ docker-machine create --driver virtualbox elasticsearch1 $ docker-machine create --driver virtualbox elasticsearch2 $ docker-machine create --driver virtualbox elasticsearch3 コンテナホストのメモリマップ上限の引き上げ 公式にも書いてある通り、設定しないとコンテナが起動しない(開発者モードなら起動するかも)ので設定します。
+$ docker-machine ssh elasticsearch1 sudo sysctl -w vm.max_map_count=262144 $ docker-machine ssh elasticsearch2 sudo sysctl -w vm.max_map_count=262144 $ docker-machine ssh elasticsearch3 sudo sysctl -w vm.max_map_count=262144 Elaticsearchの起動〜動作確認 Elasticsearchコンテナの起動 Elasticが独自に公開しているコンテナレジストリよりイメージを取得して起動します。 環境変数(-e)でパラメータを渡すとElasticsearchの設定を上書きできるのでいきなり起動できます。 検証で渡したパラメータは以下の通り。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-06-02 00:33:23 +0900 +0900'>June 2, 2017</span></footer>
+  <a class="entry-link" aria-label="post link to Dockerを使用した複数ホストでのElasticsearchクラスタの構築検証" href="https://tsukapah.github.io/posts/2017-06-02-dockerelasticsearch/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[社内向け]Docker勉強会(コンテナ同士の通信)
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>前回で、コンテナを使ってアプリケーションを実行するキホンは伝わったと信じてます。
+コンテナの通信 アプリケーションを実行できるようになってくると、自然と別のコンテナと通信したいケースに出くわします。 コンテナ間の通信には大きく別けて2種類存在しています。
+異なるホストで動くコンテナ間の通信 こちらの場合、接続元コンテナは接続先コンテナが動くコンテナホストのIPアドレスに向かって通信すれば良いだけです。 サービスディスカバリを理由にコンテナホストを意識したくない場合は後述するoverlayネットワークを使用することになりますが、当記事では詳しく扱いません。
+同一ホスト内で動く異なるコンテナ間の通信 今回は主にこちらについて記載します。
+Dockerのネットワーク Dockerはコンテナ間の通信をサポートしており、デフォルトでDocker Engine内に3つのネットワークを作成します。
+$ docker network ls NETWORK ID NAME DRIVER SCOPE fea25e294b20 bridge bridge local 3762bcd6bffb host host local f21c4ff0a40e none null local DRIVERという項目があるのでまずはその説明をします。
+DRIVER名 説明 bridge コンテナ内にループバックインターフェースloと、仮想インターフェースeth0を作ります。eth0には同一bridgeネットワーク内で一意のIPアドレスが割り当てられます。eth0はホスト上の仮想インターフェースにパイプされ、ポートマッピングをすることで公開することができます。bridgeネットワークは単一のホスト内で完結します。 host ホスト上のインターフェースがそのまま利用されます。 none インターフェースを作りません。 overlay 複数ホストにまたがったbridgeネットワークを作成できます。overlayネットワークは管理のためにKVSを必要とし、現在サポートされているのはConsul、Etcd、Zookeeperです。 特別な理由がない限りbridgeネットワークを選択すればよいです。 なにも指定せずにdocker runした場合、デフォルトのbridgeネットワークに参加します。 ただし、デフォルトのbridgeネットワークはサービスディスカバリをサポートしていない(名前解決してくれない)ため、このネットワークを使ってコンテナ同士を通信する場合は自力でIPアドレスを探し出して通信先に指定する必要がありますが、それは現実的ではありません。
+ユーザ定義bridgeネットワーク 自分で個別にbridgeネットワークを作成することも可能です。 ユーザが定義したbridgeネットワークについてはサービスディスカバリがサポートされています。
+ユーザ定義bridgeネットワークの作成 特に意味のあるシステム構成ではないですが、違いがお手軽にわかりやすいので以下のような構成を作りたいと思います。 環境はDocker for Macでやってますが他の環境でも基本的には変わりません。 ...</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-05-18 22:07:46 +0900 +0900'>May 18, 2017</span></footer>
+  <a class="entry-link" aria-label="post link to [社内向け]Docker勉強会(コンテナ同士の通信)" href="https://tsukapah.github.io/posts/2017-05-18-docker/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">[社内向け]Docker勉強会(入門)
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Dockerってなによ？ @IT 超入門Docker:第1回　Dockerとは 参照
+Dockerで開発してみる ローカルにDockerを導入する Docker for Mac -&gt; ネットワーク周りが微妙に特殊 Docker for Windows -&gt; Windows10からなのが残念 Docker Toolbox -&gt; Windows7は64bitOSである必要あり VirtualBox&#43;Vagrant -&gt; たぶんいちばん汎用的 ほかにもあるけどこの辺がおそらく主流
+とりあえずDockerでHello world! $ docker container run hello-world なにが起こったの？ Docker Hubからhello-worldのイメージをダウンロード(docker image pull) hello-worldイメージをフォアグラウンドで実行 hello-worldイメージはなにをしているのか見てみよう Dockerfileを見てみるとわかります
+これを踏まえて開発の流れ ベースイメージを決める Dockerfileを作成する Dockerfileを元にイメージをbuild(docker image build) buildしたイメージをデプロイ(実行) (ベースイメージ内で作業した内容をcommitする方法もあるけどアンチパターンだと思う)
+golangでhello-worldしてみよう 1. ベースイメージを決める golangの公式イメージ(golang:1.7.5)を使用することにします。 当然、まっさらなイメージを選択して自分でgolangのインストールから実施するのもOKです。
+2. Dockerfileを作成する FROM golang:1.7.5 COPY hello-world.go /src/ RUN go build /src/hello-world.go &amp;&amp; rm /src/hello-world.go ENTRYPOINT ./hello-world package main import &#34;fmt&#34; func main() { fmt.Printf(&#34;Hello world\n&#34;) } 3. Dockerfileを元にイメージをbuild $ docker image build . -t dockertest:1.0 4. buildしたイメージをデプロイ(実行) $ docker container run dockertest:1.0 Dockerfile書き始める前に色々試したい ベースイメージでbashを実行して作業しましょう。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-04-24 20:15:58 +0900 +0900'>April 24, 2017</span></footer>
+  <a class="entry-link" aria-label="post link to [社内向け]Docker勉強会(入門)" href="https://tsukapah.github.io/posts/2017-04-24-docker/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Docker&#43;Grafanaでアカウントを横断してCloudWatchを可視化する
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>※こちらの記事は個人ブログに移行しました
+ちょっとしたモニタリングだったらCloudWatchでも十分。 ただ、普段コマンドラインツールで操作していることもあるし、複数アカウントを持っていたりするのでマネージメントコンソールだと使い勝手が悪い。 そんな悩みをGrafanaが解決してくれたので自分用にメモメモ。
+必要なもの AWSのIAM User aws-cli Docker for Mac(Docker Machineでも可) credentialsの登録 自分が普段使っているMacでは、aws-cliを使ってprofileをいくつも登録してある。 登録するときはこんな感じ。 profile名は適宜変更すること。 すでに作成済みの場合は実施不要。
+$ aws configure --profile hogehoge AWS Access Key ID [None]: aaaaa AWS Secret Access Key [None]: bbbbb Default region name [None]: Default output format [None]: すると、以下の感じで必要な情報が登録されているはず。
+$ cat ~/.aws/credentials [hogehoge] aws_access_key_id = aaaaa aws_secret_access_key = bbbbb credentialの取り扱いには気をつけること！
+DockerでGrafanaを起動 上記で作成したcredentialsを-vオプションでGrafanaコンテナに渡す。 公式イメージあるので捗る。 Grafanaは3000ポートでListenしているのでそれもあわせてマッピング。
+$ docker run -d -p 3000:3000 -v ~/.aws/credentials:/usr/share/grafana/.aws/credentials --name grafana grafana/grafana 3d7de10094f1d84dbedd8a77fb55ef5c997ccdde31722a114bcd25388b1a8b3d 起動した。
+Grafanaにデータを追加 接続してみる。
+$ open http://localhost:3000 ...</p>
+  </div>
+  <footer class="entry-footer"><span title='2017-01-24 19:39:34 +0900 +0900'>January 24, 2017</span></footer>
+  <a class="entry-link" aria-label="post link to Docker&#43;Grafanaでアカウントを横断してCloudWatchを可視化する" href="https://tsukapah.github.io/posts/2017-01-24-dockergrafanacloudwatch/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Dockerのブリッジ・ネットワークでのコンテナ間名前解決がどうなっているのか見てみた
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>※こちらの記事は個人ブログに移行しました
+動作確認環境の定義 まずは同じブリッジ・ネットワークにコンテナを立ち上げるためのdocker-compose.ymlを定義します。 特になにかのサービスを動かす必要はないので雑な感じになってます。
+$ cat docker-compose.yml version: &#39;2&#39; services: centos1: image: centos container_name: centos1 command: tail -f /dev/null networks: - centos centos2: image: centos container_name: centos2 command: tail -f /dev/null networks: - centos networks: centos: driver: bridge コンテナネットワーク作成/コンテナの起動 上記のdocker-compose.ymlを元にブリッジ・ネットワークの作成およびコンテナの起動を行います。
+$ docker-compose up -d Creating network &#34;test_centos&#34; with driver &#34;bridge&#34; Creating centos2 Creating centos1 コンテナネットワークの確認 $ docker network ls NETWORK ID NAME DRIVER SCOPE 42165a96d808 bridge bridge local 3762bcd6bffb host host local f21c4ff0a40e none null local 888673525ef8 test_centos bridge local test_centosというブリッジ・ネットワークができています。 docker-composeを使うと名前のプレフィックスにdocker-compose.ymlを置いてあるディレクトリ名がつくようです。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2016-12-12 21:05:19 +0900 +0900'>December 12, 2016</span></footer>
+  <a class="entry-link" aria-label="post link to Dockerのブリッジ・ネットワークでのコンテナ間名前解決がどうなっているのか見てみた" href="https://tsukapah.github.io/posts/2016-12-12-docker/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">DockerのFluentd logging driverを通したltsv形式アクセスログをパースする
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>※当記事は個人ブログに移行しました
+Docker 1.8からはFluentd logging driverが実装されているのでFluentdでログをゴニョゴニョするのが簡単にできます。jsonのlog要素がソースコンテナのログになるようです。 そして、話は変わりますがNginxのアクセスログフォーマットをLTSVにしている人は結構多いのではないかと思います。 Fluentd logging driver経由で受け取ったjsonの1オブジェクトに入れられたLTSVのログをFluentdでパースして取り扱いがしやすいようにアウトプットしてみようと思います。 内容としてはFluentdでも紹介されている通りfluent-plugin-parserを使うだけです。
+#受取側のFluentdコンテナを用意
+せっかくなので受信側もコンテナで用意します。
+##Fluentdの設定(fluent.conf)を作成
+&lt;source&gt; @type forward &lt;/source&gt; &lt;filter docker.**&gt; @type parser format ltsv key_name log reserve_data true &lt;/filter&gt; &lt;match docker.**&gt; @type stdout &lt;/match&gt; Fluentd logging driverはデフォルトでdocker.をタグプレフィックスにして出力してきます。 今回はデフォルトのまま使います。 ちゃんとやるならrewrite_tag_filterとかでsourceの値ごとにタグを別けてあげるべきなんでしょうが今回はそこは重要じゃないので省きます。
+##Fluentdコンテナを起動する
+$ docker run -d -p 24224:24224 --name fluentd -v $(pwd)/fluent.conf:/fluentd/etc/fluent.conf fluent/fluentd:latest d2ef7c0dd0baf70fb766f38ed4ec26127d8ea5bc5b26b46fb13a04b78c3f684a #ログを渡すNginxコンテナを用意
+##Nginxの設定(nginx.conf)を作成
+user nginx; worker_processes auto; error_log /var/log/nginx/error.log warn; pid /var/run/nginx.pid; events { worker_connections 1024; } http { include /etc/nginx/mime.types; default_type application/octet-stream; log_format ltsv &#39;time:$time_iso8601\t&#39; &#39;remote_addr:$remote_addr\t&#39; &#39;request_method:$request_method\t&#39; &#39;request_length:$request_length\t&#39; &#39;request_uri:$request_uri\t&#39; &#39;https:$https\t&#39; &#39;uri:$uri\t&#39; &#39;query_string:$query_string\t&#39; &#39;status:$status\t&#39; &#39;bytes_sent:$bytes_sent\t&#39; &#39;body_bytes_sent:$body_bytes_sent\t&#39; &#39;referer:$http_referer\t&#39; &#39;useragent:$http_user_agent\t&#39; &#39;forwardedfor:$http_x_forwarded_for\t&#39; &#39;request_time:$request_time\t&#39; &#39;upstream_response_time:$upstream_response_time&#39;; access_log /var/log/nginx/access.log ltsv; sendfile on; keepalive_timeout 65; include /etc/nginx/conf.d/*.conf; } ログフォーマット以外はほぼデフォルトです。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2016-12-05 12:37:50 +0900 +0900'>December 5, 2016</span></footer>
+  <a class="entry-link" aria-label="post link to DockerのFluentd logging driverを通したltsv形式アクセスログをパースする" href="https://tsukapah.github.io/posts/2016-12-05-dockerfluentd-logging-driverltsv/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">ローカルにAmazonSQS互換のMQを起動して使ってみる
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>※当記事は個人ブログに移行しました
+最近ElasticMQというのを知りました。 Amazon SQS-compatible interface ということで、Amazon SQSを使ったアプリケーション開発が捗りそうです。 ちょうど試そうと思った今日(2016/11/23)にVersion 0.11.0になっていました。 java6以降が入ってれば動くようです。 今回はDockerで動かして、aws-cliで接続してみたいと思います。
+Dockerfileの作成 FROM java:8 ADD https://s3-eu-west-1.amazonaws.com/softwaremill-public/elasticmq-server-0.11.0.jar /elasticmq/elasticmq-server-0.11.0.jar EXPOSE 9324 ENTRYPOINT [&#34;java&#34;,&#34;-jar&#34;,&#34;/elasticmq/elasticmq-server-0.11.0.jar&#34;] コンテナイメージのビルド $ docker build -t tsukapah/elasticmq:0.11.0 . Sending build context to Docker daemon 2.048 kB Step 1 : FROM java:8 8: Pulling from library/java 386a066cd84a: Pull complete 75ea84187083: Pull complete 88b459c9f665: Pull complete 690dbea0e4ca: Pull complete 7e401cdd6f18: Pull complete a58186ddf9a0: Pull complete 49999ed55bc4: Pull complete eb40561aad8f: Pull complete Digest: sha256:dd0fc686a5584c0c7f3e50dd84ddc42fae400c27a21d8ca98dad190aff5e9d52 Status: Downloaded newer image for java:8 ---&gt; 861e95c114d6 Step 2 : ADD https://s3-eu-west-1.amazonaws.com/softwaremill-public/elasticmq-server-0.11.0.jar /elasticmq/elasticmq-server-0.11.0.jar Downloading 30.2 MB/30.2 MB ---&gt; 55fa5752ace4 Removing intermediate container 2529a37411e1 Step 3 : EXPOSE 9324 ---&gt; Running in 0465d32da4e8 ---&gt; 052963c601f8 Removing intermediate container 0465d32da4e8 Step 4 : ENTRYPOINT java -jar /elasticmq/elasticmq-server-0.11.0.jar ---&gt; Running in e283caeeb0b2 ---&gt; 3f6b0738e570 Removing intermediate container e283caeeb0b2 Successfully built 3f6b0738e570 コンテナの起動 docker run -d --name=elasticmq -p 9324:9324 tsukapah/elasticmq:0.11.0 082c9ffb6c1048615b72fabf1440241f77f9decbf74adb142fae75b0bcacfd2c どうやら起動したみたいです。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2016-11-23 23:31:54 +0900 +0900'>November 23, 2016</span></footer>
+  <a class="entry-link" aria-label="post link to ローカルにAmazonSQS互換のMQを起動して使ってみる" href="https://tsukapah.github.io/posts/2016-11-23-amazonsqsmq/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="next" href="https://tsukapah.github.io/tags/docker/page/2/">次へ&nbsp;&nbsp;»
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://tsukapah.github.io/">tsukapah のブログ</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

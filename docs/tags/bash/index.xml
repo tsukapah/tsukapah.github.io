@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Bash on tsukapah のブログ</title>
+    <link>https://tsukapah.github.io/tags/bash/</link>
+    <description>Recent content in Bash on tsukapah のブログ</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Mon, 11 Apr 2022 22:44:51 +0900</lastBuildDate>
+    <atom:link href="https://tsukapah.github.io/tags/bash/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Macにpyenvを入れたらbrew doctorで怒られるようになったので対応したメモ</title>
+      <link>https://tsukapah.github.io/posts/2017-08-14-macpyenvbrew-doctor/</link>
+      <pubDate>Mon, 14 Aug 2017 15:39:37 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2017-08-14-macpyenvbrew-doctor/</guid>
+      <description>Ansibleの1.9系と2.0系を両方使いたくてpyenvを導入したらHomebrewに怒られた。</description>
+    </item>
+    <item>
+      <title>sedの区切り文字</title>
+      <link>https://tsukapah.github.io/posts/2016-08-26-sed/</link>
+      <pubDate>Fri, 26 Aug 2016 16:18:00 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2016-08-26-sed/</guid>
+      <description>※こちらの記事は[個人ブログ](https://tech.tsukapah.com/sed-delimiter/)に移行しました</description>
+    </item>
+    <item>
+      <title>Fluentdのout_fileプラグインで出力したファイルからElasticsearchにbulkインポートしたくなることってよくありますよね？</title>
+      <link>https://tsukapah.github.io/posts/2016-01-28-fluentdout-fileelasticsearchbulk/</link>
+      <pubDate>Thu, 28 Jan 2016 15:07:03 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2016-01-28-fluentdout-fileelasticsearchbulk/</guid>
+      <description>※当記事は[個人ブログ](https://tech.tsukapah.com/bulk-import-with-bash/)に移行しました</description>
+    </item>
+  </channel>
+</rss>

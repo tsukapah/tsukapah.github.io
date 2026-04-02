@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>社内勉強会 on tsukapah のブログ</title>
+    <link>https://tsukapah.github.io/tags/%E7%A4%BE%E5%86%85%E5%8B%89%E5%BC%B7%E4%BC%9A/</link>
+    <description>Recent content in 社内勉強会 on tsukapah のブログ</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Thu, 18 May 2017 22:07:46 +0900</lastBuildDate>
+    <atom:link href="https://tsukapah.github.io/tags/%E7%A4%BE%E5%86%85%E5%8B%89%E5%BC%B7%E4%BC%9A/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[社内向け]Docker勉強会(コンテナ同士の通信)</title>
+      <link>https://tsukapah.github.io/posts/2017-05-18-docker/</link>
+      <pubDate>Thu, 18 May 2017 22:07:46 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2017-05-18-docker/</guid>
+      <description>[前回](http://qiita.com/tsukapah/items/79a3ba40395b6d691b06)で、コンテナを使ってアプリケーションを実行するキホンは伝わったと信じてます。</description>
+    </item>
+    <item>
+      <title>[社内向け]Docker勉強会(入門)</title>
+      <link>https://tsukapah.github.io/posts/2017-04-24-docker/</link>
+      <pubDate>Mon, 24 Apr 2017 20:15:58 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2017-04-24-docker/</guid>
+      <description>@IT [超入門Docker:第1回　Dockerとは](http://www.atmarkit.co.jp/ait/articles/1701/30/news037.html) 参照</description>
+    </item>
+  </channel>
+</rss>

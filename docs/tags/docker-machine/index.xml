@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Docker-Machine on tsukapah のブログ</title>
+    <link>https://tsukapah.github.io/tags/docker-machine/</link>
+    <description>Recent content in Docker-Machine on tsukapah のブログ</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 30 Apr 2022 23:55:58 +0900</lastBuildDate>
+    <atom:link href="https://tsukapah.github.io/tags/docker-machine/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ElasitcsearchのReindex APIを使ってみた</title>
+      <link>https://tsukapah.github.io/posts/2017-06-05-elasitcsearchreindex-api/</link>
+      <pubDate>Mon, 05 Jun 2017 16:55:29 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2017-06-05-elasitcsearchreindex-api/</guid>
+      <description>[Reindex API](https://www.elastic.co/guide/en/elasticsearch/reference/5.4/docs-reindex.html)が便利そうだったので検証してみました。</description>
+    </item>
+    <item>
+      <title>Elasticsearchクラスタにノードを追加してみる</title>
+      <link>https://tsukapah.github.io/posts/2017-06-02-elasticsearch/</link>
+      <pubDate>Fri, 02 Jun 2017 19:54:55 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2017-06-02-elasticsearch/</guid>
+      <description>[こちら](http://qiita.com/tsukapah/items/1df305026f55cdc77b4b)の記事でElasticsearchの複数台クラスタが作れるようになりました。</description>
+    </item>
+    <item>
+      <title>Dockerを使用した複数ホストでのElasticsearchクラスタの構築検証</title>
+      <link>https://tsukapah.github.io/posts/2017-06-02-dockerelasticsearch/</link>
+      <pubDate>Fri, 02 Jun 2017 00:33:23 +0900</pubDate>
+      <guid>https://tsukapah.github.io/posts/2017-06-02-dockerelasticsearch/</guid>
+      <description>※この記事は[個人ブログ](https://tech.tsukapah.com/elasticsearch-cluster-with-docker/)に移行しました</description>
+    </item>
+  </channel>
+</rss>
